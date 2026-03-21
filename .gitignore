@@ -1,0 +1,10 @@
+# Datos personales — NUNCA subir a GitHub
+assets/customer-match-boletas.csv
+assets/build-customer-match.py
+
+# CSVs de Meta Ads (datos de campañas, pesan mucho)
+assets/*.csv
+
+# Archivos de sistema
+.DS_Store
+Thumbs.db
