@@ -8,3 +8,4 @@ assets/*.csv
 # Archivos de sistema
 .DS_Store
 Thumbs.db
+.mcp.json

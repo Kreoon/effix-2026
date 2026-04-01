@@ -28,7 +28,7 @@ status: activo
 | **Transaction ID** | Incluir Order ID para deduplicar conversiones |
 | **Dónde** | Página que ve el usuario DESPUÉS de pagar exitosamente |
 | **Verificación** | Usar Google Tag Assistant para confirmar que dispara correctamente |
-| **Estado** | ✅ IMPLEMENTADO (2026-03-20) — GTM-MKGKFGL con valor dinámico, transaction_id, vinculación de conversiones y server-side via Stape |
+| **Estado** | ❌ BLOQUEADO POR CMP (confirmado 2026-03-31) — Tag existe en GTM-MKGKFGL pero la CMP impide que dispare. 0 hits enviados. Tag Assistant confirma bloqueo. |
 
 **Snippet enviado:**
 ```html
@@ -49,6 +49,36 @@ status: activo
 ```
 
 > **¿Por qué es crítico?** Sin este código, Google Ads no puede saber cuántas boletas se venden. Esto impide optimizar las campañas y eventualmente usar Smart Bidding (Target CPA/ROAS), que requiere 30+ conversiones registradas.
+
+---
+
+### 1B. ⚠️ NUEVO: Resolver bloqueo de CMP en LaTiquetera
+
+| Campo | Detalle |
+|---|---|
+| **Responsable** | Equipo técnico LaTiquetera |
+| **Urgencia** | 🔴 CRÍTICA — El tag EXISTE pero la CMP lo bloquea. 0 conversiones desde el 20 de marzo |
+| **Problema** | La CMP (plataforma de gestión del consentimiento) de latiquetera.com bloquea TODAS las etiquetas de Google (Ads, GA4, GTM) antes de que el usuario dé consentimiento. Tag Assistant confirma 0 hits enviados. |
+| **Acción requerida** | Configurar Google Consent Mode v2 en la CMP |
+| **Confirmado con** | Tag Assistant (2026-03-31) — 3 etiquetas encontradas, 0 hits enviados |
+
+**Pasos que LaTiquetera debe seguir:**
+
+1. **Identificar qué CMP usan** (Cookiebot, OneTrust, Iubenda, Quantcast, etc.)
+2. **Configurar Google Consent Mode v2:**
+   - Las etiquetas deben cargar con `consent: 'denied'` por defecto (esto permite modelado de conversiones de Google)
+   - La CMP debe enviar `gtag('consent', 'update', { 'ad_storage': 'granted', 'analytics_storage': 'granted' })` cuando el usuario acepta
+3. **Verificar integración CMP ↔ GTM:**
+   - En GTM, las etiquetas deben tener configurado "Consent Mode" (no bloqueo total)
+   - La CMP NO debe bloquear el script de GTM, solo controlar qué tags disparan
+4. **Probar con Tag Assistant** después de la configuración:
+   - Borrar preferencias de consentimiento
+   - Aceptar cookies
+   - Verificar que los hits aparecen en Tag Assistant
+
+**Acción adicional:** Pedir acceso al contenedor GTM-MKGKFGL para poder depurar directamente.
+
+> **¿Por qué es más crítico que el item 1?** El tag ya está instalado correctamente (valor dinámico, transaction_id, server-side). El problema es que la CMP lo mata antes de que pueda ejecutarse. Resolver esto desbloquea TODAS las conversiones de boletas General/VIP de un solo golpe.
 
 ---
 
@@ -126,15 +156,16 @@ status: activo
 
 | # | Acción | Responsable | Estado | Fecha límite sugerida |
 |---|---|---|---|---|
-| 1 | Código conversión LaTiquetera | LaTiquetera | ⏳ Pendiente | 2026-03-22 |
+| 1 | Código conversión LaTiquetera | LaTiquetera | ✅ Instalado (pero bloqueado por CMP) | 2026-03-22 |
+| **1B** | **Resolver bloqueo CMP en LaTiquetera** | **LaTiquetera** | **🔴 BLOQUEANTE — 0 hits** | **2026-04-04** |
 | 2 | Actualizar números LaTiquetera | LaTiquetera | ⏳ Pendiente | 2026-03-22 |
-| 3 | Crear /experiencia-black/ | Equipo web | ⏳ Pendiente | 2026-03-24 |
-| 4 | Cambiar title tag Black | Equipo web | ⏳ Pendiente | 2026-03-24 |
+| 3 | Crear /experiencia-black/ | Equipo web | ⏳ Pendiente (vencido) | 2026-03-24 |
+| 4 | Cambiar title tag Black | Equipo web | ⏳ Pendiente (vencido) | 2026-03-24 |
 | 5 | Video highlights | Contenido | ⏳ Pendiente | 2026-04-07 |
-| 6 | Simplificar CTAs pago | Equipo web | ⏳ Pendiente | 2026-03-28 |
-| 7 | Garantía/risk reversal | Contenido | ⏳ Pendiente | 2026-03-28 |
+| 6 | Simplificar CTAs pago | Equipo web | ⏳ Pendiente (vencido) | 2026-03-28 |
+| 7 | Garantía/risk reversal | Contenido | ⏳ Pendiente (vencido) | 2026-03-28 |
 
 ---
 
-*Última actualización: 2026-03-19*
-*Próxima revisión: 2026-03-22 (verificar items críticos)*
+*Última actualización: 2026-03-31*
+*Próxima revisión: 2026-04-04 (verificar resolución CMP LaTiquetera)*

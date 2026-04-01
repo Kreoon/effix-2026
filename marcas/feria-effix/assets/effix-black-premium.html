@@ -1,0 +1,1104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Black Ticket — Feria Effix 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;900&family=Outfit:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&display=swap" rel="stylesheet"/>
+<style>
+/* ─── TOKENS ─────────────────────────────── */
+:root {
+  --black:      #000000;
+  --bg:         #050505;
+  --silver:     #C0C0C0;
+  --silver-br:  #EBEBEB;
+  --silver-dim: #787878;
+  --silver-xdim:#3a3a3a;
+  --white:      #FFFFFF;
+  --off-white:  #EDE9E2;
+  --gray:       #888;
+  --gray-dim:   #3a3a3a;
+  --red:        #B52B1E;
+  --surface:    #080808;
+  --surface2:   #0d0d0d;
+  --border:     rgba(192,192,192,.14);
+  --border-dim: rgba(192,192,192,.06);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--bg);
+  color:var(--off-white);
+  font-family:'Outfit',sans-serif;
+  font-size:16px;line-height:1.6;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ─── GRAIN OVERLAY ──────────────────────── */
+body::after{
+  content:'';
+  position:fixed;inset:0;
+  pointer-events:none;z-index:9999;
+  opacity:.03;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat:repeat;background-size:200px 200px;
+}
+
+/* ─── SHIMMER ────────────────────────────── */
+.shimmer{
+  background:linear-gradient(110deg,
+    var(--silver-dim) 0%,
+    var(--silver-br)  33%,
+    var(--white)      50%,
+    var(--silver-br)  67%,
+    var(--silver-dim) 100%
+  );
+  background-size:300% 100%;
+  -webkit-background-clip:text;background-clip:text;
+  -webkit-text-fill-color:transparent;
+  animation:shimmer 5s ease-in-out infinite;
+}
+@keyframes shimmer{
+  0%{background-position:100% 50%}
+  50%{background-position:0% 50%}
+  100%{background-position:100% 50%}
+}
+
+/* ─── SCROLL REVEAL ──────────────────────── */
+.reveal{opacity:0;transform:translateY(32px);transition:opacity .75s cubic-bezier(.16,1,.3,1),transform .75s cubic-bezier(.16,1,.3,1)}
+.reveal.in{opacity:1;transform:none}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
+
+/* ─── LAYOUT ─────────────────────────────── */
+.container{max-width:820px;margin:0 auto;padding:0 28px}
+
+/* ─── TAGS / LABELS ──────────────────────── */
+.tag{
+  display:inline-block;
+  font-size:9px;font-weight:600;letter-spacing:.3em;
+  color:var(--silver-dim);text-transform:uppercase;
+  padding:5px 16px;
+  border:1px solid rgba(192,192,192,.16);border-radius:1px;
+}
+
+/* ─── EDITORIAL DIVIDER ──────────────────── */
+.div-ed{
+  display:flex;align-items:center;gap:18px;
+  max-width:280px;margin:0 auto;
+}
+.div-ed::before,.div-ed::after{
+  content:'';flex:1;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(192,192,192,.25));
+}
+.div-ed::after{background:linear-gradient(90deg,rgba(192,192,192,.25),transparent)}
+.div-ed span{font-size:10px;color:var(--silver-dim);flex-shrink:0;letter-spacing:.1em}
+
+/* ─── ANN BAR ────────────────────────────── */
+.ann-bar{
+  background:#030303;
+  border-bottom:1px solid rgba(192,192,192,.07);
+  text-align:center;padding:11px 16px;
+  font-size:11px;font-weight:500;
+  color:var(--silver-dim);letter-spacing:.08em;
+  position:relative;overflow:hidden;
+}
+.ann-bar strong{color:var(--silver-br)}
+/* Scanline */
+.ann-bar::before{
+  content:'';position:absolute;
+  bottom:0;left:-80%;width:40%;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(192,192,192,.5),transparent);
+  animation:scan 5s linear infinite;
+}
+@keyframes scan{to{left:140%}}
+
+/* ─── HERO ───────────────────────────────── */
+#hero{
+  min-height:100vh;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  text-align:center;padding:96px 28px 80px;
+  position:relative;overflow:hidden;
+}
+/* Diagonal grid lines */
+#hero::before{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background-image:
+    repeating-linear-gradient(-45deg,
+      transparent,transparent 72px,
+      rgba(192,192,192,.012) 72px,rgba(192,192,192,.012) 73px);
+}
+/* Central glow */
+#hero::after{
+  content:'';position:absolute;
+  top:25%;left:50%;transform:translate(-50%,-50%);
+  width:800px;height:600px;pointer-events:none;
+  background:radial-gradient(ellipse,rgba(192,192,192,.045) 0%,transparent 68%);
+}
+
+/* Eyebrow */
+.eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:10px;font-weight:600;letter-spacing:.24em;
+  color:var(--silver-dim);text-transform:uppercase;
+  margin-bottom:28px;
+  animation:fadeDown .9s cubic-bezier(.16,1,.3,1) both;
+}
+.dot-live{
+  width:6px;height:6px;border-radius:50%;background:var(--red);
+  animation:dotpulse 2.2s infinite;
+}
+@keyframes dotpulse{0%,100%{box-shadow:0 0 0 0 rgba(181,43,30,.5)}50%{box-shadow:0 0 0 7px rgba(181,43,30,0)}}
+
+.urgency{
+  display:inline-block;
+  background:var(--red);color:#fff;
+  font-size:11px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;
+  padding:7px 22px;border-radius:1px;
+  margin-bottom:30px;
+  position:relative;overflow:hidden;
+  animation:fadeDown .9s .05s cubic-bezier(.16,1,.3,1) both;
+}
+.urgency::after{
+  content:'';position:absolute;
+  top:0;left:-80%;width:40%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.22),transparent);
+  animation:sweep 3.5s ease-in-out infinite;
+}
+@keyframes sweep{0%{left:-80%}100%{left:160%}}
+
+/* Headline */
+.hero-h{
+  margin-bottom:24px;
+  animation:fadeUp .9s .12s cubic-bezier(.16,1,.3,1) both;
+}
+.hero-h .l1,.hero-h .l3{
+  display:block;
+  font-family:'Big Shoulders Display',sans-serif;
+  font-weight:700;
+  font-size:clamp(24px,4.5vw,40px);
+  letter-spacing:.12em;text-transform:uppercase;
+  color:rgba(237,233,226,.55);
+}
+.hero-h .l2{
+  display:block;
+  font-family:'Big Shoulders Display',sans-serif;
+  font-weight:900;
+  font-size:clamp(56px,12vw,100px);
+  line-height:.9;letter-spacing:-.01em;text-transform:uppercase;
+  margin:10px 0 12px;
+}
+
+.hero-sub{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(17px,2.2vw,22px);font-style:italic;
+  color:var(--gray);line-height:1.6;
+  max-width:540px;margin:0 auto 40px;
+  animation:fadeUp .9s .22s cubic-bezier(.16,1,.3,1) both;
+}
+
+.chips{
+  display:flex;flex-wrap:wrap;justify-content:center;gap:10px;
+  margin-bottom:52px;
+  animation:fadeUp .9s .3s cubic-bezier(.16,1,.3,1) both;
+}
+.chip{
+  font-size:10px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  padding:7px 16px;border:1px solid rgba(192,192,192,.1);border-radius:1px;
+  color:var(--gray);background:rgba(255,255,255,.015);
+}
+.chip.hl{border-color:rgba(192,192,192,.32);color:var(--silver);background:rgba(192,192,192,.04)}
+
+/* Video */
+.vid{
+  width:100%;max-width:600px;aspect-ratio:16/9;
+  background:#040404;
+  border:1px solid rgba(192,192,192,.1);border-radius:2px;
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  margin:0 auto 48px;position:relative;overflow:hidden;cursor:pointer;
+  animation:fadeUp .9s .38s cubic-bezier(.16,1,.3,1) both;
+}
+/* Corner brackets */
+.vid::before,.vid::after{
+  content:'';position:absolute;pointer-events:none;
+  width:28px;height:28px;
+}
+.vid::before{
+  top:12px;left:12px;
+  border-top:1px solid rgba(192,192,192,.3);
+  border-left:1px solid rgba(192,192,192,.3);
+}
+.vid::after{
+  bottom:12px;right:12px;
+  border-bottom:1px solid rgba(192,192,192,.3);
+  border-right:1px solid rgba(192,192,192,.3);
+}
+.play-ring{
+  width:70px;height:70px;border-radius:50%;
+  border:1.5px solid rgba(192,192,192,.4);
+  display:flex;align-items:center;justify-content:center;
+  margin-bottom:14px;transition:border-color .25s,box-shadow .25s,transform .25s;
+  position:relative;z-index:1;
+}
+.vid:hover .play-ring{
+  border-color:var(--silver);
+  box-shadow:0 0 36px rgba(192,192,192,.15);
+  transform:scale(1.05);
+}
+.play-ring svg{fill:var(--silver);margin-left:5px}
+.vid-label{font-size:10px;letter-spacing:.18em;color:var(--gray-dim);text-transform:uppercase;z-index:1}
+
+/* Countdown */
+.cd-lbl{font-size:9px;letter-spacing:.24em;text-transform:uppercase;color:var(--silver-dim);font-weight:600;margin-bottom:16px}
+.countdown{
+  display:flex;gap:10px;justify-content:center;
+  margin-bottom:52px;
+  animation:fadeUp .9s .44s cubic-bezier(.16,1,.3,1) both;
+}
+.cd-box{
+  width:76px;background:var(--surface);
+  border:1px solid rgba(192,192,192,.1);border-radius:2px;
+  padding:16px 8px 10px;text-align:center;position:relative;overflow:hidden;
+}
+/* Top accent line */
+.cd-box::before{
+  content:'';position:absolute;
+  top:0;left:15%;right:15%;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(192,192,192,.4),transparent);
+}
+.cd-n{
+  font-family:'Big Shoulders Display',sans-serif;
+  font-size:34px;font-weight:700;color:var(--silver);line-height:1;display:block;
+}
+.cd-u{font-size:8px;letter-spacing:.14em;color:var(--gray-dim);text-transform:uppercase;margin-top:6px}
+
+/* Primary CTA */
+.btn-p{
+  display:inline-block;text-decoration:none;
+  animation:fadeUp .9s .5s cubic-bezier(.16,1,.3,1) both;
+}
+.btn-p-inner{
+  display:block;
+  background:var(--silver);color:var(--black);
+  font-family:'Big Shoulders Display',sans-serif;
+  font-size:18px;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;
+  padding:18px 52px;border-radius:2px;
+  position:relative;overflow:hidden;
+  transition:transform .22s,box-shadow .22s;
+}
+.btn-p-inner::after{
+  content:'';position:absolute;
+  top:0;left:-100%;width:50%;height:100%;
+  background:linear-gradient(90deg,transparent,rgba(255,255,255,.28),transparent);
+  transition:left .45s ease;
+}
+.btn-p:hover .btn-p-inner{transform:translateY(-2px);box-shadow:0 18px 52px rgba(192,192,192,.2)}
+.btn-p:hover .btn-p-inner::after{left:160%}
+
+.btn-s{
+  display:inline-block;text-decoration:none;
+  background:transparent;color:var(--silver-dim);
+  font-family:'Big Shoulders Display',sans-serif;
+  font-size:14px;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;
+  padding:14px 40px;
+  border:1px solid rgba(192,192,192,.12);border-radius:2px;
+  transition:border-color .2s,color .2s,box-shadow .2s;
+}
+.btn-s:hover{border-color:rgba(192,192,192,.35);color:var(--silver);box-shadow:0 0 20px rgba(192,192,192,.06)}
+
+.btn-ghost{
+  display:block;margin-top:18px;font-size:11px;
+  letter-spacing:.1em;color:var(--gray-dim);text-decoration:none;text-transform:uppercase;
+  transition:color .2s;
+}
+.btn-ghost:hover{color:var(--silver-dim)}
+
+.social-strip{
+  display:flex;gap:44px;flex-wrap:wrap;justify-content:center;
+  margin-top:64px;padding-top:40px;
+  border-top:1px solid rgba(192,192,192,.06);
+  animation:fadeUp .9s .6s cubic-bezier(.16,1,.3,1) both;
+}
+.sp-i{text-align:center}
+.sp-n{font-family:'Big Shoulders Display',sans-serif;font-size:30px;font-weight:700;color:var(--silver);display:block}
+.sp-t{font-size:9px;letter-spacing:.18em;color:var(--gray-dim);text-transform:uppercase;margin-top:2px}
+
+/* ─── SECTIONS ───────────────────────────── */
+.section{padding:96px 0;border-bottom:1px solid rgba(192,192,192,.05);position:relative}
+
+.sec-head{text-align:center;margin-bottom:64px}
+.sec-head .tag{margin-bottom:24px;display:inline-block}
+.sec-head h2{
+  font-family:'Big Shoulders Display',sans-serif;
+  font-size:clamp(36px,6vw,58px);font-weight:900;
+  color:var(--white);line-height:1.02;margin-bottom:14px;letter-spacing:-.01em;
+}
+.sec-head .sub{
+  font-family:'Cormorant Garamond',serif;
+  font-size:18px;font-style:italic;color:var(--gray);
+  max-width:460px;margin:0 auto;line-height:1.65;
+}
+
+/* ─── PROMISE ────────────────────────────── */
+#promise{position:relative}
+#promise::before{
+  content:'';position:absolute;
+  left:0;top:10%;bottom:10%;width:2px;
+  background:linear-gradient(180deg,transparent,rgba(192,192,192,.35) 30%,rgba(192,192,192,.35) 70%,transparent);
+}
+.promise-desc{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(17px,2.2vw,21px);font-style:italic;
+  color:var(--off-white);line-height:1.8;
+  text-align:center;max-width:620px;margin:0 auto 56px;opacity:.8;
+}
+.promise-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px}
+.p-card{
+  background:var(--surface);padding:36px 28px;
+  border:1px solid var(--border-dim);
+  position:relative;overflow:hidden;
+  transition:border-color .3s,background .3s;
+}
+/* Top shimmer line on hover */
+.p-card::before{
+  content:'';position:absolute;
+  top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(192,192,192,0),transparent);
+  transition:background .35s;
+}
+.p-card:hover{border-color:var(--border);background:#0a0a0a}
+.p-card:hover::before{background:linear-gradient(90deg,transparent,rgba(192,192,192,.28),transparent)}
+.p-num{
+  font-family:'Big Shoulders Display',sans-serif;
+  font-size:72px;font-weight:900;color:var(--silver);
+  opacity:.06;line-height:1;margin-bottom:14px;
+  transition:opacity .3s;
+}
+.p-card:hover .p-num{opacity:.13}
+.p-card h3{font-size:14px;font-weight:600;color:var(--white);margin-bottom:10px;letter-spacing:.04em}
+.p-card p{font-size:13px;color:var(--gray);line-height:1.65}
+
+/* ─── SPONSORS ───────────────────────────── */
+.sp-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:40px}
+.sp-pill{
+  background:rgba(255,255,255,.02);
+  border:1px solid rgba(192,192,192,.07);border-radius:1px;
+  padding:9px 18px;
+  font-size:10px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--gray-dim);transition:border-color .2s,color .2s,background .2s;
+}
+.sp-pill:hover{border-color:rgba(192,192,192,.2);color:var(--silver-dim);background:rgba(192,192,192,.03)}
+.stats-row{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  margin-top:56px;border:1px solid rgba(192,192,192,.07);
+}
+.st-box{
+  background:var(--surface);padding:28px 16px;text-align:center;
+  border-right:1px solid rgba(192,192,192,.05);position:relative;overflow:hidden;
+}
+.st-box:last-child{border-right:none}
+/* Bottom accent line */
+.st-box::after{
+  content:'';position:absolute;
+  bottom:0;left:20%;right:20%;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(192,192,192,.18),transparent);
+}
+.st-n{font-family:'Big Shoulders Display',sans-serif;font-size:38px;font-weight:700;color:var(--silver)}
+.st-l{font-size:9px;letter-spacing:.1em;color:var(--gray-dim);text-transform:uppercase;margin-top:4px}
+
+/* ─── PRICE ──────────────────────────────── */
+#price{text-align:center}
+.price-old{
+  font-family:'Big Shoulders Display',sans-serif;
+  font-size:20px;color:var(--gray-dim);
+  display:inline-block;position:relative;margin-bottom:10px;
+}
+.price-old::after{
+  content:'';position:absolute;
+  left:-4px;right:-4px;top:50%;height:1.5px;
+  background:var(--red);transform:rotate(-3deg);
+}
+.price-lbl{
+  display:block;font-size:9px;font-weight:600;letter-spacing:.28em;
+  color:var(--silver-dim);text-transform:uppercase;margin-bottom:16px;
+}
+.price-main{
+  font-family:'Big Shoulders Display',sans-serif;
+  font-size:clamp(72px,16vw,108px);font-weight:900;
+  line-height:.9;letter-spacing:-.02em;margin-bottom:14px;
+}
+.price-sub{
+  font-family:'Cormorant Garamond',serif;
+  font-size:17px;font-style:italic;color:var(--gray);margin-bottom:36px;
+}
+.savings{
+  display:inline-block;
+  background:rgba(181,43,30,.1);
+  border:1px solid rgba(181,43,30,.3);color:#d96055;
+  font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  padding:8px 22px;border-radius:1px;margin-bottom:44px;
+}
+.btn-group{display:flex;flex-direction:column;align-items:center;gap:12px}
+.pay-note{margin-top:24px;font-size:11px;color:var(--gray-dim);letter-spacing:.06em}
+
+/* ─── BENEFITS ───────────────────────────── */
+.ben-list{display:flex;flex-direction:column;gap:2px;margin-top:56px}
+.ben-card{
+  background:var(--surface);border:1px solid var(--border-dim);
+  display:flex;overflow:hidden;
+  transition:border-color .3s;position:relative;
+}
+/* Left accent bar */
+.ben-card::before{
+  content:'';position:absolute;
+  left:0;top:0;bottom:0;width:2px;
+  background:transparent;transition:background .3s;
+}
+.ben-card:hover{border-color:var(--border)}
+.ben-card:hover::before{background:var(--silver-dim)}
+.ben-badge{
+  background:var(--silver);color:var(--black);
+  font-family:'Big Shoulders Display',sans-serif;
+  font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+  writing-mode:vertical-lr;transform:rotate(180deg);
+  display:flex;align-items:center;justify-content:center;
+  padding:16px 10px;flex-shrink:0;min-width:38px;
+}
+.ben-img{
+  width:160px;min-width:160px;background:#040404;
+  border-right:1px solid var(--border-dim);
+  display:flex;align-items:center;justify-content:center;
+  color:#1e1e1e;font-size:9px;text-align:center;
+  padding:14px;line-height:1.6;letter-spacing:.04em;text-transform:uppercase;
+}
+.ben-body{padding:28px;flex:1}
+.ben-num{font-size:9px;font-weight:600;letter-spacing:.22em;color:var(--silver-dim);text-transform:uppercase;margin-bottom:10px}
+.ben-body h3{
+  font-family:'Big Shoulders Display',sans-serif;
+  font-size:22px;font-weight:700;color:var(--white);
+  margin-bottom:14px;line-height:1.12;letter-spacing:.02em}
+.ben-items{list-style:none;display:flex;flex-direction:column;gap:7px}
+.ben-items li{display:flex;align-items:flex-start;gap:10px;font-size:13px;color:var(--gray);line-height:1.5}
+.ben-items li::before{content:'';width:1px;height:16px;background:rgba(192,192,192,.35);flex-shrink:0;margin-top:2px}
+
+/* ─── STACK ──────────────────────────────── */
+.stack-list{margin-top:56px}
+.st-item{
+  display:flex;align-items:center;gap:20px;
+  padding:14px 20px;border-bottom:1px solid rgba(192,192,192,.04);
+  transition:background .2s;
+}
+.st-item:hover{background:rgba(192,192,192,.02)}
+.st-item:nth-child(odd){background:rgba(255,255,255,.01)}
+.st-item:nth-child(odd):hover{background:rgba(192,192,192,.03)}
+.st-dot{width:1px;height:18px;background:rgba(192,192,192,.3);flex-shrink:0}
+.st-txt{flex:1;font-size:13px;color:var(--off-white);opacity:.75}
+.st-val{font-family:'Big Shoulders Display',sans-serif;font-size:18px;font-weight:700;color:var(--silver);opacity:.65;white-space:nowrap}
+.st-total{
+  display:flex;justify-content:space-between;align-items:center;
+  padding:20px;margin-top:2px;
+  border:1px solid rgba(192,192,192,.2);background:rgba(192,192,192,.03);
+}
+.st-total-lbl{font-size:10px;font-weight:700;letter-spacing:.16em;color:var(--off-white);text-transform:uppercase}
+.st-total-val{font-family:'Big Shoulders Display',sans-serif;font-size:30px;font-weight:900}
+.st-vs{text-align:center;margin:24px 0 12px;font-size:11px;color:var(--gray-dim);letter-spacing:.14em}
+.st-price{
+  max-width:300px;margin:0 auto;
+  border:1px solid rgba(192,192,192,.3);padding:16px 32px;text-align:center;
+  position:relative;overflow:hidden;
+}
+.st-price::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(192,192,192,.5),transparent);
+}
+.st-price span{font-family:'Big Shoulders Display',sans-serif;font-size:28px;font-weight:900}
+.st-disc{text-align:center;margin-top:18px;font-size:11px;color:var(--gray-dim);font-style:italic}
+
+/* ─── TABLE ──────────────────────────────── */
+.table-wrap{margin-top:56px;overflow-x:auto}
+table{width:100%;border-collapse:collapse}
+thead th{
+  padding:16px 14px;font-size:9px;font-weight:700;
+  letter-spacing:.22em;text-transform:uppercase;
+  border-bottom:1px solid rgba(192,192,192,.1);
+}
+thead th:first-child{text-align:left;color:var(--gray-dim);width:42%}
+.th-g{color:var(--gray-dim)}.th-v{color:#555}
+.th-b{
+  color:var(--silver);background:rgba(192,192,192,.03);
+  border-left:1px solid rgba(192,192,192,.15)!important;
+  border-right:1px solid rgba(192,192,192,.15)!important;
+  border-top:1px solid rgba(192,192,192,.3)!important;
+}
+tbody tr{border-bottom:1px solid rgba(192,192,192,.04);transition:background .15s}
+tbody tr:hover{background:rgba(192,192,192,.02)}
+tbody tr:nth-child(even){background:rgba(255,255,255,.01)}
+td{padding:13px 14px;font-size:13px;text-align:center;vertical-align:middle}
+td:first-child{text-align:left;color:var(--off-white);opacity:.72;font-size:13px}
+.td-b{
+  background:rgba(192,192,192,.015);
+  border-left:1px solid rgba(192,192,192,.08)!important;
+  border-right:1px solid rgba(192,192,192,.08)!important;
+}
+.ck-s{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;background:var(--silver);color:var(--black);font-size:12px;font-weight:700}
+.ck-g{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);color:rgba(255,255,255,.35);font-size:12px;font-weight:700}
+.ck-n{display:inline-flex;align-items:center;justify-content:center;width:24px;height:24px;border-radius:50%;color:var(--gray-dim);font-size:14px}
+.cell-n{font-size:11px;color:var(--gray-dim);font-style:italic}
+.cell-s{font-size:11px;color:var(--silver-dim);letter-spacing:.06em}
+
+/* ─── TESTIMONIALS ───────────────────────── */
+.testi-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:56px}
+.testi-card{
+  background:var(--surface);border:1px solid var(--border-dim);
+  padding:32px 28px;position:relative;overflow:hidden;
+  transition:border-color .3s;
+}
+.testi-card:hover{border-color:var(--border)}
+/* Big quote mark */
+.testi-card::before{
+  content:'\201C';position:absolute;
+  top:-8px;left:18px;
+  font-family:'Cormorant Garamond',serif;
+  font-size:110px;color:rgba(192,192,192,.04);
+  line-height:1;pointer-events:none;
+}
+.t-stars{color:var(--silver-dim);font-size:11px;letter-spacing:4px;margin-bottom:14px}
+.t-txt{
+  font-family:'Cormorant Garamond',serif;
+  font-size:17px;font-style:italic;color:var(--off-white);
+  line-height:1.72;margin-bottom:20px;opacity:.85;
+}
+.t-auth{font-size:11px;color:var(--gray-dim);letter-spacing:.06em}
+.t-auth strong{color:var(--off-white);display:block;margin-bottom:2px;font-size:13px}
+
+/* ─── GUARANTEE ──────────────────────────── */
+#guarantee{text-align:center}
+.g-box{
+  max-width:560px;margin:48px auto 0;
+  border:1px solid rgba(192,192,192,.16);padding:48px 40px;
+  position:relative;overflow:hidden;
+}
+.g-box::before{
+  content:'';position:absolute;top:0;left:10%;right:10%;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(192,192,192,.42),transparent);
+}
+.g-box::after{
+  content:'';position:absolute;bottom:0;left:10%;right:10%;height:1px;
+  background:linear-gradient(90deg,transparent,rgba(192,192,192,.2),transparent);
+}
+.g-icon{font-size:34px;margin-bottom:20px;display:block}
+.g-box h3{
+  font-family:'Big Shoulders Display',sans-serif;
+  font-size:22px;font-weight:700;color:var(--white);
+  letter-spacing:.06em;margin-bottom:16px;
+}
+.g-box p{
+  font-family:'Cormorant Garamond',serif;
+  font-size:17px;font-style:italic;color:var(--gray);line-height:1.78;
+}
+
+/* ─── FAQ ────────────────────────────────── */
+.faq-list{margin-top:56px}
+.faq-item{border-bottom:1px solid rgba(192,192,192,.06)}
+.faq-q{
+  width:100%;background:none;border:none;cursor:pointer;
+  display:flex;justify-content:space-between;align-items:center;
+  padding:20px 0;
+  font-family:'Outfit',sans-serif;font-size:14px;font-weight:500;
+  color:var(--off-white);text-align:left;letter-spacing:.02em;
+  transition:color .2s;
+}
+.faq-q:hover{color:var(--white)}
+.faq-arr{
+  width:24px;height:24px;border-radius:50%;
+  border:1px solid rgba(192,192,192,.14);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--silver-dim);font-size:14px;flex-shrink:0;margin-left:16px;
+  transition:transform .28s,border-color .28s;
+}
+.faq-q.open .faq-arr{transform:rotate(45deg);border-color:rgba(192,192,192,.35)}
+.faq-a{
+  font-family:'Cormorant Garamond',serif;font-size:17px;font-style:italic;
+  color:var(--gray);line-height:1.75;
+  max-height:0;overflow:hidden;
+  transition:max-height .4s cubic-bezier(.16,1,.3,1),padding .4s;
+}
+.faq-a.open{max-height:300px;padding-bottom:22px}
+
+/* ─── CTA FINAL ──────────────────────────── */
+#cta-final{
+  padding:120px 0;text-align:center;
+  position:relative;overflow:hidden;
+}
+#cta-final::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 55% 70% at 50% 50%,rgba(192,192,192,.05),transparent 68%);
+  pointer-events:none;
+}
+#cta-final h2{
+  font-family:'Big Shoulders Display',sans-serif;
+  font-size:clamp(44px,9vw,72px);font-weight:900;
+  color:var(--white);line-height:1;
+  margin-bottom:16px;letter-spacing:-.01em;
+}
+#cta-final .sub{
+  font-family:'Cormorant Garamond',serif;
+  font-size:20px;font-style:italic;color:var(--gray);margin-bottom:52px;
+}
+.cta-meta{margin-top:22px;font-size:10px;letter-spacing:.14em;color:var(--gray-dim);text-transform:uppercase}
+.cta-locs{display:flex;justify-content:center;gap:28px;margin-top:40px;flex-wrap:wrap}
+.cta-locs span{font-size:11px;color:var(--gray-dim);letter-spacing:.06em}
+
+/* ─── FOOTER ─────────────────────────────── */
+footer{background:#030303;border-top:1px solid rgba(192,192,192,.06);padding:56px 0;text-align:center}
+.f-logo{font-family:'Big Shoulders Display',sans-serif;font-size:20px;font-weight:900;letter-spacing:.2em;color:var(--silver-dim);margin-bottom:6px}
+footer p{font-size:11px;color:#2e2e2e;line-height:2;letter-spacing:.04em}
+
+/* ─── WA ─────────────────────────────────── */
+.wa{
+  position:fixed;bottom:28px;right:28px;width:52px;height:52px;
+  background:#25D366;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 24px rgba(37,211,102,.35);
+  z-index:1000;text-decoration:none;transition:transform .2s,box-shadow .2s;
+}
+.wa:hover{transform:scale(1.08);box-shadow:0 6px 32px rgba(37,211,102,.5)}
+.wa svg{width:26px;height:26px;fill:white}
+
+/* ─── ANIMATIONS ─────────────────────────── */
+@keyframes fadeUp  {from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+@keyframes fadeDown{from{opacity:0;transform:translateY(-14px)}to{opacity:1;transform:none}}
+
+/* ─── RESPONSIVE ─────────────────────────── */
+@media(max-width:640px){
+  .promise-grid{grid-template-columns:1fr}
+  .ben-img{display:none}
+  .stats-row{grid-template-columns:1fr 1fr}
+  .testi-grid{grid-template-columns:1fr}
+  .social-strip{gap:24px}
+  .countdown{gap:6px}
+  .cd-box{width:64px}
+}
+</style>
+</head>
+<body>
+
+<!-- ANN BAR -->
+<div class="ann-bar">
+  Solo queda el <strong>43% disponible</strong> &nbsp;·&nbsp; 16–18 Oct 2026 &nbsp;·&nbsp; <strong>Plaza Mayor, Medellín</strong>
+</div>
+
+<!-- ══════ HERO ══════ -->
+<section id="hero">
+  <div class="container">
+    <div class="eyebrow"><span class="dot-live"></span><span>6ª Edición &nbsp;·&nbsp; La Mayor Feria Ecommerce de Latam</span></div>
+
+    <div class="urgency">🔥 &nbsp;SOLO QUEDA EL 43% DISPONIBLE&nbsp; 🔥</div>
+
+    <h1 class="hero-h">
+      <span class="l1">La Experiencia de</span>
+      <span class="l2 shimmer">ECOMMERCE BLACK</span>
+      <span class="l3">mas exclusiva de Latam</span>
+    </h1>
+
+    <p class="hero-sub">Donde los que mas facturan en ecommerce comparten todo lo que saben.</p>
+
+    <div class="chips">
+      <span class="chip">16–18 Oct 2026</span>
+      <span class="chip">Plaza Mayor, Medellín</span>
+      <span class="chip hl">BLACK TICKET</span>
+    </div>
+
+    <div class="vid">
+      <div class="play-ring">
+        <svg viewBox="0 0 24 24" width="26" height="26"><path d="M8 5v14l11-7z"/></svg>
+      </div>
+      <div class="vid-label">Video Highlights · Autoplay Silenciado</div>
+    </div>
+
+    <div class="cd-lbl">— EL EVENTO EMPIEZA EN —</div>
+    <div class="countdown">
+      <div class="cd-box"><span class="cd-n" id="cd-d">000</span><div class="cd-u">DÍAS</div></div>
+      <div class="cd-box"><span class="cd-n" id="cd-h">00</span><div class="cd-u">HRS</div></div>
+      <div class="cd-box"><span class="cd-n" id="cd-m">00</span><div class="cd-u">MIN</div></div>
+      <div class="cd-box"><span class="cd-n" id="cd-s">00</span><div class="cd-u">SEG</div></div>
+    </div>
+
+    <a href="#price" class="btn-p">
+      <span class="btn-p-inner">ASEGURA TU ENTRADA BLACK</span>
+    </a>
+    <a href="#comparison" class="btn-ghost">Solo 43% disponible — No se repone stock ↓</a>
+
+    <div class="social-strip">
+      <div class="sp-i"><span class="sp-n">140K+</span><div class="sp-t">Asistentes</div></div>
+      <div class="sp-i"><span class="sp-n">5</span><div class="sp-t">Ediciones</div></div>
+      <div class="sp-i"><span class="sp-n">381K</span><div class="sp-t">Seguidores</div></div>
+      <div class="sp-i"><span class="sp-n">#1</span><div class="sp-t">En Latam</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ PROMISE ══════ -->
+<section id="promise" class="section reveal">
+  <div class="container">
+    <div class="sec-head">
+      <span class="tag">— LA EXPERIENCIA BLACK —</span>
+      <h2>3 días con los que<br><span class="shimmer">MÁS SABEN DE ECOMMERCE</span><br>en el mundo</h2>
+    </div>
+    <div class="div-ed" style="margin-bottom:52px"><span>✦</span></div>
+    <p class="promise-desc">
+      El Black Ticket no es solo un boleto — es una membresía de tres días al ecosistema
+      más poderoso de ecommerce en América Latina. Mientras otros asisten al evento,
+      los Black viven el evento desde adentro: mentorías privadas, mesas exclusivas,
+      acceso anticipado y una red que no se construye en redes sociales.
+    </p>
+    <div class="promise-grid">
+      <div class="p-card reveal d1">
+        <div class="p-num">01</div>
+        <h3>9 Mentorías Exclusivas con Ponentes Premium</h3>
+        <p>Grupos de máx. 20 personas. Ponentes nacionales e internacionales. Temas: escalar, marca, exportar, ads. Incluye grabación.</p>
+      </div>
+      <div class="p-card reveal d2">
+        <div class="p-num">02</div>
+        <h3>Experiencia Gastronómica Completa</h3>
+        <p>Desayuno, almuerzo y cena los 3 días. Mesa asignada con networking forzado. Coffee break y snacks premium.</p>
+      </div>
+      <div class="p-card reveal d3">
+        <div class="p-num">03</div>
+        <h3>Zona Black + Red de Alto Nivel</h3>
+        <p>Acceso a sala Black lounge privada. Networking con 500+ Black tickets. Mastermind de cierre día 3.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ SPONSORS ══════ -->
+<section class="section reveal">
+  <div class="container">
+    <div class="sec-head">
+      <span class="tag">— Respaldo Institucional —</span>
+      <h2>5 ediciones.<br>140,000+ vidas impactadas.</h2>
+      <p class="sub">La feria de ecommerce presencial más grande del mundo en habla hispana</p>
+    </div>
+    <div class="sp-grid">
+      <div class="sp-pill">MercadoLibre</div><div class="sp-pill">Mercado Pago</div>
+      <div class="sp-pill">Envía</div><div class="sp-pill">TCC</div>
+      <div class="sp-pill">Servientrega</div><div class="sp-pill">Inter Rapidísimo</div>
+      <div class="sp-pill">Coordinadora</div><div class="sp-pill">Taboola</div>
+      <div class="sp-pill">SmartBeemo</div><div class="sp-pill">MasterTools</div>
+      <div class="sp-pill">Dropi</div><div class="sp-pill">Comfama</div>
+    </div>
+    <div class="stats-row">
+      <div class="st-box reveal d1"><div class="st-n">140K+</div><div class="st-l">Asistentes acumulados</div></div>
+      <div class="st-box reveal d2"><div class="st-n">USD 23M</div><div class="st-l">Impacto económico 2025</div></div>
+      <div class="st-box reveal d3"><div class="st-n">348</div><div class="st-l">Stands en 2025</div></div>
+      <div class="st-box reveal d4"><div class="st-n">214</div><div class="st-l">Speakers en 2025</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ PRICE ══════ -->
+<section id="price" class="section reveal">
+  <div class="container">
+    <div class="sec-head" style="margin-bottom:48px">
+      <span class="tag">— Elige tu forma de pago —</span>
+    </div>
+    <div class="price-old">USD $1,323</div><br>
+    <span class="price-lbl">Precio especial Black Ticket</span>
+    <div class="price-main shimmer">USD $997</div>
+    <p class="price-sub">Precio único · Incluye TODO lo del evento + experiencias Black exclusivas</p>
+    <div class="div-ed" style="margin-bottom:28px"><span>✦</span></div>
+    <div class="savings">AHORRAS USD $326 HOY</div>
+    <div class="btn-group" style="margin-top:8px">
+      <a href="https://feriaeffix.com/experiencia-black/" class="btn-p">
+        <span class="btn-p-inner">PAGO ÚNICO $997 — El mejor precio · 1 solo cobro</span>
+      </a>
+      <a href="https://feriaeffix.com/experiencia-black/" class="btn-s">4 CUOTAS DE $250 c/u — Total USD $1,000 · Financiado</a>
+    </div>
+    <p class="pay-note">Selecciona pasarela: &nbsp;[ Wompi ] &nbsp; [ ePayco ] &nbsp;·&nbsp; Tarjeta · PSE · Nequi</p>
+  </div>
+</section>
+
+<!-- ══════ BENEFITS ══════ -->
+<section class="section reveal">
+  <div class="container">
+    <div class="sec-head">
+      <span class="tag">— INCLUYE EN TU BLACK TICKET —</span>
+      <h2>Todo lo que viene con<br><span class="shimmer">tu entrada Black</span></h2>
+    </div>
+    <div class="ben-list">
+      <div class="ben-card reveal d1">
+        <div class="ben-badge">MENTORÍAS</div>
+        <div class="ben-img">FOTO: sesión de mentoría íntima con ponente y grupo reducido</div>
+        <div class="ben-body">
+          <div class="ben-num">01 · MENTORÍAS</div>
+          <h3>9 Mentorías Exclusivas<br>con Ponentes Premium</h3>
+          <ul class="ben-items">
+            <li>Grupos de máx. 20 personas por sesión</li>
+            <li>Ponentes nacionales e internacionales</li>
+            <li>Temas: escalar, marca, exportar, ads</li>
+            <li>Agendadas en horario Black exclusivo</li>
+            <li>Incluye grabación de la sesión</li>
+          </ul>
+        </div>
+      </div>
+      <div class="ben-card reveal d2">
+        <div class="ben-badge">GASTRONOMÍA</div>
+        <div class="ben-img">FOTO: mesa de desayuno elegante con ponentes / networking</div>
+        <div class="ben-body">
+          <div class="ben-num">02 · GASTRONOMÍA</div>
+          <h3>Experiencia<br>Gastronómica Completa</h3>
+          <ul class="ben-items">
+            <li>Desayuno cada día (7:30–8:30 AM)</li>
+            <li>Almuerzo en zona Black exclusiva</li>
+            <li>Cena de cierre noche 2 y noche 3</li>
+            <li>Coffee break y snacks premium</li>
+            <li>Mesa asignada con networking forzado</li>
+          </ul>
+        </div>
+      </div>
+      <div class="ben-card reveal d3">
+        <div class="ben-badge">NETWORKING</div>
+        <div class="ben-img">FOTO: zona Black lounge con iluminación premium</div>
+        <div class="ben-body">
+          <div class="ben-num">03 · NETWORKING</div>
+          <h3>Zona Black + Red<br>de Alto Nivel</h3>
+          <ul class="ben-items">
+            <li>Acceso a sala Black lounge privada</li>
+            <li>Networking con 500+ Black tickets</li>
+            <li>Descuentos en hotelería aliada</li>
+            <li>Acreditación Black diferencial visible</li>
+            <li>Mastermind de cierre día 3</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ STACK ══════ -->
+<section class="section reveal">
+  <div class="container">
+    <div class="sec-head">
+      <span class="tag">— LO QUE INCLUYE TU BLACK TICKET —</span>
+      <h2>Todo lo que reciben los Black<br>tiene un valor real</h2>
+      <p class="sub">Si compraras cada componente por separado, pagarías mucho más</p>
+    </div>
+    <div class="stack-list">
+      <div class="st-item"><div class="st-dot"></div><div class="st-txt">9 sesiones de mentoría privada con expertos (≈ $150 c/u)</div><div class="st-val">$1,350</div></div>
+      <div class="st-item"><div class="st-dot"></div><div class="st-txt">Experiencia gastronómica 3 días (desayuno + almuerzo + cena)</div><div class="st-val">$420</div></div>
+      <div class="st-item"><div class="st-dot"></div><div class="st-txt">Acceso Zona Black exclusiva + lounge premium</div><div class="st-val">$200</div></div>
+      <div class="st-item"><div class="st-dot"></div><div class="st-txt">Mastermind de cierre con ponentes internacionales</div><div class="st-val">$300</div></div>
+      <div class="st-item"><div class="st-dot"></div><div class="st-txt">Zona Fotograffix — sesión profesional Black</div><div class="st-val">$150</div></div>
+      <div class="st-item"><div class="st-dot"></div><div class="st-txt">Acceso prioritario backstage + meet & greet ponentes</div><div class="st-val">$250</div></div>
+      <div class="st-item"><div class="st-dot"></div><div class="st-txt">Descuentos y beneficios en hotelería aliada</div><div class="st-val">$80</div></div>
+      <div class="st-item"><div class="st-dot"></div><div class="st-txt">Acceso a 8 auditorios simultáneos los 3 días del evento</div><div class="st-val">$150</div></div>
+      <div class="st-item"><div class="st-dot"></div><div class="st-txt">Zona de creación de contenido profesional</div><div class="st-val">$100</div></div>
+      <div class="st-item"><div class="st-dot"></div><div class="st-txt">Fire Walk — experiencia de mentalidad de cierre</div><div class="st-val">$100</div></div>
+      <div class="st-item"><div class="st-dot"></div><div class="st-txt">Desayuno privado con ponentes internacionales (día 1)</div><div class="st-val">$200</div></div>
+      <div class="st-item"><div class="st-dot"></div><div class="st-txt">Kit Black de bienvenida + acreditación diferencial</div><div class="st-val">$60</div></div>
+    </div>
+    <div class="st-total">
+      <div class="st-total-lbl">VALOR TOTAL DEL PAQUETE BLACK</div>
+      <div class="st-total-val shimmer">$3,360</div>
+    </div>
+    <div class="st-vs">— vs. —</div>
+    <div class="st-price"><span class="shimmer">TÚ PAGAS SOLO $997</span></div>
+    <p class="st-disc">Los precios de referencia son estimados. El valor real de las conexiones y resultados no tiene precio.</p>
+  </div>
+</section>
+
+<!-- ══════ COMPARISON ══════ -->
+<section id="comparison" class="section reveal">
+  <div class="container">
+    <div class="sec-head">
+      <span class="tag">— ELIGE TU NIVEL DE EXPERIENCIA —</span>
+      <h2>¿General, VIP o Black?</h2>
+      <p class="sub">Compara y decide qué nivel corresponde a tu momento</p>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th style="text-align:left">BENEFICIO</th>
+            <th class="th-g">GENERAL</th>
+            <th class="th-v">VIP</th>
+            <th class="th-b">BLACK ★</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>Acceso 3 días al evento</td><td><span class="ck-g">✓</span></td><td><span class="ck-g">✓</span></td><td class="td-b"><span class="ck-s">✓</span></td></tr>
+          <tr><td>Todos los auditorios</td><td><span class="ck-g">✓</span></td><td><span class="ck-g">✓</span></td><td class="td-b"><span class="ck-s">✓</span></td></tr>
+          <tr><td>Zona de exposición / stands</td><td><span class="ck-g">✓</span></td><td><span class="ck-g">✓</span></td><td class="td-b"><span class="ck-s">✓</span></td></tr>
+          <tr><td>Acceso zona VIP</td><td><span class="ck-n">—</span></td><td><span class="ck-g">✓</span></td><td class="td-b"><span class="ck-s">✓</span></td></tr>
+          <tr><td>Acceso Zona Black exclusiva</td><td><span class="ck-n">—</span></td><td><span class="ck-n">—</span></td><td class="td-b"><span class="ck-s">✓</span></td></tr>
+          <tr><td>9 mentorías privadas</td><td><span class="ck-n">—</span></td><td><span class="ck-n">—</span></td><td class="td-b"><span class="ck-s">✓</span></td></tr>
+          <tr><td>Desayuno, almuerzo y cena</td><td><span class="ck-n">—</span></td><td><span class="cell-n">Almuerzo</span></td><td class="td-b"><span class="ck-s">✓</span></td></tr>
+          <tr><td>Networking con ponentes</td><td><span class="ck-n">—</span></td><td><span class="cell-n">Limitado</span></td><td class="td-b"><span class="cell-s">Prioritario</span></td></tr>
+          <tr><td>Mastermind de cierre</td><td><span class="ck-n">—</span></td><td><span class="ck-n">—</span></td><td class="td-b"><span class="ck-s">✓</span></td></tr>
+          <tr><td>Fotograffix / contenido profesional</td><td><span class="ck-n">—</span></td><td><span class="ck-n">—</span></td><td class="td-b"><span class="ck-s">✓</span></td></tr>
+          <tr><td>Fire Walk + experiencia mental</td><td><span class="ck-n">—</span></td><td><span class="ck-n">—</span></td><td class="td-b"><span class="ck-s">✓</span></td></tr>
+          <tr><td>Kit de bienvenida premium</td><td><span class="ck-n">—</span></td><td><span class="ck-n">—</span></td><td class="td-b"><span class="ck-s">✓</span></td></tr>
+          <tr><td>Acreditación diferencial</td><td><span class="ck-n">—</span></td><td><span class="ck-n">—</span></td><td class="td-b"><span class="cell-s">Badge plateado</span></td></tr>
+          <tr><td>Grabaciones sesiones privadas</td><td><span class="ck-n">—</span></td><td><span class="ck-n">—</span></td><td class="td-b"><span class="ck-s">✓</span></td></tr>
+          <tr><td>Descuentos hotelería aliada</td><td><span class="ck-n">—</span></td><td><span class="ck-n">—</span></td><td class="td-b"><span class="ck-s">✓</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div style="text-align:center;margin-top:40px">
+      <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;color:var(--gray);margin-bottom:24px">¿Ya viste todo lo que incluye el Black? La decisión es obvia.</p>
+      <a href="#price" class="btn-p"><span class="btn-p-inner" style="font-size:16px;padding:15px 40px">BLACK TICKET — SOLO USD $997</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ TESTIMONIALS ══════ -->
+<section class="section reveal">
+  <div class="container">
+    <div class="sec-head">
+      <span class="tag">— Lo dicen quienes ya lo vivieron —</span>
+      <h2>Resultados reales.<br>Personas reales.</h2>
+    </div>
+    <div class="testi-grid">
+      <div class="testi-card reveal d1">
+        <div class="t-stars">★★★★★</div>
+        <p class="t-txt">"El Black Ticket fue la mejor inversión del año. En una sola mentoría recibí más valor que en 6 meses de cursos. Y el networking... literalmente cerramos una alianza ese mismo fin de semana."</p>
+        <div class="t-auth"><strong>Carlos M.</strong>Medellín, Colombia · Ecommerce USD $80K/mes</div>
+      </div>
+      <div class="testi-card reveal d2">
+        <div class="t-stars">★★★★★</div>
+        <p class="t-txt">"La Zona Black es otro mundo. Estás con las personas que más facturan del evento y todo el ambiente te eleva. Vine sola desde Ecuador y volví con 3 socios potenciales."</p>
+        <div class="t-auth"><strong>Valentina R.</strong>Quito, Ecuador · Dropshipping</div>
+      </div>
+      <div class="testi-card reveal d3">
+        <div class="t-stars">★★★★★</div>
+        <p class="t-txt">"Fui al General en 2024. Este año fui al Black y no hay comparación. Las mentorías privadas valen más que el ticket entero. No volvería a ir de otra forma."</p>
+        <div class="t-auth"><strong>Andrés P.</strong>Bogotá, Colombia · Importación y venta online</div>
+      </div>
+      <div class="testi-card reveal d4">
+        <div class="t-stars">★★★★★</div>
+        <p class="t-txt">"El Fire Walk fue una experiencia que no esperaba y que me cambió la mentalidad completamente. Y el Mastermind de cierre fue el mejor networking que he tenido en toda mi vida."</p>
+        <div class="t-auth"><strong>Santiago L.</strong>Santo Domingo, RD · Ecommerce y marketing digital</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ GUARANTEE ══════ -->
+<section id="guarantee" class="section reveal">
+  <div class="container">
+    <div class="sec-head">
+      <span class="tag">— Sin riesgo —</span>
+      <h2>Tu inversión está protegida.</h2>
+    </div>
+    <div class="g-box">
+      <span class="g-icon">🛡️</span>
+      <h3>GARANTÍA DE SATISFACCIÓN TOTAL</h3>
+      <p>Si asistes al evento, participas en las experiencias Black y sientes que el valor no fue el prometido, te devolvemos tu dinero. Así de simples son nuestras condiciones — porque llevamos 5 ediciones construyendo reputación, no ventas.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ FAQ ══════ -->
+<section class="section reveal">
+  <div class="container">
+    <div class="sec-head">
+      <span class="tag">— Preguntas frecuentes —</span>
+      <h2>Todo lo que necesitas saber<br>antes de decidir.</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <button class="faq-q" onclick="faq(this)">¿Cuándo y dónde es el evento?<span class="faq-arr">+</span></button>
+        <div class="faq-a">Feria Effix 2026 se realiza del 16 al 18 de octubre de 2026 en Plaza Mayor, Medellín, Colombia.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="faq(this)">¿En qué se diferencia el Black del General y VIP?<span class="faq-arr">+</span></button>
+        <div class="faq-a">El Black incluye todo lo que tiene el General y el VIP, más la Zona Black exclusiva, 9 mentorías privadas, alimentación completa los 3 días, Mastermind de cierre, Fotograffix, Fire Walk, kit premium, badge diferencial y grabaciones de sesiones privadas.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="faq(this)">¿Qué formas de pago aceptan?<span class="faq-arr">+</span></button>
+        <div class="faq-a">Aceptamos todas las tarjetas de crédito y débito, PSE, Nequi y pagos en efectivo a través de Wompi y ePayco. También puedes pagar en 4 cuotas de USD $250. Para pagos internacionales escribe a gerencia@feriaeffix.com.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="faq(this)">¿Viajo desde otro país, hay apoyo logístico?<span class="faq-arr">+</span></button>
+        <div class="faq-a">Sí. Tenemos convenios con hoteles aliados con descuentos especiales para asistentes Black. Al comprar tu ticket recibirás información sobre alojamiento y el programa completo del evento.</div>
+      </div>
+      <div class="faq-item">
+        <button class="faq-q" onclick="faq(this)">¿Los niños pueden asistir?<span class="faq-arr">+</span></button>
+        <div class="faq-a">Niños menores de 12 años tienen ingreso gratuito al área general del evento. Las experiencias Black son exclusivas para adultos con ticket Black.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ CTA FINAL ══════ -->
+<section id="cta-final" class="reveal">
+  <div class="container">
+    <div class="div-ed" style="margin-bottom:56px"><span>✦</span></div>
+    <h2>¿Listo para<br><span class="shimmer">la experiencia Black?</span></h2>
+    <p class="sub">El stock es limitado. Solo el 43% disponible. No se repone stock.</p>
+    <a href="https://feriaeffix.com/experiencia-black/" class="btn-p">
+      <span class="btn-p-inner" style="font-size:20px;padding:22px 60px">ASEGURA TU ENTRADA BLACK</span>
+    </a>
+    <p class="cta-meta">USD $997 · Pago único · O 4 cuotas de $250 · Wompi · ePayco</p>
+    <div class="cta-locs">
+      <span>📍 Plaza Mayor, Medellín</span>
+      <span>📅 16–18 Octubre 2026</span>
+      <span>📞 +57 320 655 6725</span>
+      <span>✉️ gerencia@feriaeffix.com</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ FOOTER ══════ -->
+<footer>
+  <div class="container">
+    <div class="f-logo">FERIA EFFIX 2026</div>
+    <p>
+      La mayor feria de ecommerce de Latinoamérica · 6ª Edición<br>
+      Plaza Mayor, Medellín, Colombia · 16, 17 y 18 de octubre de 2026<br>
+      Organizado por Grupo Effi — EffiX S.A.S. NIT 901497359<br>
+      feriaeffix.com &nbsp;·&nbsp; @feriaeffix &nbsp;·&nbsp; gerencia@feriaeffix.com
+    </p>
+  </div>
+</footer>
+
+<!-- WA -->
+<a class="wa" href="https://wa.me/573206556725?text=Hola,%20quiero%20información%20del%20Black%20Ticket%20Effix%202026" target="_blank" rel="noopener">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.890-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+// COUNTDOWN
+(function(){
+  const t=new Date('2026-10-16T08:00:00');
+  function u(){
+    const d=t-new Date();
+    if(d<=0)return;
+    document.getElementById('cd-d').textContent=String(Math.floor(d/86400000)).padStart(3,'0');
+    document.getElementById('cd-h').textContent=String(Math.floor((d%86400000)/3600000)).padStart(2,'0');
+    document.getElementById('cd-m').textContent=String(Math.floor((d%3600000)/60000)).padStart(2,'0');
+    document.getElementById('cd-s').textContent=String(Math.floor((d%60000)/1000)).padStart(2,'0');
+  }
+  u();setInterval(u,1000);
+})();
+
+// FAQ
+function faq(btn){
+  const a=btn.nextElementSibling,open=btn.classList.contains('open');
+  document.querySelectorAll('.faq-q').forEach(b=>{b.classList.remove('open');b.nextElementSibling.classList.remove('open')});
+  if(!open){btn.classList.add('open');a.classList.add('open')}
+}
+
+// SCROLL REVEAL
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');obs.unobserve(e.target)}})
+},{threshold:.07,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>

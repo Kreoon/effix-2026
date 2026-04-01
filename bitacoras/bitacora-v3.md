@@ -315,3 +315,260 @@ Primera campaña relanzada después de la reestructuración a portafolio complet
 5. **Subir Customer Match** si no se ha hecho aún
 
 *Próxima entrada: revisión semanal (2026-03-27)*
+
+---
+
+## v7 — 2026-03-24 | Rediseno web completo + Estrategia funnel + Guias de montaje 3 fases
+
+### Sesion completa — resumen ejecutivo
+
+Sesion intensiva que cubrio: auditoria de pagina actual, rediseno web con IA (4 landing pages), definicion de funnel por fases (adaptado de Meta), y documentacion paso a paso de las 3 fases de Google Ads.
+
+---
+
+### 1. Auditoria pagina actual (feriaeffix.com)
+
+**Hallazgos criticos:**
+- WordPress + Elementor, peso 2-4MB por pagina
+- Meta Ads envia trafico con **96.5% rebote** (10,789 sesiones, 0s engagement)
+- Google Ads es **15x mejor** en engagement (53.85% vs 3.52%)
+- Landing Black en URL `/estrategia-google-ads/` — revela estrategia
+- Title tag dice "Estrategia Google Ads" — afecta Quality Score
+- Landing stands: sin precios, sin WhatsApp, sin social proof, formulario multi-step confuso
+
+**Acciones bloqueantes vencidas (24 mar):**
+- URL /experiencia-black/ → aun no creada
+- Title tag → aun no cambiado
+- Numeros LaTiquetera → sin verificar
+
+---
+
+### 2. Rediseno web — 4 paginas generadas con IA
+
+**Herramientas usadas:**
+- **UI/UX Pro Max** → Design system (paleta, tipografia, spacing, componentes)
+- **Stitch MCP (Google)** → 3 pantallas generadas con Gemini Pro/Flash
+- **Manual + Design System** → Landing Stands (Stitch no genero correctamente la B2B)
+
+**Design system creado:**
+- Proyecto Stitch: ID 116125283413447746 ("Feria Effix 2026 — Web Redesign")
+- Design system: "Effix 2026 Dark Premium" — Dark mode, Montserrat + DM Sans, gold #C9A84C primary
+- Archivo: `assets/design-system.md`
+
+**Paginas generadas:**
+
+| Pagina | Archivo | Tamano | Secciones | vs Actual |
+|--------|---------|--------|-----------|-----------|
+| Landing Black (/experiencia-black/) | `assets/landing-black.html` | 31KB | 15 | 100x mas liviana |
+| Main Page (feriaeffix.com) | `assets/main-page.html` | 30KB | 11 | Portafolio completo |
+| Landing General (/boletas/) | `assets/landing-general-v2.html` | 24KB | 8 | No existia |
+| Landing Stands (/quiero-tener-un-stand/) | `assets/landing-stands.html` | 29KB | 12 | Con VSL + form + logos |
+
+**Landing Black version animada:**
+- Archivo: `assets/landing-black-animated.html` (51KB)
+- Countdown timer real (Oct 16, 2026)
+- Stats counter animado (0 → 140,000+ al scroll)
+- CTA shimmer dorado en botones
+- FAQ accordion funcional con respuestas
+- Exit-intent popup
+- Scroll progress bar
+- Fondo premium: particulas doradas flotantes + aurora gradient + film grain
+- Fade-up on scroll + stagger children
+- WhatsApp pulse animation
+
+**Landing General v2 corregida:**
+- Textos negros sobre fondo negro → todos corregidos con color explicito `text-[#F0EDE8]`
+- CSS fallback agregado: `body { color: #F0EDE8 !important; }`
+- Title tag y meta description actualizados
+- `font-dm-sans` (no existia) corregido a `font-body`
+
+**Landing Stands incluye:**
+- Video VSL de Converteai/Vturb embebido (vid-69aedc686975d631dce9cf93)
+- Logo strip animado (12 placeholders para marcas reales)
+- Pricing "Desde $500 USD"
+- Formulario simple (5 campos, no multi-step)
+- FAQ accordion, WhatsApp float, testimoniales
+
+---
+
+### 3. Estrategia de funnel — adaptada de Meta a Google
+
+**Pregunta del usuario:** "La BD de Customer Match deberia estar en la campana de Fase 1 o reservarse para venta?"
+
+**Respuesta:** Customer Match en modo Observacion NO dana en Fase 1 (solo es senal). Pero el PODER real se activa en Fases 2-3.
+
+**Equivalencias definidas:**
+
+| Meta Ads | Google Ads | Fase |
+|----------|-----------|------|
+| ThruPlay (video views) | YouTube In-Stream / Discovery | F1 |
+| Engagement (retargeteo viewers) | Display Remarketing + RLSA | F2 |
+| Conversion (venta a calientes) | Search Smart Bidding + PMax + Customer Match full | F3 |
+
+**Customer Match por fase:**
+- F1: Solo Observacion (senal) en Search. NO en Display.
+- F2: Agregar a Display como audiencia combinada. YouTube como exclusion.
+- F3: PMax senal principal. RLSA +50%. Display targeting directo.
+
+---
+
+### 4. Guias de montaje — 3 fases documentadas
+
+**Archivos creados:**
+
+| Fase | Archivo | Campanas | Budget | Periodo |
+|------|---------|----------|--------|---------|
+| Fase 1: Reconocimiento | `campanas/fase1-guia-montaje-completa.md` | 6 campanas | $5,000 ($83/dia) | Mar-Abr |
+| Fase 2: Consideracion | `campanas/fase2-guia-montaje-completa.md` | 7 campanas | $13,000 ($140/dia) | May-Jul |
+| Fase 3: Urgencia/Venta | `campanas/fase3-guia-montaje-completa.md` | 7 campanas | $22,000 ($237/dia) | Ago-Oct 16 |
+
+**Cada guia incluye** (paso a paso para copiar a Google Ads):
+- Configuracion de puja y presupuesto
+- Settings de redes, ubicaciones con bid adjustments
+- Audiencias con modo correcto (Observacion vs Targeting)
+- Keywords con concordancia exacta y frase
+- Negativos cruzados entre campanas
+- Anuncio RSA completo (15 titulos + 3-4 descripciones)
+- Extensiones (sitelinks, callouts, snippets, call)
+- URL final y ruta visible
+- Checklists de verificacion
+
+**Campana Marca Effix actualizada:**
+- YA EXISTE en Google Ads (estaba detenida, apuntaba solo a Black)
+- Guia cambiada de "Crear" a "Reconfigurar" — 11 pasos para arreglarla
+- Cambios: URL → feriaeffix.com, bidding → Impression Share 90%, quitar Partners, budget → COP $68K
+
+**PDFs generados:**
+
+| PDF | Paginas | Tamano |
+|-----|---------|--------|
+| `assets/pdf/Fase-1-Reconocimiento-Google-Ads-Effix-2026.pdf` | 13+ | 33KB |
+| `assets/pdf/Fase-2-Consideracion-Google-Ads-Effix-2026.pdf` | 20 | 51KB |
+| `assets/pdf/Fase-3-Urgencia-Venta-Google-Ads-Effix-2026.pdf` | 24 | 59KB |
+
+---
+
+### 5. Archivos creados/actualizados en esta sesion
+
+**Nuevos:**
+- `assets/design-system.md` — tokens de diseno completos
+- `assets/landing-black.html` — Landing Black (Stitch MCP)
+- `assets/landing-black-animated.html` — Landing Black con animaciones + fondo premium
+- `assets/main-page.html` — Pagina principal (Stitch MCP)
+- `assets/landing-general-v1.html` — Landing General v1 (Gemini Pro)
+- `assets/landing-general-v2.html` — Landing General v2 corregida
+- `assets/landing-stands.html` — Landing Stands con VSL
+- `assets/screenshot-*.png` — Screenshots de cada pantalla
+- `campanas/fase1-guia-montaje-completa.md` — Guia paso a paso Fase 1
+- `campanas/fase2-guia-montaje-completa.md` — Guia paso a paso Fase 2
+- `campanas/fase3-guia-montaje-completa.md` — Guia paso a paso Fase 3
+- `assets/pdf/Fase-1-*.pdf` — PDF Fase 1
+- `assets/pdf/Fase-2-*.pdf` — PDF Fase 2
+- `assets/pdf/Fase-3-*.pdf` — PDF Fase 3
+- `assets/pdf/generate_pdfs.py` — Script generador de PDFs
+
+**Actualizados:**
+- `campanas/fase1-guia-montaje-completa.md` — Campana 2 cambiada a "Reconfigurar"
+- `bitacoras/bitacora-v3.md` — Esta entrada (v7)
+
+---
+
+### 6. Decisiones tomadas en esta sesion
+
+1. **Funnel por fases** adaptado de Meta (ThruPlay → Engagement → Conversion)
+2. **Customer Match Fase 1 = Observacion solamente** — poder real en F2-F3
+3. **YouTube Awareness** es equivalente a ThruPlay — lanzar cuando haya video
+4. **PMax solo en Fase 3** — necesita data de conversiones
+5. **Smart Bidding despues de 30+ conversiones** — no antes
+6. **Campana Marca Effix se reconfigura** (no crear nueva)
+7. **Landing pages como HTML estatico** (23-51KB) vs Elementor (2-4MB)
+8. **Animaciones vanilla JS/CSS** en vez de React/Framer Motion para preview inmediato
+
+---
+
+### 7. Proximos pasos
+
+**Esta semana (24-28 marzo):**
+1. **Reconfigurar [Search] Marca Effix** — seguir guia Fase 1, Campana 2
+2. **Subir Customer Match CSV** a Google Ads
+3. **Crear [Search] Boletas General** — seguir guia Fase 1, Campana 3
+4. **Crear [Search] Stands** — seguir guia Fase 1, Campana 4
+5. **Crear [Display] Remarketing** — seguir guia Fase 1, Campana 6
+6. **Enviar mockups de landing** al equipo web para implementacion
+
+**Semana 2 (31 mar - 4 abr):**
+7. Revisar rendimiento semana 1 de todas las campanas
+8. Producir video highlights para YouTube Awareness
+9. Conseguir acceso WordPress para cambiar URL y title tag
+10. Investigar Meta Ads (96.5% rebote)
+
+**Criterios para pasar a Fase 2 (Mayo):**
+- 30+ conversiones registradas
+- Remarketing list > 3,000 usuarios
+- YouTube Video Viewers > 10,000
+- CPA establecido
+
+*Proxima entrada: revision semanal post-lanzamiento campanas Fase 1 (2026-03-31)*
+
+---
+
+## v8 — 2026-03-31 | CMP bloquea TODAS las etiquetas en LaTiquetera — 0 conversiones
+
+### Hallazgo critico
+
+**Tag Assistant confirma:** La CMP (Consent Management Platform) de latiquetera.com esta bloqueando TODAS las etiquetas de Google antes de que el usuario de consentimiento. Resultado: **0 hits enviados** desde que se instalo el tracking.
+
+### Evidencia de Tag Assistant
+
+**3 etiquetas encontradas en latiquetera.com, NINGUNA dispara:**
+
+| Etiqueta | ID | Hits enviados |
+|---|---|---|
+| Google Ads (conversion) | AW-17981312035 | **0** |
+| GA4 LaTiquetera | G-7KEHGM7H05 | **0** |
+| GTM Container | GTM-MKGKFGL | Sin acceso para depurar |
+
+**Mensaje de Tag Assistant:**
+> "Una plataforma de gestión del consentimiento (CMP) está bloqueando etiquetas. La CMP que se usa en su sitio para gestionar las opciones de privacidad de los usuarios podría estar impidiendo que se carguen las etiquetas de Google o Tag Manager."
+
+**Agravantes:**
+- No tenemos acceso al contenedor GTM-MKGKFGL (es de LaTiquetera)
+- La CMP bloquea incluso GA4, no solo Google Ads
+- Esto significa que el tag "implementado" en v6 **nunca funciono realmente**
+
+### Impacto en el proyecto
+
+1. **0 conversiones de boletas General/VIP** desde el 20 de marzo (11 dias perdidos)
+2. **Imposible activar Smart Bidding** — seguimos sin las 30+ conversiones necesarias
+3. **Google Ads esta "ciego"** — no puede optimizar hacia compradores
+4. **El estado "IMPLEMENTADO" de v6 era incorrecto** — el tag existe pero la CMP lo mata
+
+### Correccion al estado del tracking
+
+| Producto | Donde | GTM | Conversion | Estado anterior | Estado real |
+|---|---|---|---|---|---|
+| Pasaporte/General/VIP | latiquetera.com | GTM-MKGKFGL | AW-17981312035 | ✅ Implementado | ❌ Bloqueado por CMP |
+
+### Acciones requeridas
+
+| # | Accion | Responsable | Prioridad |
+|---|---|---|---|
+| 1 | Contactar LaTiquetera para que configuren Consent Mode v2 en su CMP | Equipo Effix | 🔴 CRITICA |
+| 2 | Pedir acceso al contenedor GTM-MKGKFGL para poder depurar | Equipo Effix | 🔴 CRITICA |
+| 3 | Si LaTiquetera no resuelve rapido: implementar tracking alternativo (UTM + importacion offline) | Google Ads | 🟠 ALTA |
+| 4 | Compra de prueba DESPUES de que se resuelva la CMP para verificar end-to-end | Equipo Effix | 🟠 ALTA |
+
+### Que debe hacer LaTiquetera con su CMP
+
+1. Identificar que CMP usan (Cookiebot, OneTrust, Iubenda, etc.)
+2. Configurar Google Consent Mode v2:
+   - Tags cargan con `consent: 'denied'` por defecto (permite modelado de conversiones)
+   - Se actualizan a `'granted'` cuando el usuario acepta cookies
+3. Asegurar que la CMP envia correctamente `gtag('consent', 'update', {...})` al dataLayer
+4. Verificar con Tag Assistant que los hits se envian despues del consentimiento
+
+### Leccion aprendida
+
+**"Tag instalado" ≠ "Tag funcionando".** La verificacion con Tag Assistant debe hacerse en el dominio real, no solo revisando que el codigo este en GTM. En futuras implementaciones de terceros, siempre validar con Tag Assistant en el sitio real antes de marcar como completado.
+
+*Proxima entrada: confirmacion de resolucion CMP + primera conversion real*

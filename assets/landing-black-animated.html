@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Black Ticket - Feria Effix 2026 | La Experiencia Premium</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800&amp;family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        primary: "#C9A84C",
+                        secondary: "#B8B8B8",
+                        accent: "#C0392B",
+                        whatsapp: "#25D366",
+                        background: "#000000",
+                        surface: "#1A1A1A",
+                        cream: "#F0EDE8"
+                    },
+                    fontFamily: {
+                        "headline": ["Montserrat", "sans-serif"],
+                        "body": ["DM Sans", "sans-serif"],
+                        "label": ["DM Sans", "sans-serif"]
+                    },
+                    borderRadius: {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                },
+            },
+        }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .bg-gold-glow {
+            box-shadow: 0 0 40px -10px rgba(201, 168, 76, 0.3);
+        }
+        .text-stroke-gold {
+            -webkit-text-stroke: 1px rgba(201, 168, 76, 0.3);
+            color: transparent;
+        }
+
+        /* ===== LUXURY BACKGROUND LAYERS ===== */
+
+        /* Layer 1: Gold particle canvas */
+        #bg-particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* Layer 2: Slow aurora gradient */
+        .bg-aurora {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0.4;
+        }
+        .bg-aurora::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background:
+                radial-gradient(ellipse at 20% 50%, rgba(201,168,76,0.06) 0%, transparent 50%),
+                radial-gradient(ellipse at 80% 20%, rgba(201,168,76,0.04) 0%, transparent 40%),
+                radial-gradient(ellipse at 50% 80%, rgba(192,57,43,0.03) 0%, transparent 40%);
+            animation: auroraMove 25s ease-in-out infinite alternate;
+        }
+        @keyframes auroraMove {
+            0% { transform: translate(0, 0) rotate(0deg) scale(1); }
+            33% { transform: translate(3%, -2%) rotate(1deg) scale(1.02); }
+            66% { transform: translate(-2%, 3%) rotate(-0.5deg) scale(0.98); }
+            100% { transform: translate(1%, -1%) rotate(0.5deg) scale(1.01); }
+        }
+
+        /* Layer 3: Film grain overlay */
+        .bg-grain {
+            position: fixed;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            z-index: 1;
+            pointer-events: none;
+            opacity: 0.025;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+            animation: grainShift 0.5s steps(4) infinite;
+        }
+        @keyframes grainShift {
+            0% { transform: translate(0, 0); }
+            25% { transform: translate(-2%, -1%); }
+            50% { transform: translate(1%, 2%); }
+            75% { transform: translate(-1%, -2%); }
+            100% { transform: translate(2%, 1%); }
+        }
+
+        /* Ensure all real content is above bg layers */
+        body > *:not(#bg-particles):not(.bg-aurora):not(.bg-grain):not(.scroll-progress) {
+            position: relative;
+            z-index: 2;
+        }
+        .scroll-progress { z-index: 1000; }
+
+        /* Reduce motion for accessibility */
+        @media (prefers-reduced-motion: reduce) {
+            .bg-aurora::before { animation: none; }
+            .bg-grain { animation: none; display: none; }
+            #bg-particles { display: none; }
+        }
+
+        /* ===== END LUXURY BACKGROUND ===== */
+
+        /* Fade in from bottom on scroll */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Shimmer effect for CTA buttons */
+        @keyframes shimmer {
+            0% { background-position: -200% center; }
+            100% { background-position: 200% center; }
+        }
+        .btn-shimmer {
+            position: relative;
+            overflow: hidden;
+        }
+        .btn-shimmer::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 50%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            animation: shimmer 3s ease-in-out infinite;
+        }
+
+        /* Gold glow pulse for pricing */
+        @keyframes goldPulse {
+            0%, 100% { box-shadow: 0 0 20px rgba(201,168,76,0.2); }
+            50% { box-shadow: 0 0 40px rgba(201,168,76,0.4); }
+        }
+        .gold-pulse {
+            animation: goldPulse 2s ease-in-out infinite;
+        }
+
+        /* Countdown flip effect */
+        @keyframes flipDown {
+            0% { transform: perspective(200px) rotateX(0); }
+            50% { transform: perspective(200px) rotateX(-10deg); }
+            100% { transform: perspective(200px) rotateX(0); }
+        }
+        .countdown-flip {
+            animation: flipDown 0.6s ease-in-out;
+        }
+
+        /* Stagger children */
+        .stagger-children > * {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        .stagger-children.visible > *:nth-child(1) { transition-delay: 0s; }
+        .stagger-children.visible > *:nth-child(2) { transition-delay: 0.1s; }
+        .stagger-children.visible > *:nth-child(3) { transition-delay: 0.2s; }
+        .stagger-children.visible > *:nth-child(4) { transition-delay: 0.3s; }
+        .stagger-children.visible > *:nth-child(5) { transition-delay: 0.4s; }
+        .stagger-children.visible > * {
+            transition: opacity 0.5s ease-out, transform 0.5s ease-out;
+        }
+        .stagger-children.visible > * {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Smooth announcement bar close */
+        .announcement-bar {
+            transition: max-height 0.3s ease, opacity 0.3s ease, padding 0.3s ease;
+            max-height: 60px;
+            overflow: hidden;
+        }
+        .announcement-bar.hidden-bar {
+            max-height: 0;
+            opacity: 0;
+            padding-top: 0;
+            padding-bottom: 0;
+        }
+
+        /* FAQ accordion */
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s cubic-bezier(0.16, 1, 0.3, 1), padding 0.3s ease;
+            padding: 0 0;
+        }
+        .faq-answer.open {
+            max-height: 300px;
+            padding: 0 0 16px 0;
+        }
+        .faq-icon {
+            transition: transform 0.3s ease;
+        }
+        .faq-icon.rotated {
+            transform: rotate(45deg);
+        }
+
+        /* Exit intent popup */
+        .popup-overlay {
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.8);
+            z-index: 200;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+            backdrop-filter: blur(4px);
+        }
+        .popup-overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+        .popup-content {
+            background: #1A1A1A;
+            border: 1px solid rgba(201,168,76,0.3);
+            border-radius: 16px;
+            padding: 48px;
+            max-width: 480px;
+            width: 90%;
+            transform: scale(0.9) translateY(20px);
+            transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            text-align: center;
+        }
+        .popup-overlay.active .popup-content {
+            transform: scale(1) translateY(0);
+        }
+
+        /* Scroll progress bar */
+        .scroll-progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #C9A84C, #D4B85C);
+            z-index: 1000;
+            transition: width 0.1s linear;
+        }
+    </style>
+</head>
+<body class="bg-black text-cream font-body selection:bg-primary selection:text-black">
+<!-- Luxury Background Layers -->
+<canvas id="bg-particles"></canvas>
+<div class="bg-aurora"></div>
+<div class="bg-grain"></div>
+<div class="scroll-progress" id="scroll-progress" style="width:0%"></div>
+<!-- 1. ANNOUNCEMENT BAR -->
+<div class="announcement-bar bg-accent text-white py-3 px-4 sticky top-0 z-[60] flex justify-between items-center overflow-hidden">
+<div class="flex items-center gap-3 mx-auto">
+<span class="relative flex h-3 w-3">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-white opacity-75"></span>
+<span class="relative inline-flex rounded-full h-3 w-3 bg-white"></span>
+</span>
+<p class="font-headline text-xs md:text-sm tracking-wide uppercase">Solo quedan 47 cupos Black — Asegura el tuyo ahora</p>
+</div>
+<button class="text-white/80 hover:text-white">
+<span class="material-symbols-outlined text-xl">close</span>
+</button>
+</div>
+<!-- TopAppBar (Shared Component) -->
+<nav class="bg-black/90 backdrop-blur-md border-b border-[#C9A84C]/20 docked full-width sticky top-[48px] z-50 shadow-2xl shadow-[#C9A84C]/5">
+<div class="flex justify-between items-center w-full px-6 py-4 max-w-7xl mx-auto">
+<div class="text-xl font-extrabold tracking-tighter text-[#C9A84C] font-headline">Feria Effix 2026</div>
+<div class="hidden md:flex items-center space-gap-8 gap-8">
+<a class="text-[#F0EDE8] hover:text-[#C9A84C] transition-colors text-xs tracking-widest uppercase" href="#">Speakers</a>
+<a class="text-[#F0EDE8] hover:text-[#C9A84C] transition-colors text-xs tracking-widest uppercase" href="#">Tiers</a>
+<a class="text-[#F0EDE8] hover:text-[#C9A84C] transition-colors text-xs tracking-widest uppercase" href="#">FAQ</a>
+<a class="text-[#F0EDE8] hover:text-[#C9A84C] transition-colors text-xs tracking-widest uppercase" href="#">WhatsApp</a>
+</div>
+<a class="bg-primary text-black px-6 py-2 font-headline text-xs tracking-widest hover:brightness-110 active:scale-95 duration-150 ease-in-out transition-all btn-shimmer" href="https://checkout.wompi.co/l/xlLrYC">GET BLACK TICKET</a>
+</div>
+</nav>
+<!-- 2. HERO SECTION -->
+<section class="relative min-h-[921px] flex items-center pt-12 pb-24 px-6 max-w-7xl mx-auto overflow-hidden">
+<div class="grid lg:grid-cols-[60%_40%] gap-12 items-center w-full">
+<div class="space-y-8 z-10">
+<h1 class="text-4xl md:text-7xl font-headline leading-tight">
+                    LA EXPERIENCIA <span class="text-primary">PREMIUM</span> DE FERIA EFFIX 2026
+                </h1>
+<p class="text-xl md:text-2xl text-secondary max-w-xl font-medium">
+                    9 Mentorías Exclusivas. Networking VIP. Backstage Total. 16-18 Octubre, Plaza Mayor Medellín.
+                </p>
+<!-- Countdown -->
+<div class="flex gap-6 py-4">
+<div class="text-center">
+<div class="text-4xl md:text-5xl font-headline text-primary"><span id="countdown-days">245</span></div>
+<div class="text-[10px] tracking-widest uppercase text-secondary">Días</div>
+</div>
+<div class="text-center">
+<div class="text-4xl md:text-5xl font-headline text-primary"><span id="countdown-hours">12</span></div>
+<div class="text-[10px] tracking-widest uppercase text-secondary">Horas</div>
+</div>
+<div class="text-center">
+<div class="text-4xl md:text-5xl font-headline text-primary"><span id="countdown-mins">48</span></div>
+<div class="text-[10px] tracking-widest uppercase text-secondary">Min</div>
+</div>
+<div class="text-center">
+<div class="text-4xl md:text-5xl font-headline text-primary"><span id="countdown-secs">00</span></div>
+<div class="text-[10px] tracking-widest uppercase text-secondary">Seg</div>
+</div>
+</div>
+<div class="pt-4">
+<a class="inline-block bg-primary text-black px-10 py-5 text-lg font-headline tracking-wider hover:bg-white transition-all transform hover:-translate-y-1 shadow-xl shadow-primary/20 btn-shimmer" href="https://checkout.wompi.co/l/xlLrYC">
+                        Asegura tu Black Ticket — $997 USD
+                    </a>
+</div>
+</div>
+<div class="relative aspect-video bg-surface rounded-xl overflow-hidden group border border-white/10">
+<img class="w-full h-full object-cover opacity-60" data-alt="cinematic wide shot of a professional stage setup with dramatic gold lighting and large screens in a luxury conference hall" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBnEx9lu94FqBurkMR5lxkgJQ-P-sTNTj70Ab_QuiHoRfL5Fc9m0_kOIEqlJ7X18LokVy9ry74cC5loGVpBt_gZ8saa6S2Zh0HEDN2X367cD_0aQSbpjGQ590fHN7igSvn_S8UEdyASSVVx1mp2468oXCnW25xJIjKNeIzHGuWDrWxUguknw4Bic22Fw-zqr-heTSD3_zJ7aIlCLN6gCwD6UAdNNj5uMJ4EeX-XdWSoGju-7uM7FE8h_t2R1R1vOXm_lwKFl8rMgg"/>
+<div class="absolute inset-0 flex items-center justify-center">
+<div class="w-20 h-20 bg-primary/90 rounded-full flex items-center justify-center cursor-pointer hover:scale-110 transition-transform group-hover:bg-primary">
+<span class="material-symbols-outlined text-black text-4xl" style="font-variation-settings: 'FILL' 1;">play_arrow</span>
+</div>
+</div>
+<div class="absolute bottom-4 left-4 text-[10px] tracking-widest uppercase text-white/50">Experience the 2025 energy</div>
+</div>
+</div>
+<!-- Decorative Glow -->
+<div class="absolute -top-24 -left-24 w-96 h-96 bg-primary/10 rounded-full blur-[120px]"></div>
+</section>
+<!-- 3. SOCIAL PROOF STRIP -->
+<section class="bg-surface py-12 px-6 border-y border-white/5">
+<div class="max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-5 gap-8 items-center text-center">
+<div class="space-y-1">
+<div class="text-3xl font-headline text-cream count-up" data-count-target="5">0</div>
+<div class="text-[10px] tracking-widest uppercase text-secondary">Ediciones</div>
+</div>
+<div class="space-y-1">
+<div class="text-3xl font-headline text-cream count-up" data-count-target="140000" data-count-suffix="+">0</div>
+<div class="text-[10px] tracking-widest uppercase text-secondary">Asistentes</div>
+</div>
+<div class="space-y-1">
+<div class="text-3xl font-headline text-primary count-up" data-count-target="49256">0</div>
+<div class="text-[10px] tracking-widest uppercase text-secondary">en 2025</div>
+</div>
+<div class="space-y-1">
+<div class="text-3xl font-headline text-cream count-up" data-count-target="380" data-count-suffix="+">0</div>
+<div class="text-[10px] tracking-widest uppercase text-secondary">Marcas</div>
+</div>
+<div class="space-y-1 col-span-2 md:col-span-1">
+<div class="text-3xl font-headline text-cream count-up" data-count-target="8">0</div>
+<div class="text-[10px] tracking-widest uppercase text-secondary">Auditorios</div>
+</div>
+</div>
+</section>
+<!-- 4. PROBLEM/AGITATION -->
+<section class="fade-up py-24 px-6 max-w-4xl mx-auto text-center space-y-8">
+<div class="w-20 h-px bg-primary mx-auto"></div>
+<h2 class="text-2xl md:text-4xl italic font-light text-cream/90 leading-relaxed">
+            "Si eres emprendedor de ecommerce en LATAM y no estás en Effix, estás perdiendo la oportunidad más grande del año."
+        </h2>
+<div class="w-20 h-px bg-primary mx-auto"></div>
+</section>
+<!-- 5. BENEFITS GRID -->
+<section class="fade-up py-24 px-6 max-w-7xl mx-auto">
+<div class="stagger-children grid md:grid-cols-2 gap-8">
+<!-- Card 1 -->
+<div class="bg-surface p-10 border border-white/5 hover:border-primary/30 transition-all group">
+<span class="material-symbols-outlined text-primary text-5xl mb-6 block" style="font-variation-settings: 'FILL' 0;">school</span>
+<h3 class="text-2xl font-headline mb-4 uppercase tracking-tight">9 Mentorías Exclusivas</h3>
+<p class="text-secondary leading-relaxed">Acceso directo a las mentes más brillantes del ecommerce. Sesiones privadas de 60 minutos para desglosar tu modelo de negocio.</p>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface p-10 border border-white/5 hover:border-primary/30 transition-all group">
+<span class="material-symbols-outlined text-primary text-5xl mb-6 block" style="font-variation-settings: 'FILL' 0;">hub</span>
+<h3 class="text-2xl font-headline mb-4 uppercase tracking-tight">Networking VIP con Speakers</h3>
+<p class="text-secondary leading-relaxed">Olvídate de las barreras. Almuerzos y cenas privadas donde el networking ocurre de forma natural con los líderes de la industria.</p>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface p-10 border border-white/5 hover:border-primary/30 transition-all group">
+<span class="material-symbols-outlined text-primary text-5xl mb-6 block" style="font-variation-settings: 'FILL' 0;">restaurant</span>
+<h3 class="text-2xl font-headline mb-4 uppercase tracking-tight">Experiencia Gastronómica Premium</h3>
+<p class="text-secondary leading-relaxed">Catering de autor durante los 3 días del evento. Menú exclusivo diseñado para los asistentes Black en zona reservada.</p>
+</div>
+<!-- Card 4 -->
+<div class="bg-surface p-10 border border-white/5 hover:border-primary/30 transition-all group">
+<span class="material-symbols-outlined text-primary text-5xl mb-6 block" style="font-variation-settings: 'FILL' 0;">confirmation_number</span>
+<h3 class="text-2xl font-headline mb-4 uppercase tracking-tight">Acceso Backstage Total</h3>
+<p class="text-secondary leading-relaxed">Mira lo que nadie ve. Acceso a zonas técnicas, producción y salas de speakers. Vive el evento desde las entrañas.</p>
+</div>
+</div>
+</section>
+<!-- 6. COMPARISON TABLE -->
+<section class="fade-up py-24 px-6 bg-[#050505]">
+<div class="max-w-7xl mx-auto">
+<h2 class="text-3xl md:text-5xl font-headline text-center mb-16">ELIGE TU NIVEL DE ACCESO</h2>
+<div class="grid md:grid-cols-3 gap-0 items-stretch">
+<!-- General -->
+<div class="bg-surface/50 border border-white/5 p-8 flex flex-col">
+<h3 class="text-xl font-headline mb-4">GENERAL</h3>
+<div class="text-3xl font-headline mb-8">$201,300 <span class="text-sm font-normal text-secondary">COP</span></div>
+<ul class="space-y-4 mb-12 flex-grow">
+<li class="flex items-center gap-3 text-secondary text-sm"><span class="material-symbols-outlined text-primary text-lg">check</span> Acceso 3 días</li>
+<li class="flex items-center gap-3 text-secondary text-sm"><span class="material-symbols-outlined text-primary text-lg">check</span> Pabellón Comercial</li>
+<li class="flex items-center gap-3 text-secondary/30 text-sm"><span class="material-symbols-outlined text-lg">close</span> Mentorías</li>
+<li class="flex items-center gap-3 text-secondary/30 text-sm"><span class="material-symbols-outlined text-lg">close</span> Cena VIP</li>
+</ul>
+<button class="w-full border border-secondary text-secondary py-4 font-headline uppercase text-xs tracking-widest hover:bg-white/10 transition-all">Seleccionar</button>
+</div>
+<!-- Black (Highlighted) -->
+<div class="bg-black border-2 border-primary p-8 flex flex-col relative scale-105 z-10 bg-gold-glow gold-pulse">
+<div class="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-primary text-black px-4 py-1 text-[10px] font-headline tracking-tighter uppercase">Más Popular</div>
+<h3 class="text-xl font-headline mb-4 text-primary">BLACK EXPERIENCE</h3>
+<div class="text-4xl font-headline mb-8">$997 <span class="text-sm font-normal text-secondary uppercase">USD</span></div>
+<ul class="space-y-4 mb-12 flex-grow">
+<li class="flex items-center gap-3 text-cream text-sm"><span class="material-symbols-outlined text-primary text-lg">check</span> Acceso 3 días</li>
+<li class="flex items-center gap-3 text-cream text-sm"><span class="material-symbols-outlined text-primary text-lg">check</span> 9 Mentorías Exclusivas</li>
+<li class="flex items-center gap-3 text-cream text-sm"><span class="material-symbols-outlined text-primary text-lg">check</span> Cena VIP con Speakers</li>
+<li class="flex items-center gap-3 text-cream text-sm"><span class="material-symbols-outlined text-primary text-lg">check</span> Acceso Backstage</li>
+<li class="flex items-center gap-3 text-cream text-sm"><span class="material-symbols-outlined text-primary text-lg">check</span> Priority Check-in</li>
+</ul>
+<a class="w-full bg-primary text-black py-4 font-headline uppercase text-xs tracking-widest text-center hover:brightness-110 shadow-lg shadow-primary/20 btn-shimmer" href="https://checkout.wompi.co/l/xlLrYC">Asegurar Mi Cupo</a>
+</div>
+<!-- VIP -->
+<div class="bg-surface/50 border border-white/5 p-8 flex flex-col">
+<h3 class="text-xl font-headline mb-4">VIP SILVER</h3>
+<div class="text-3xl font-headline mb-8">$1,000,000 <span class="text-sm font-normal text-secondary">COP</span></div>
+<ul class="space-y-4 mb-12 flex-grow">
+<li class="flex items-center gap-3 text-secondary text-sm"><span class="material-symbols-outlined text-primary text-lg">check</span> Acceso 3 días</li>
+<li class="flex items-center gap-3 text-secondary text-sm"><span class="material-symbols-outlined text-primary text-lg">check</span> Zona VIP en Charlas</li>
+<li class="flex items-center gap-3 text-secondary text-sm"><span class="material-symbols-outlined text-primary text-lg">check</span> Pack de Bienvenida</li>
+<li class="flex items-center gap-3 text-secondary/30 text-sm"><span class="material-symbols-outlined text-lg">close</span> Cena VIP</li>
+</ul>
+<button class="w-full border border-secondary text-secondary py-4 font-headline uppercase text-xs tracking-widest hover:bg-white/10 transition-all">Seleccionar</button>
+</div>
+</div>
+</div>
+</section>
+<!-- 7. TESTIMONIALS CAROUSEL -->
+<section class="fade-up py-24 px-6 overflow-hidden bg-black">
+<div class="max-w-7xl mx-auto">
+<h2 class="text-center font-headline text-3xl mb-16 tracking-tight">VOCES DEL ÉXITO BLACK</h2>
+<div class="grid md:grid-cols-3 gap-8">
+<!-- Testimonial 1 -->
+<div class="bg-surface p-8 border-l-2 border-primary italic">
+<p class="text-secondary mb-8 leading-relaxed">"La inversión Black se pagó sola en la primera cena. Cerré un acuerdo de distribución que duplicó mi facturación en 3 meses."</p>
+<div class="flex items-center gap-4 not-italic">
+<img class="w-12 h-12 rounded-full object-cover grayscale" data-alt="headshot of a confident young male entrepreneur with a clean professional look against a dark gray background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-bzSkeTdLwpI45vScpo-C1xLUoem4l-vviuP817_Vl4LRWDEUXBgcbWVqs5ajxDYXMGmQoAa9qmqbm28jBal9pXyB4OT_U5irr6j2dZo1g7Bnm8OwA0s4N_gzTlGw0888B4gotJs3kJ-ueSMicus2k-6fANQBN7sxSbmTTm0w6e3yg8nbveWtJhQNby-3atmOVZ4jTf7JC5BINXn_Qgc-PMrhbUKHX0Ic5L_7U8AIJNGcpMVQuRqXoxJCAOz7T_xnIFSahHEe0A"/>
+<div>
+<div class="font-bold text-cream">Carlos Méndez</div>
+<div class="text-xs text-primary uppercase tracking-widest">CEO, EcomFlow</div>
+</div>
+</div>
+</div>
+<!-- Testimonial 2 -->
+<div class="bg-surface p-8 border-l-2 border-primary italic">
+<p class="text-secondary mb-8 leading-relaxed">"Las mentorías son brutales. Tener a un experto de 8 cifras analizando mi funnel fue el punto de inflexión que necesitaba mi marca."</p>
+<div class="flex items-center gap-4 not-italic">
+<img class="w-12 h-12 rounded-full object-cover grayscale" data-alt="professional portrait of a middle-aged woman with glasses and a friendly smile in a modern office setting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB0lqkwQ6wnX9FS-jQ1Cj6qImYj_bZEZr_aT8ojgpn0gy9lKGy4b1TFfStmDohPhnNC9vezR3An_hLFbqN1R5g1nKA-9Eluep4e2cAPjhVxHU8ghzGJB21vZpAxZGaJOT_J1iiGOfWWfWLXo49TYcfnkjPRlmrDHW6daiz_tTGoCRdtKZvgDyre9O8GOjYCUXvKt9CUpix0iGaRfD6niaeQlnidc7c89ycDLk6AozY-PN8FA_-pZ-mC_90zf3PK7yeDh0Zmvpv22g"/>
+<div>
+<div class="font-bold text-cream">Sandra Restrepo</div>
+<div class="text-xs text-primary uppercase tracking-widest">Founder, GlowSkin</div>
+</div>
+</div>
+</div>
+<!-- Testimonial 3 -->
+<div class="bg-surface p-8 border-l-2 border-primary italic">
+<p class="text-secondary mb-8 leading-relaxed">"Si buscas jugar en las grandes ligas, no hay otra opción. El acceso backstage te cambia la perspectiva de cómo se escala un negocio real."</p>
+<div class="flex items-center gap-4 not-italic">
+<img class="w-12 h-12 rounded-full object-cover grayscale" data-alt="close-up portrait of a charismatic latin man in a black polo shirt with soft studio lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAuQ3GNcSGgYeMSyYSHx8NEjZ-o05RFyigQSaNRH1xk9izmivDX9AKZdO1-sdeyx01XrLe_fO7NXiyl4rfwU84rWE9PQK_4DsSNQsp9rSYJILVjnHu60mU0wkUzZ_9zvaWiwNlpM_wSz2zYAZW_wDeA5Cdz770cpETuOfcaAP4V8ViS7P_Sp5Qbo4AVixNdk0ARs1dKILHjTdigC3fDEzkTkXH-vlOMTN81XSDuBeS_UsQgdazauAqMmqbR1-0jn8YxrvB5vFyxrQ"/>
+<div>
+<div class="font-bold text-cream">Julian Velez</div>
+<div class="text-xs text-primary uppercase tracking-widest">Growth Lead, NitroEcom</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 8. VENUE SECTION -->
+<section class="fade-up relative h-[600px] flex items-center justify-center overflow-hidden">
+<img class="absolute inset-0 w-full h-full object-cover grayscale opacity-40" data-alt="aerial twilight view of plaza mayor medellin with modern architecture and bright city lights in the background" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCNObjyTnSTzbXd67DxEJGEP01DnHyYyT_OqsHQUlVvLHhJpdSrlS3UcrtNoRUWJ9eL6OZHgXLdx09aypaIf_RMtipFOr0R8RAtMnom5cBlUmov54iiu72JbODSfFxhQxdz0iEeRfFCbM4HE2NUwlyswrfyok_p255AR_YYInX395pJpGHz5LZIv923GPhocsiOGg3ljx2z88tAqY5MdXwPQcxGkLWVj-rHi_NjL0PuaP5WX2Izl80vPUV0_DLFzRZU3tvoy76iGA"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-black"></div>
+<div class="relative z-10 text-center max-w-3xl px-6">
+<h2 class="text-4xl md:text-6xl font-headline mb-6">MEDELLÍN</h2>
+<p class="text-xl md:text-2xl font-light text-secondary">Capital del Ecommerce en LATAM. Plaza Mayor, el epicentro donde los sueños se transforman en imperios digitales.</p>
+<div class="mt-8 inline-flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined">location_on</span>
+<span class="font-headline tracking-widest text-sm uppercase">Plaza Mayor, Medellín</span>
+</div>
+</div>
+</section>
+<!-- 9. SPEAKERS PREVIEW -->
+<section class="fade-up py-24 px-6 max-w-7xl mx-auto">
+<h2 class="text-center font-headline text-3xl mb-16 tracking-tight">TUS MENTORES BLACK</h2>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+<!-- Speaker 1 -->
+<div class="group text-center">
+<div class="relative mb-6 mx-auto w-40 h-40 md:w-56 md:h-56">
+<div class="absolute inset-0 rounded-full border border-primary scale-110 group-hover:scale-100 transition-transform duration-500"></div>
+<img class="w-full h-full rounded-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="professional headshot of an industry leader with a serious expression, dark studio background, high contrast lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7HcB_sTAGyUUbwFCNWCDIRDAbLLQzIFw3MjvOZTycP4QsfGLyS7Ryzw_XNdgMEGfJvmwAUaMEs-hXhHZbSUoz3C8-Z3ItqyIuY4cQ-xytqrZW8mTuPOykb-LF95M87eD1uAR1uMcP7Y2417cDLsc2iFLkoe1hGhhNnLtHwZqO3SXgIkOt7VUQc8LFb0CquTHr3zbL-tqbxBNL4b-bvkzjTN8UVDuT8X4bcbeht9ljB76wHQ2WkhA6r5KMTMBl3chGyQE2dzf5Lw"/>
+</div>
+<h3 class="font-headline text-lg uppercase">Marcus Rodriguez</h3>
+<p class="text-xs text-secondary tracking-widest uppercase">Dropshipping Titan</p>
+</div>
+<!-- Speaker 2 -->
+<div class="group text-center">
+<div class="relative mb-6 mx-auto w-40 h-40 md:w-56 md:h-56">
+<div class="absolute inset-0 rounded-full border border-primary scale-110 group-hover:scale-100 transition-transform duration-500"></div>
+<img class="w-full h-full rounded-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="portrait of a female tech entrepreneur with short hair and modern glasses, focused and professional look" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDS7pGjNgBjMJIQtzc4wYauHmBQDDQmLr74Eyt5vdWigAhnFicnCCggrCG4hA95jKP24TnFrWc6m6ObYjYhJeBdAtirJrQRCZjAKLnOkL_9cckh7iHVmX14cNRG09B4LaEvwQkO89N_-pmzMhUpFgjk4H_yO9HDhn8CRwBqbXPVVjuoaaJPjETOzXUunkIV3Mb0xT5sgk1IftWw_pBjIbqFmUIhoPxmUOxuQVOmKC187R48AEoheefzuhQDD1Pi8kqI4AzTDqrDKg"/>
+</div>
+<h3 class="font-headline text-lg uppercase">Elena Sofia</h3>
+<p class="text-xs text-secondary tracking-widest uppercase">Ecom Brand Strategist</p>
+</div>
+<!-- Speaker 3 -->
+<div class="group text-center">
+<div class="relative mb-6 mx-auto w-40 h-40 md:w-56 md:h-56">
+<div class="absolute inset-0 rounded-full border border-primary scale-110 group-hover:scale-100 transition-transform duration-500"></div>
+<img class="w-full h-full rounded-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="headshot of a young innovative male expert in casual business attire, looking directly at camera, soft lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBSDotTp5XbsG3o1W8BbTiSDRqiJVz3M9EhOUWSY_GrBcXqoRFZ79ls1O-x4Qvn_loeFWBd6SIzYzdQ8gIRw1ht7CBar9D-tRhU93SQJV8j-J6DMgg1g1qZX6hY3w7JUXIump9hBABgAcPBrOU9xPfahc72rQNqrpdPZu-_v60wrs-q-rpuLF0vKCPJVCw8RsKLmnUWsKt4NmFNgHvK-9xcmlNYg7oXYgZ9VQ2WUOUhApzKfRP_aJ8aaDwoA8BpisaVW6IUBgGIsQ"/>
+</div>
+<h3 class="font-headline text-lg uppercase">Daniel Ortega</h3>
+<p class="text-xs text-secondary tracking-widest uppercase">Ads Mastery Coach</p>
+</div>
+<!-- Speaker 4 -->
+<div class="group text-center">
+<div class="relative mb-6 mx-auto w-40 h-40 md:w-56 md:h-56">
+<div class="absolute inset-0 rounded-full border border-primary scale-110 group-hover:scale-100 transition-transform duration-500"></div>
+<img class="w-full h-full rounded-full object-cover grayscale group-hover:grayscale-0 transition-all duration-500" data-alt="confident professional woman in a dark blazer, smiling slightly, clean high-end studio photography" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDvdxGw8PMRBmr92ueMenSZhppK3v-P7iQq9mJmZsSqc87Cf_qDgJGf6pDbwnzQ61Atms1n6gw5u8D-9xLLM174-ZMhFDWbiSJOZB4bwLB-Y3BQD8ZSsVztIR5FfSFOnIyIM6PiweIz2-Ca7kjQdW5AKoAz-I_Rt3p2ug6SegxJFwitY8PPhE3wBPdNnjm2nlrn9fym3TpdFWXZJrae6_AA-TnvDu3EG82MdldpQWObg5HJF_ROOs0pScsIaB5mDKuahYXs0Yh_KQ"/>
+</div>
+<h3 class="font-headline text-lg uppercase">Maria J. Franco</h3>
+<p class="text-xs text-secondary tracking-widest uppercase">Logistics Expert</p>
+</div>
+</div>
+</section>
+<!-- 10. PRICING + PAYMENT -->
+<section class="fade-up py-24 px-6 bg-surface">
+<div class="max-w-4xl mx-auto text-center gold-pulse" style="border-radius: 8px;">
+<h2 class="text-4xl md:text-5xl font-headline mb-8">ASEGURA TU ENTRADA BLACK</h2>
+<div class="flex items-center justify-center gap-6 mb-12">
+<div class="text-secondary line-through text-2xl font-light">$1,323 USD</div>
+<div class="text-primary text-6xl font-headline">$997 <span class="text-xl uppercase tracking-tighter">USD</span></div>
+</div>
+<div class="space-y-4">
+<a class="block w-full bg-primary text-black py-6 text-xl font-headline tracking-widest hover:bg-white transition-all transform hover:scale-[1.02] btn-shimmer" href="https://checkout.wompi.co/l/xlLrYC">
+                    Pagar $997 USD — Acceso Completo
+                </a>
+<a class="block w-full border-2 border-secondary text-secondary py-6 text-lg font-headline tracking-widest hover:bg-secondary/10 transition-all btn-shimmer" href="https://checkout.wompi.co/l/imLxOX">
+                    Pagar en 4 Cuotas de $250 USD
+                </a>
+</div>
+<div class="mt-12 flex flex-col md:flex-row items-center justify-center gap-8 text-secondary/60">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined">lock</span>
+<span class="text-xs uppercase tracking-widest">Pago 100% Seguro</span>
+</div>
+<div class="flex items-center gap-2 text-accent">
+<span class="material-symbols-outlined">schedule</span>
+<span class="text-xs uppercase tracking-widest font-bold">Oferta Finaliza en 04:22:15</span>
+</div>
+</div>
+</div>
+</section>
+<!-- 11. GUARANTEE BADGE -->
+<section class="fade-up py-12 px-6">
+<div class="max-w-3xl mx-auto border-2 border-primary/20 bg-primary/5 p-12 rounded-xl text-center">
+<span class="material-symbols-outlined text-primary text-6xl mb-6" style="font-variation-settings: 'FILL' 1;">verified_user</span>
+<h3 class="text-2xl font-headline mb-4 uppercase">Garantía de Satisfacción</h3>
+<p class="text-secondary text-lg leading-relaxed italic">
+                Estamos tan seguros del valor que recibirás, que si al finalizar el primer día sientes que no es para ti, te devolvemos tu dinero completo. Sin preguntas.
+            </p>
+</div>
+</section>
+<!-- 12. FAQ ACCORDION -->
+<section class="fade-up py-24 px-6 max-w-4xl mx-auto">
+<h2 class="text-center font-headline text-3xl mb-16 tracking-tight uppercase">Preguntas Frecuentes</h2>
+<div class="space-y-4">
+<!-- FAQ Item 1 -->
+<div class="border-b border-white/10 pb-4">
+<button class="faq-toggle w-full flex justify-between items-center py-4 text-left group">
+<span class="font-bold text-lg text-cream group-hover:text-primary transition-colors">¿Qué incluye exactamente el Black Ticket?</span>
+<span class="material-symbols-outlined text-primary faq-icon">add</span>
+</button>
+<div class="faq-answer text-secondary text-sm leading-relaxed">
+    El Black Ticket incluye acceso completo a los 3 dias del evento, 9 mentorias exclusivas one-on-one, networking VIP con speakers, experiencia gastronomica premium, acceso backstage total, asientos preferenciales en todos los auditorios, y kit de bienvenida exclusivo.
+</div>
+</div>
+<!-- FAQ Item 2 -->
+<div class="border-b border-white/10 pb-4">
+<button class="faq-toggle w-full flex justify-between items-center py-4 text-left group">
+<span class="font-bold text-lg text-cream group-hover:text-primary transition-colors">¿Cuándo se realizan las mentorías?</span>
+<span class="material-symbols-outlined text-primary faq-icon">add</span>
+</button>
+<div class="faq-answer text-secondary text-sm leading-relaxed">
+    Las mentorias se realizan durante los 3 dias del evento en horarios coordinados. Tendras sesiones de 60 minutos con cada mentor en salas privadas dentro del venue.
+</div>
+</div>
+<!-- FAQ Item 3 -->
+<div class="border-b border-white/10 pb-4">
+<button class="faq-toggle w-full flex justify-between items-center py-4 text-left group">
+<span class="font-bold text-lg text-cream group-hover:text-primary transition-colors">¿Puedo pagar con tarjeta de crédito internacional?</span>
+<span class="material-symbols-outlined text-primary faq-icon">add</span>
+</button>
+<div class="faq-answer text-secondary text-sm leading-relaxed">
+    Si, aceptamos todas las tarjetas de credito y debito internacionales a traves de Wompi. Tambien puedes pagar en 4 cuotas sin intereses.
+</div>
+</div>
+<!-- FAQ Item 4 -->
+<div class="border-b border-white/10 pb-4">
+<button class="faq-toggle w-full flex justify-between items-center py-4 text-left group">
+<span class="font-bold text-lg text-cream group-hover:text-primary transition-colors">¿Las mentorías son grupales o individuales?</span>
+<span class="material-symbols-outlined text-primary faq-icon">add</span>
+</button>
+<div class="faq-answer text-secondary text-sm leading-relaxed">
+    Las mentorias son individuales y personalizadas. Cada sesion de 60 minutos es exclusivamente para ti y tu negocio.
+</div>
+</div>
+<!-- FAQ Item 5 -->
+<div class="border-b border-white/10 pb-4">
+<button class="faq-toggle w-full flex justify-between items-center py-4 text-left group">
+<span class="font-bold text-lg text-cream group-hover:text-primary transition-colors">¿Hay descuento para grupos de empresas?</span>
+<span class="material-symbols-outlined text-primary faq-icon">add</span>
+</button>
+<div class="faq-answer text-secondary text-sm leading-relaxed">
+    Si, ofrecemos descuentos para grupos de 3 o mas personas. Contactanos por WhatsApp para recibir tu cotizacion grupal.
+</div>
+</div>
+<!-- FAQ Item 6 -->
+<div class="border-b border-white/10 pb-4">
+<button class="faq-toggle w-full flex justify-between items-center py-4 text-left group">
+<span class="font-bold text-lg text-cream group-hover:text-primary transition-colors">¿Incluye hospedaje en Medellín?</span>
+<span class="material-symbols-outlined text-primary faq-icon">add</span>
+</button>
+<div class="faq-answer text-secondary text-sm leading-relaxed">
+    No, el hospedaje no esta incluido. Sin embargo, tenemos convenios con hoteles cercanos a Plaza Mayor con tarifas preferenciales para asistentes.
+</div>
+</div>
+<!-- FAQ Item 7 -->
+<div class="border-b border-white/10 pb-4">
+<button class="faq-toggle w-full flex justify-between items-center py-4 text-left group">
+<span class="font-bold text-lg text-cream group-hover:text-primary transition-colors">¿Puedo transferir mi cupo Black a otra persona?</span>
+<span class="material-symbols-outlined text-primary faq-icon">add</span>
+</button>
+<div class="faq-answer text-secondary text-sm leading-relaxed">
+    Si, puedes transferir tu cupo a otra persona hasta 15 dias antes del evento sin costo adicional. Contactanos por email.
+</div>
+</div>
+<!-- FAQ Item 8 -->
+<div class="border-b border-white/10 pb-4">
+<button class="faq-toggle w-full flex justify-between items-center py-4 text-left group">
+<span class="font-bold text-lg text-cream group-hover:text-primary transition-colors">¿Qué pasa si no puedo asistir presencialmente?</span>
+<span class="material-symbols-outlined text-primary faq-icon">add</span>
+</button>
+<div class="faq-answer text-secondary text-sm leading-relaxed">
+    El Black Ticket es una experiencia presencial. Si no puedes asistir, puedes transferir tu cupo o solicitar reembolso segun nuestra politica de garantia.
+</div>
+</div>
+</div>
+</section>
+<!-- 13. FINAL CTA -->
+<section class="fade-up py-24 px-6 bg-black border-t border-primary/10">
+<div class="max-w-4xl mx-auto text-center">
+<div class="mb-8 font-headline text-primary text-sm tracking-[0.4em] uppercase">Última Oportunidad</div>
+<h2 class="text-3xl md:text-5xl font-headline mb-12 uppercase leading-tight">Escala tu negocio al siguiente nivel ahora</h2>
+<div class="flex flex-col gap-6 items-center">
+<a class="bg-primary text-black px-12 py-5 text-xl font-headline tracking-widest hover:brightness-110 transition-all w-full md:w-auto btn-shimmer" href="https://checkout.wompi.co/l/xlLrYC">
+                    Asegurar Black Ticket
+                </a>
+<div class="text-secondary/80 flex items-center gap-2">
+<span class="material-symbols-outlined text-whatsapp">chat</span>
+<span>O escríbenos por <a class="text-whatsapp font-bold underline" href="https://wa.me/573206556725">WhatsApp</a></span>
+</div>
+<div class="text-accent font-bold mt-4 animate-pulse">
+                    47 CUPOS RESTANTES
+                </div>
+</div>
+</div>
+</section>
+<!-- 14. WHATSAPP FLOAT -->
+<a class="fixed bottom-8 right-8 z-[100] bg-whatsapp w-16 h-16 rounded-full flex items-center justify-center shadow-2xl hover:scale-110 transition-transform active:scale-90 group" href="https://wa.me/573206556725">
+<div class="absolute inset-0 bg-whatsapp rounded-full animate-ping opacity-20"></div>
+<img alt="WhatsApp" class="w-8 h-8" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAm-_Ozylvxii9Y7ILnuo9eq8tg1x1quclAG9GnEV4xDWBw-jA-wFNNqKMc6c8q4n3yaYb_JCTATwdWdUu0Y7McrIAmdjHSttUIqjRaCYxk1N65UAqTsZuwgDr7LOlESOkYbXJIqhHLQrmheaO7_HvCWWEC-i5W7bZqwtXUs6iYjp_5fWPqUnJcBBr4Ru3s7sbwWqMP3Eo59Ulw1UyIQmEAjyjCNEdGG4wpGYq9znT5QADBCj-bAmx923BC774iBRRMkQYYsxCwMA"/>
+</a>
+<!-- 15. FOOTER -->
+<footer class="bg-black border-t border-[#C9A84C]/10">
+<div class="flex flex-col md:flex-row justify-between items-center px-8 py-12 max-w-7xl mx-auto space-y-6 md:space-y-0">
+<div class="text-lg font-bold text-[#F0EDE8] font-headline">Feria Effix 2026</div>
+<div class="flex gap-8 text-xs tracking-widest uppercase font-label">
+<a class="text-[#B8B8B8] hover:text-[#F0EDE8] transition-colors" href="#">Terms of Service</a>
+<a class="text-[#B8B8B8] hover:text-[#F0EDE8] transition-colors" href="#">Privacy Policy</a>
+<a class="text-[#B8B8B8] hover:text-[#F0EDE8] transition-colors" href="#">Contact</a>
+</div>
+<div class="text-center md:text-right">
+<div class="text-[#B8B8B8] text-xs mb-2">gerencia@feriaeffix.com</div>
+<p class="text-[10px] text-[#B8B8B8] opacity-80 uppercase tracking-tighter">
+                    © 2026 Feria Effix. Plaza Mayor, Medellín. All rights reserved.
+                </p>
+</div>
+</div>
+</footer>
+<!-- EXIT INTENT POPUP -->
+<div class="popup-overlay" id="exit-popup">
+    <div class="popup-content">
+        <button onclick="document.getElementById('exit-popup').classList.remove('active')" class="absolute top-4 right-4 text-secondary hover:text-cream">
+            <span class="material-symbols-outlined">close</span>
+        </button>
+        <span class="material-symbols-outlined text-primary text-5xl mb-4" style="font-variation-settings: 'FILL' 1;">local_fire_department</span>
+        <h3 class="text-2xl font-headline text-cream mb-4 uppercase">Espera! No te vayas sin esto</h3>
+        <p class="text-secondary mb-6">Solo quedan 47 cupos Black. Asegura el tuyo ahora o escribenos por WhatsApp para resolver cualquier duda.</p>
+        <a class="block bg-primary text-black font-headline py-4 px-8 mb-4 hover:brightness-110 transition-all btn-shimmer" href="https://checkout.wompi.co/l/xlLrYC">
+            Asegurar mi Black Ticket
+        </a>
+        <a class="text-whatsapp font-bold flex items-center justify-center gap-2" href="https://wa.me/573206556725">
+            <span class="material-symbols-outlined">chat</span> Hablar por WhatsApp
+        </a>
+    </div>
+</div>
+<script>
+// 1. COUNTDOWN TIMER — target: Oct 16, 2026 08:00 Colombia time
+(function() {
+    const target = new Date('2026-10-16T08:00:00-05:00').getTime();
+    function update() {
+        const now = Date.now();
+        const diff = Math.max(0, target - now);
+        const days = Math.floor(diff / 86400000);
+        const hours = Math.floor((diff % 86400000) / 3600000);
+        const mins = Math.floor((diff % 3600000) / 60000);
+        const secs = Math.floor((diff % 60000) / 1000);
+        const dEl = document.getElementById('countdown-days');
+        const hEl = document.getElementById('countdown-hours');
+        const mEl = document.getElementById('countdown-mins');
+        const sEl = document.getElementById('countdown-secs');
+        if (dEl) dEl.textContent = days;
+        if (hEl) hEl.textContent = String(hours).padStart(2,'0');
+        if (mEl) mEl.textContent = String(mins).padStart(2,'0');
+        if (sEl) {
+            sEl.textContent = String(secs).padStart(2,'0');
+            sEl.classList.remove('countdown-flip');
+            void sEl.offsetWidth;
+            sEl.classList.add('countdown-flip');
+        }
+    }
+    update();
+    setInterval(update, 1000);
+})();
+
+// 2. SCROLL-TRIGGERED NUMBER COUNTER
+(function() {
+    const counters = document.querySelectorAll('.count-up');
+    const observed = new Set();
+    function animateCount(el) {
+        const target = parseInt(el.dataset.countTarget);
+        const suffix = el.dataset.countSuffix || '';
+        const duration = 2000;
+        const start = performance.now();
+        function tick(now) {
+            const elapsed = now - start;
+            const progress = Math.min(elapsed / duration, 1);
+            const eased = 1 - Math.pow(1 - progress, 3); // ease-out cubic
+            const current = Math.floor(eased * target);
+            el.textContent = current.toLocaleString('es-CO') + suffix;
+            if (progress < 1) requestAnimationFrame(tick);
+        }
+        requestAnimationFrame(tick);
+    }
+    const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+            if (e.isIntersecting && !observed.has(e.target)) {
+                observed.add(e.target);
+                animateCount(e.target);
+            }
+        });
+    }, { threshold: 0.5 });
+    counters.forEach(c => io.observe(c));
+})();
+
+// 3. FADE-UP ON SCROLL
+(function() {
+    const els = document.querySelectorAll('.fade-up, .stagger-children');
+    const io = new IntersectionObserver((entries) => {
+        entries.forEach(e => {
+            if (e.isIntersecting) {
+                e.target.classList.add('visible');
+            }
+        });
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+    els.forEach(el => io.observe(el));
+})();
+
+// 4. FAQ ACCORDION
+(function() {
+    document.querySelectorAll('.faq-toggle').forEach(btn => {
+        btn.addEventListener('click', () => {
+            const answer = btn.nextElementSibling;
+            const icon = btn.querySelector('.faq-icon');
+            const isOpen = answer.classList.contains('open');
+            // Close all others
+            document.querySelectorAll('.faq-answer.open').forEach(a => {
+                a.classList.remove('open');
+                a.previousElementSibling.querySelector('.faq-icon').classList.remove('rotated');
+            });
+            if (!isOpen) {
+                answer.classList.add('open');
+                icon.classList.add('rotated');
+            }
+        });
+    });
+})();
+
+// 5. ANNOUNCEMENT BAR CLOSE
+(function() {
+    const bar = document.querySelector('.announcement-bar');
+    const btn = bar && bar.querySelector('button');
+    if (btn && bar) {
+        btn.addEventListener('click', () => {
+            bar.classList.add('hidden-bar');
+            // Adjust nav position
+            const nav = document.querySelector('nav');
+            if (nav) nav.style.top = '0';
+        });
+    }
+})();
+
+// 6. SCROLL PROGRESS BAR
+(function() {
+    const bar = document.getElementById('scroll-progress');
+    if (!bar) return;
+    window.addEventListener('scroll', () => {
+        const h = document.documentElement.scrollHeight - window.innerHeight;
+        const pct = (window.scrollY / h) * 100;
+        bar.style.width = pct + '%';
+    }, { passive: true });
+})();
+
+// 7. EXIT INTENT POPUP (desktop only, once per session)
+(function() {
+    let shown = false;
+    document.addEventListener('mouseleave', (e) => {
+        if (e.clientY < 10 && !shown && window.innerWidth > 768) {
+            shown = true;
+            document.getElementById('exit-popup').classList.add('active');
+        }
+    });
+    // Close on overlay click
+    const overlay = document.getElementById('exit-popup');
+    if (overlay) {
+        overlay.addEventListener('click', (e) => {
+            if (e.target === overlay) overlay.classList.remove('active');
+        });
+    }
+})();
+
+// 8. SMOOTH SCROLL for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+        e.preventDefault();
+        const target = document.querySelector(a.getAttribute('href'));
+        if (target) target.scrollIntoView({ behavior: 'smooth' });
+    });
+});
+
+// 9. NAV BACKGROUND on scroll
+(function() {
+    const nav = document.querySelector('nav');
+    if (!nav) return;
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 100) {
+            nav.classList.add('shadow-2xl');
+        } else {
+            nav.classList.remove('shadow-2xl');
+        }
+    }, { passive: true });
+})();
+
+// 10. GOLD PARTICLES — luxury floating dust
+(function() {
+    const canvas = document.getElementById('bg-particles');
+    if (!canvas) return;
+    const ctx = canvas.getContext('2d');
+    let w, h, particles = [];
+    const PARTICLE_COUNT = 60;
+
+    function resize() {
+        w = canvas.width = window.innerWidth;
+        h = canvas.height = window.innerHeight;
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    class Particle {
+        constructor() { this.reset(); }
+        reset() {
+            this.x = Math.random() * w;
+            this.y = Math.random() * h;
+            this.size = Math.random() * 1.5 + 0.3;
+            this.speedX = (Math.random() - 0.5) * 0.15;
+            this.speedY = -(Math.random() * 0.2 + 0.05);
+            this.opacity = Math.random() * 0.5 + 0.1;
+            this.fadeSpeed = Math.random() * 0.003 + 0.001;
+            this.growing = Math.random() > 0.5;
+            // Gold color with slight variation
+            const hue = 42 + (Math.random() - 0.5) * 10;
+            const sat = 50 + Math.random() * 20;
+            const light = 50 + Math.random() * 15;
+            this.color = `hsla(${hue}, ${sat}%, ${light}%,`;
+        }
+        update() {
+            this.x += this.speedX;
+            this.y += this.speedY;
+            // Gentle sway
+            this.x += Math.sin(Date.now() * 0.0005 + this.y * 0.01) * 0.1;
+            // Fade in/out
+            if (this.growing) {
+                this.opacity += this.fadeSpeed;
+                if (this.opacity >= 0.6) this.growing = false;
+            } else {
+                this.opacity -= this.fadeSpeed;
+                if (this.opacity <= 0.05) this.reset();
+            }
+            // Reset if off screen
+            if (this.y < -10 || this.x < -10 || this.x > w + 10) this.reset();
+        }
+        draw() {
+            ctx.beginPath();
+            ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+            ctx.fillStyle = this.color + this.opacity + ')';
+            ctx.fill();
+            // Subtle glow
+            if (this.size > 1) {
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size * 3, 0, Math.PI * 2);
+                ctx.fillStyle = this.color + (this.opacity * 0.1) + ')';
+                ctx.fill();
+            }
+        }
+    }
+
+    for (let i = 0; i < PARTICLE_COUNT; i++) {
+        particles.push(new Particle());
+    }
+
+    function animate() {
+        ctx.clearRect(0, 0, w, h);
+        particles.forEach(p => { p.update(); p.draw(); });
+        requestAnimationFrame(animate);
+    }
+
+    // Only run if not reduced motion
+    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        animate();
+    }
+})();
+</script>
+</body></html>
