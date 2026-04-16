@@ -1,0 +1,378 @@
+{
+  "brand": "Feria Effix",
+  "edition": "2026 — 6ta versión",
+  "tagline_principal": "La feria de comercio electrónico MÁS GRANDE DEL MUNDO",
+  "tagline_secundario": "Reúne a diversos actores del sector",
+  "parent_group": "Grupo Effi",
+  "sitio_web": "https://feriaeffix.com",
+
+  "evento": {
+    "fechas": "16, 17 y 18 de octubre de 2026",
+    "horario": "9:00 a.m. — 8:00 p.m.",
+    "lugar": "Plaza Mayor, Medellín, Colombia",
+    "direccion": "Cra. 57 # 41-81, La Candelaria",
+    "duracion_dias": 3,
+    "expected_stands": "+300 (sitio menciona 380+)",
+    "expected_conferencias": "160+ conferencias (sitio menciona 180+)",
+    "asistentes_historicos": "140,000+ en 5 ediciones"
+  },
+
+  "tickets": {
+    "pasaporte_3_dias": {
+      "nombre": "Pasaporte 3 Días (General)",
+      "precio_cop": "201,300 COP (fase AFICIONADO, según proyecto-master)",
+      "precio_usd": null,
+      "fase_actual": "AFICIONADO",
+      "canal_compra": "latiquetera.com/site/effix/events/view/feria-comercio-electronico-effix2026",
+      "incluye": [
+        "Acceso a +300 marcas",
+        "Acceso a zonas académicas",
+        "Conferencias generales"
+      ]
+    },
+    "vip": {
+      "nombre": "Entrada VIP",
+      "precio_cop": "1,050,000 COP + IVA",
+      "color_identidad": "Dorado",
+      "canal_compra": "latiquetera.com",
+      "incluye": [
+        "Inauguración privada (15 oct 2026)",
+        "Mastermind privado",
+        "Zona VIP con hidratación",
+        "Auditorio reservado (según disponibilidad)",
+        "Cena VIP exclusiva",
+        "Entrada preferencial con escarapela",
+        "Zona creación de contenido",
+        "Acceso clausura"
+      ]
+    },
+    "black": {
+      "nombre": "Entrada Black",
+      "precio_usd": "$997",
+      "precio_real_usd": "$1,323",
+      "cuotas": "4 pagos de $250 USD",
+      "pasarelas": ["Wompi", "ePayco"],
+      "transferible": false,
+      "color_identidad": "Negro + Dorado",
+      "url_landing": "https://feriaeffix.com/boleta-black/",
+      "urgencia_actual": "SOLO QUEDA EL 43% DISPONIBLE / 57% VENDIDAS",
+      "incluye": [
+        "Escarapela distintiva Black",
+        "Desayuno buffet 3 días",
+        "Almuerzo buffet 3 días",
+        "Cena buffet 3 días",
+        "9 mentorías exclusivas con ponentes premium (durante comidas)",
+        "Zona networking Black exclusiva",
+        "Descuentos en hotelería partner",
+        "Foto/video profesional",
+        "Línea Black de soporte dedicada",
+        "Inauguración privada VIP",
+        "Clausura exclusiva",
+        "Entrada prioritaria 3 días"
+      ]
+    },
+    "stands": {
+      "canal_compra": "WhatsApp +57 320 655 6725",
+      "url": "https://feriaeffix.com/quiero-tener-un-stand/"
+    }
+  },
+
+  "paleta_colores": {
+    "nota": "Colores inferidos de descripciones visuales del sitio y materiales promocionales. Para hex exactos se requiere inspección DOM en navegador.",
+    "brand_principal": {
+      "negro_profundo": "#0A0A0A",
+      "blanco": "#FFFFFF",
+      "azul_brand": "#0066CC",
+      "plateado": "#C0C0C0"
+    },
+    "tier_black": {
+      "fondo_principal": "#000000",
+      "acento_dorado": "#D4AF37",
+      "dorado_oscuro": "#8B6914",
+      "dorado_claro": "#F5D76E",
+      "texto_principal": "#FFFFFF"
+    },
+    "tier_vip": {
+      "dorado_principal": "#D4AF37",
+      "dorado_champagne": "#F7E7CE",
+      "texto_oscuro": "#1A1A1A"
+    },
+    "tier_general": {
+      "azul_brand": "#0066CC",
+      "azul_oscuro": "#003D7A",
+      "blanco": "#FFFFFF"
+    },
+    "accents": {
+      "fuego_cta": "#FF6B35",
+      "verde_whatsapp": "#25D366"
+    }
+  },
+
+  "tipografia": {
+    "nota": "Font-family exacta no visible en HTML público. Patrones observados:",
+    "headings": {
+      "peso": "Bold / Heavy",
+      "tendencia": "UPPERCASE en H1/H2",
+      "estilo": "Sans-serif moderno"
+    },
+    "body": {
+      "peso": "Regular",
+      "tamaño_base": "16px estimado",
+      "line_height": "1.5-1.6"
+    },
+    "cta": {
+      "peso": "Bold",
+      "formato": "UPPERCASE",
+      "ejemplos": ["COMPRA TU ENTRADA BLACK", "¡ASEGURA TU ENTRADA!"]
+    },
+    "recomendacion_uso_replica": {
+      "heading": "Montserrat 800 / Poppins 700 / Archivo Black",
+      "body": "Inter 400-500 / Poppins 400",
+      "display_black": "Bebas Neue / Anton (para titulares impactantes)"
+    }
+  },
+
+  "logos": {
+    "principal_2026": "logos/logo-2026-principal.webp",
+    "variante_2026": "logos/logo-2026-alt.webp",
+    "version_2025": "logos/logo-2025.webp",
+    "parent_group": "logos/logo-grupo-effi.webp",
+    "ubicacion_fisica": "marcas/feria-effix/assets/branding/logos/"
+  },
+
+  "tono_voz": {
+    "idioma": "Español colombiano (neutro)",
+    "formalidad": "Semi-informal, conversacional",
+    "personalidad": [
+      "Motivacional",
+      "Inspiracional",
+      "Disruptivo",
+      "Confrontacional (reta al lector)",
+      "Inclusivo",
+      "Energético"
+    ],
+    "tratamiento": "Tú (nunca usted)",
+    "recursos_retoricos": [
+      "Preguntas retóricas directas al lector",
+      "Frases en MAYÚSCULAS para énfasis emocional",
+      "Contrastes (intentarlo vs lamentarse, solo vs equipo)",
+      "Citas textuales de speakers como autoridad",
+      "Micro-hooks con números (160+, 300+, 140K+)"
+    ],
+    "emojis_recurrentes": ["🔥", "🚀", "✨", "💡", "💥", "🧠", "🤖", "🎤", "📦", "💼", "🤝", "🌐", "🙌", "📍", "🗓️", "⚙️", "📊"],
+    "frases_marca": [
+      "La verdadera transformación comienza cuando TE ATREVES A DAR EL PRIMER PASO",
+      "La feria más grande de comercio electrónico",
+      "Aprendizaje real, estrategias aplicables y mentes que ya están facturando en grande",
+      "Somos la verdadera revolución digital",
+      "Link in bio",
+      "Nos vemos en la Feria EFFIX 2026 🚀✨"
+    ]
+  },
+
+  "ctas": {
+    "primarios": [
+      "¡Compra tu Entrada!",
+      "ASEGURA TU ENTRADA",
+      "COMPRA TU ENTRADA BLACK",
+      "COMPRA TU ENTRADA VIP",
+      "COMPRA TU PASAPORTE 3 DÍAS",
+      "¡Compra tu Stand 2026!",
+      "ADQUIERE TU STAND"
+    ],
+    "secundarios": [
+      "Conócelas aquí (directorio)",
+      "Escríbenos!!",
+      "Link in bio",
+      "Revive su ponencia completa en YouTube"
+    ]
+  },
+
+  "propuesta_valor": {
+    "titular": "Reúne a diversos actores del sector ecommerce en Latinoamérica",
+    "pilares": [
+      {
+        "pilar": "Educación",
+        "descripcion": "160-180+ conferencias con expertos en ecommerce, marketing, ventas y tecnología"
+      },
+      {
+        "pilar": "Networking",
+        "descripcion": "Conexiones reales con founders, CEOs, mentores y compradores"
+      },
+      {
+        "pilar": "Comercio",
+        "descripcion": "300-380+ stands comerciales de productos y servicios"
+      },
+      {
+        "pilar": "Experiencia",
+        "descripcion": "3 días inmersivos de contenido, mentorías y activaciones"
+      }
+    ]
+  },
+
+  "audiencias": {
+    "personas_target": [
+      "Emprendedor / Founder",
+      "Infoproductor / Educador",
+      "Creador de contenido",
+      "Líder de comunidad",
+      "CEO / Director de ecommerce",
+      "Agencia / Proveedor",
+      "Marca que quiere exhibir stand",
+      "Profesional de marketing digital",
+      "Seller en marketplaces"
+    ]
+  },
+
+  "testimonios_destacados": [
+    {
+      "nombre": "Carlos Mendoza",
+      "cargo": "Fundador",
+      "empresa": "TechStore CO",
+      "ciudad": "Bogotá, Colombia",
+      "texto": "Con la Feria Effix pasé de un negocio de 2 personas a 12 personas. Las conexiones que hice fueron clave para mi crecimiento."
+    },
+    {
+      "nombre": "María Fernanda López",
+      "cargo": "CEO",
+      "empresa": "Bella Cosmetics",
+      "ciudad": "Quito, Ecuador",
+      "texto": "La mentoría durante el meet and greet con Vilma Núñez me dio la estrategia que necesitaba. Ese solo consejo valió 10 veces lo que pagué."
+    },
+    {
+      "nombre": "Andrés Villacís",
+      "cargo": "Director",
+      "empresa": "Droplatam",
+      "ciudad": "Guayaquil, Ecuador",
+      "texto": "Vengo desde Ecuador cada año. Las conexiones son invaluables."
+    }
+  ],
+
+  "speakers_confirmados_2026": [
+    {
+      "handle": "@fauadz",
+      "descripcion": "Co-fundador de @myhuevos.co y @mycocos.cl. Fundador del Club de Emprendedores Imparables. Sistema Loops de Marcas Rentables. Ha impulsado +60 marcas."
+    }
+  ],
+
+  "speakers_historicos_citados_en_ig": [
+    "@rigobertouran — frases mentalidad y equipo",
+    "@jmrestrepoa — post viral 38K likes 'palabra MAGIA'",
+    "@aidavictoriam — subió a tarima 20 días post-parto",
+    "@soydavid — IA y ecommerce",
+    "@ivanmazomejia (Escuela de la Riqueza)",
+    "@javireelbe",
+    "@danieltirado",
+    "@julianatabordav",
+    "@santiagovc50 — compras recurrentes",
+    "@francocoronel.cmo",
+    "@andrespatarroyo04 + @patarroyodiego (@academydaco)",
+    "Vilma Núñez (mencionada en testimonios)"
+  ],
+
+  "instagram": {
+    "handle": "@feriaeffix",
+    "url": "https://www.instagram.com/feriaeffix",
+    "fullName": "LA FERIA MÁS GRANDE DE COMERCIO ELECTRÓNICO🔥",
+    "bio": "🛒Ecommerce, innovación, educación y networking\n🗓️ Octubre 16, 17 y 18 de 2026\nMedellín 🇨🇴 Colombia\n👇Conoce más aquí👇",
+    "followers": 380909,
+    "following": 89,
+    "posts_totales": 1229,
+    "highlights": 7,
+    "business_account": true,
+    "verified": false,
+    "engagement_rate_ultimos_60": "0.22%",
+    "avg_likes": 813,
+    "avg_comments": 37,
+    "content_mix_ultimos_60": {
+      "Video_Reels": 31,
+      "Sidecar_Carousel": 15,
+      "Image": 14
+    },
+    "top_hashtags": [
+      "#Ecommerce (18)",
+      "#FeriaEffix2025 (21 total)",
+      "#FeriaEffix (18 total)",
+      "#Networking (8)",
+      "#FeriaEffix2026 (7)",
+      "#NegociosDigitales (7)",
+      "#Emprendimiento (5)"
+    ],
+    "linktree": "https://linktr.ee/feriaeffix",
+    "url_bio_actual": "https://feriaeffix.com/entradas/"
+  },
+
+  "otras_redes": {
+    "facebook": "https://www.facebook.com/feriaeffix",
+    "youtube": "https://www.youtube.com/@feriaeffix",
+    "tiktok": "https://www.tiktok.com/@feriaeffix",
+    "whatsapp_ventas": "https://wa.link/d7o312",
+    "whatsapp_stands_1": "https://api.whatsapp.com/send?phone=573206556725",
+    "whatsapp_stands_2": "https://api.whatsapp.com/send?phone=573147680442"
+  },
+
+  "contacto": {
+    "email": "gerencia@feriaeffix.com",
+    "telefono": "+57 320 655 6725",
+    "sede_administrativa_empresa_padre": "grupoeffi.com"
+  },
+
+  "iconografia": {
+    "estilo": "Iconos planos con silueta azul/plateada con bordes sutiles",
+    "categorias_personas": [
+      "Emprendedor",
+      "Infoproductor",
+      "Comunidad",
+      "CEO",
+      "Creador",
+      "Agencia",
+      "Marca",
+      "Marketer",
+      "Seller"
+    ],
+    "assets_descargados": "marcas/feria-effix/assets/branding/iconos/"
+  },
+
+  "assets_visuales_destacados": {
+    "decoradores": "marcas/feria-effix/assets/branding/decoradores/",
+    "titulos_brandeados": "marcas/feria-effix/assets/branding/logos/titulo-*.webp",
+    "versiones_previas": "marcas/feria-effix/assets/branding/versiones-previas/"
+  },
+
+  "patrones_copy_instagram": {
+    "estructura_posts_ganadores": [
+      "Hook con cita textual de speaker o pregunta provocativa",
+      "Cuerpo con paralelismos y contrastes",
+      "Lista con emojis (🤖 IA, 🧠 mentalidad, 🚀 acción)",
+      "Call to action suave (etiqueta, comenta, link in bio)",
+      "Bloque de hashtags al final"
+    ],
+    "hooks_efectivos": [
+      "El significado de la palabra ___ en la Feria Effix",
+      "20 días después de ___, @speaker estaba en la tarima",
+      "Esto nos lo dijo en tarima @speaker:",
+      "¿a quién quieres ver en 2026?",
+      "La verdadera transformación comienza cuando…"
+    ],
+    "frecuencia_emojis": "5-15 por post",
+    "longitud_caption": "50-800 caracteres (mejor engagement en 200-500)"
+  },
+
+  "urgencia_scarcity_actual": {
+    "headline_scarcity": "SOLO QUEDA EL 43% DISPONIBLE",
+    "metrica_ventas": "57% entradas Black vendidas / 70 de 400 reportadas en proyecto",
+    "frases_tiempo_limitado": [
+      "Precio exclusivo por tiempo limitado",
+      "Sé de los primeros en vivir la experiencia BLACK",
+      "Cada vez que termine una etapa, el valor aumentará"
+    ]
+  },
+
+  "garantia": "Garantizamos ponentes de nivel premium. En 5 ediciones nunca hemos fallado en traer figuras de talla internacional.",
+
+  "meta_seo": {
+    "title_sugerido": "Feria Effix 2026 | La feria de comercio electrónico más grande del mundo",
+    "description_sugerida": "16-18 octubre 2026, Plaza Mayor Medellín. 300+ stands, 160+ conferencias. Networking, educación y ecommerce.",
+    "keywords_objetivo": ["feria effix 2026", "ecommerce colombia", "networking ecommerce", "feria comercio electrónico medellín"]
+  }
+}

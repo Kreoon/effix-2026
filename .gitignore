@@ -9,3 +9,25 @@ assets/*.csv
 .DS_Store
 Thumbs.db
 .mcp.json
+
+# Node + Vite + Vercel builds
+node_modules/
+**/node_modules/
+dist/
+**/dist/
+.vite/
+**/.vite/
+.vercel/
+**/.vercel/
+
+# NanoBanana/Apify/Figma outputs temporales (los assets finales van en assets/nb*/)
+marcas/feria-effix/creativos/nanobanana/output*/
+marcas/feria-effix/creativos/figma-export/*.png
+marcas/feria-effix/creativos/figma-export/*.json
+marcas/feria-effix/creativos/figma-export/*.html
+marcas/feria-effix/creativos/figma-export/*.txt
+marcas/feria-effix/context/branding/output/
+marcas/feria-effix/context/branding/*.html
+
+# Auditoría PDFs (pesados)
+Auditoria_Landing_Effix_2026*.pdf

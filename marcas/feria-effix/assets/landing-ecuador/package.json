@@ -1,0 +1,18 @@
+{
+  "name": "landing-ecuador-circulo-effix",
+  "version": "3.0.0",
+  "private": true,
+  "description": "Landing El Círculo Effix Ecuador (v3 — diseño Figma negro + dorado)",
+  "scripts": {
+    "dev": "vite --open /index-v3.html --port 5173",
+    "dev:v2": "vite --open /index.html --port 5173",
+    "build": "vite build",
+    "preview": "vite preview --port 4173"
+  },
+  "devDependencies": {
+    "vite": "^5.4.10"
+  },
+  "dependencies": {
+    "sharp": "^0.34.5"
+  }
+}

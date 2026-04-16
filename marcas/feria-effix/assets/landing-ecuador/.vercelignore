@@ -1,0 +1,7 @@
+node_modules
+dist
+.vite
+copy-deck-ecuador.md
+README.md
+remove-bg.mjs
+index.html

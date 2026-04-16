@@ -1,0 +1,1443 @@
+<!DOCTYPE html>
+<html lang="es-EC">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Círculo Effix Ecuador — Comunidad WhatsApp de Ecommerce</title>
+<meta name="description" content="Únete a la comunidad WhatsApp de emprendedores ecommerce, dropshipping y comerciantes digitales de Ecuador. Gratis. Networking + recursos + sesiones en vivo."/>
+<meta property="og:title" content="Círculo Effix Ecuador — Comunidad WhatsApp"/>
+<meta property="og:description" content="La comunidad WhatsApp oficial para emprendedores ecommerce, dropshippers y comerciantes digitales de Ecuador. Gratis."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://feriaeffix.com/ecuador/"/>
+<link rel="icon" href="assets/favicon.ico" type="image/x-icon"/>
+
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;600;700;800&family=Roboto:wght@400;500;700;900&family=Anton&family=Archivo+Black&display=swap" rel="stylesheet"/>
+
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('consent', 'default', {
+    analytics_storage: 'denied', ad_storage: 'denied',
+    ad_user_data: 'denied', ad_personalization: 'denied', wait_for_update: 500
+  });
+  (function() {
+    var saved = localStorage.getItem('effix_ec_consent');
+    if (saved === 'granted') gtag('consent', 'update', { analytics_storage: 'granted', ad_storage: 'granted', ad_user_data: 'granted', ad_personalization: 'granted' });
+  })();
+</script>
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','GTM-TLRMK246');</script>
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-CRXZ50VX7D"></script>
+<script>gtag('config', 'G-CRXZ50VX7D', { send_page_view: true, page: 'landing_ec_wa_community_v6' });</script>
+
+<style>
+/* ═══════════════════════════════════════════════════════════════
+   V6 · Comunidad WhatsApp Ecuador — navy + chrome + parallax
+═══════════════════════════════════════════════════════════════ */
+:root {
+  --navy:          #1F1E35;
+  --navy-2:        #22223E;
+  --navy-3:        #2B2B4D;
+  --navy-light:    #3A3A5C;
+  --black-card:    #0A0A14;
+  --white:         #FFFFFF;
+  --text:          #F2F0FF;
+  --muted:         #B8B4D0;
+  --muted-2:       #8682A0;
+  --lilac:         #A89FD4;
+  --lilac-dark:    #8A7ECF;
+  --lilac-deep:    #6B5FB8;
+  --chrome-1:      #F5F5F7;
+  --chrome-2:      #D0D0D8;
+  --chrome-3:      #9C9CAB;
+  --blue-btn:      #6EE0F3;
+  --whatsapp:      #25D366;
+  --whatsapp-dark: #128C7E;
+  --gold:          #FFD700;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'Open Sans', 'Roboto', Arial, sans-serif;
+  background: var(--navy); color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+  /* Solo countdown sticky (54px) + safety = 80px reserved */
+  padding-bottom: 80px;
+}
+
+/* ═══════ STICKER IMAGES — ahora con fondos matching (no blend necesario) ═══════ */
+.sticker-img {
+  width: 100%; max-width: 100%; height: auto; display: block; margin: 0 auto;
+}
+.blend-screen { mix-blend-mode: lighten; }
+
+/* ═══════ SIGNATURE STICKER FALLBACK ═══════ */
+.sticker {
+  font-family: 'Archivo Black', 'Anton', Impact, sans-serif; font-weight: 900;
+  color: var(--white); -webkit-text-stroke: 3px var(--black-card);
+  text-shadow: 5px 5px 0 var(--black-card), -1px -1px 0 rgba(255,255,255,0.1);
+  text-transform: uppercase; line-height: 0.92; display: inline-block; transform: rotate(-1deg);
+}
+.sticker-sm {
+  font-family: 'Archivo Black', sans-serif; color: var(--white);
+  -webkit-text-stroke: 2px var(--black-card); text-shadow: 3px 3px 0 var(--black-card);
+  text-transform: uppercase; display: inline-block;
+}
+.h-display { font-family: 'Open Sans', sans-serif; font-weight: 800; text-transform: uppercase; line-height: 1.05; }
+.h-archivo { font-family: 'Roboto', sans-serif; font-weight: 900; text-transform: uppercase; line-height: 1; }
+
+/* ═══════════════════════════════════════════
+   TESTIMONIOS — 3 tarjetas verticales premium
+═══════════════════════════════════════════ */
+.testimonios-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+@media (min-width: 768px) {
+  .testimonios-grid { grid-template-columns: repeat(3, 1fr); gap: 22px; }
+}
+
+.testimonio-card {
+  position: relative;
+  background: linear-gradient(180deg, #1a1a2e 0%, #0A0A14 100%);
+  border: 2px solid rgba(255,255,255,0.08);
+  border-radius: 24px;
+  padding: 64px 26px 28px;
+  margin: 48px 0 0;
+  transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+  display: flex; flex-direction: column;
+}
+.testimonio-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 24px 56px rgba(0,0,0,0.5);
+}
+.testimonio-card[data-accent="whatsapp"] { border-color: rgba(37,211,102,0.25); }
+.testimonio-card[data-accent="whatsapp"]:hover { border-color: var(--whatsapp); box-shadow: 0 24px 56px rgba(37,211,102,0.3); }
+.testimonio-card[data-accent="lilac"] { border-color: rgba(168,159,212,0.25); }
+.testimonio-card[data-accent="lilac"]:hover { border-color: var(--lilac); box-shadow: 0 24px 56px rgba(168,159,212,0.3); }
+.testimonio-card[data-accent="gold"] { border-color: rgba(255,215,0,0.3); }
+.testimonio-card[data-accent="gold"]:hover { border-color: var(--gold); box-shadow: 0 24px 56px rgba(255,215,0,0.25); }
+
+/* Avatar flotante arriba-centro de la card */
+.testimonio-avatar-wrap {
+  position: absolute; top: -40px; left: 50%;
+  transform: translateX(-50%);
+  width: 88px; height: 88px;
+}
+.testimonio-avatar,
+.testimonio-avatar-fallback {
+  width: 88px; height: 88px; border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--navy);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+  display: block;
+}
+.testimonio-avatar-fallback {
+  display: none;
+  align-items: center; justify-content: center;
+  font-family: 'Roboto'; font-weight: 900; font-size: 28px;
+  color: var(--white);
+}
+.testimonio-card[data-accent="whatsapp"] .testimonio-avatar,
+.testimonio-card[data-accent="whatsapp"] .testimonio-avatar-fallback {
+  border-color: var(--whatsapp);
+}
+.testimonio-card[data-accent="whatsapp"] .testimonio-avatar-fallback {
+  background: linear-gradient(135deg, #2ce872, var(--whatsapp-dark));
+}
+.testimonio-card[data-accent="lilac"] .testimonio-avatar,
+.testimonio-card[data-accent="lilac"] .testimonio-avatar-fallback {
+  border-color: var(--lilac);
+}
+.testimonio-card[data-accent="lilac"] .testimonio-avatar-fallback {
+  background: linear-gradient(135deg, var(--lilac), var(--lilac-deep));
+}
+.testimonio-card[data-accent="gold"] .testimonio-avatar,
+.testimonio-card[data-accent="gold"] .testimonio-avatar-fallback {
+  border-color: var(--gold);
+}
+.testimonio-card[data-accent="gold"] .testimonio-avatar-fallback {
+  background: linear-gradient(135deg, var(--gold), #E6B800);
+  color: var(--navy);
+}
+
+/* Badge estrella en la esquina del avatar */
+.testimonio-badge {
+  position: absolute; bottom: -2px; right: -2px;
+  width: 26px; height: 26px; border-radius: 50%;
+  background: var(--gold); color: var(--navy);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 14px; font-weight: 900;
+  border: 3px solid var(--navy);
+}
+
+.testimonio-quote {
+  color: var(--text); font-size: 15px; line-height: 1.6;
+  margin: 0 0 22px; font-style: italic;
+  text-align: center;
+  position: relative;
+  flex: 1;
+}
+.testimonio-quote::before {
+  content: '"'; position: absolute;
+  top: -30px; left: -10px;
+  font-family: Georgia, serif; font-size: 72px;
+  color: rgba(255,255,255,0.1);
+  font-style: normal; line-height: 1;
+  pointer-events: none;
+}
+.testimonio-card[data-accent="whatsapp"] .testimonio-quote::before { color: rgba(37,211,102,0.2); }
+.testimonio-card[data-accent="lilac"]    .testimonio-quote::before { color: rgba(168,159,212,0.2); }
+.testimonio-card[data-accent="gold"]     .testimonio-quote::before { color: rgba(255,215,0,0.2); }
+.testimonio-quote strong { font-style: normal; color: var(--white); }
+.testimonio-card[data-accent="whatsapp"] .testimonio-quote strong { color: var(--whatsapp); }
+.testimonio-card[data-accent="lilac"]    .testimonio-quote strong { color: var(--lilac); }
+.testimonio-card[data-accent="gold"]     .testimonio-quote strong { color: var(--gold); }
+
+.testimonio-meta {
+  text-align: center;
+  padding-bottom: 18px;
+  border-bottom: 1px dashed rgba(255,255,255,0.12);
+  margin-bottom: 16px;
+}
+.testimonio-name {
+  color: var(--white); font-weight: 800; font-size: 17px;
+  margin-bottom: 4px;
+}
+.testimonio-role {
+  font-size: 10px; font-weight: 800;
+  letter-spacing: 0.2em; text-transform: uppercase;
+}
+.testimonio-card[data-accent="whatsapp"] .testimonio-role { color: var(--whatsapp); }
+.testimonio-card[data-accent="lilac"]    .testimonio-role { color: var(--lilac); }
+.testimonio-card[data-accent="gold"]     .testimonio-role { color: var(--gold); }
+
+.testimonio-stat {
+  display: flex; justify-content: space-between; align-items: center;
+}
+.testimonio-stat .stat-label {
+  color: var(--muted-2); font-size: 11px; font-weight: 600;
+  text-transform: uppercase; letter-spacing: 0.1em;
+}
+.testimonio-stat .stat-value {
+  font-family: 'Roboto'; font-weight: 900;
+  font-size: 18px; color: var(--white);
+}
+.testimonio-card[data-accent="whatsapp"] .stat-value { color: var(--whatsapp); }
+.testimonio-card[data-accent="lilac"]    .stat-value { color: var(--lilac); }
+.testimonio-card[data-accent="gold"]     .stat-value { color: var(--gold); }
+
+/* ═══════════════════════════════════════════
+   ¿QUÉ ES EL CÍRCULO? — 3 tarjetas verticales (sobre fondo blanco)
+═══════════════════════════════════════════ */
+.ques-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+@media (min-width: 768px) {
+  .ques-grid { grid-template-columns: repeat(3, 1fr); gap: 20px; }
+}
+
+.ques-card {
+  position: relative;
+  background: #f7f5fb;
+  border: 2px solid rgba(31,30,53,0.08);
+  border-radius: 24px;
+  padding: 32px 24px 28px;
+  text-align: left;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+  overflow: hidden;
+}
+.ques-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 40px rgba(31,30,53,0.12);
+}
+.ques-card[data-accent="whatsapp"] { border-color: rgba(37,211,102,0.2); }
+.ques-card[data-accent="whatsapp"]:hover { border-color: var(--whatsapp); background: #f0fff6; }
+.ques-card[data-accent="lilac"] { border-color: rgba(138,126,207,0.25); }
+.ques-card[data-accent="lilac"]:hover { border-color: var(--lilac-dark); background: #f5f3ff; }
+.ques-card[data-accent="gold"] { border-color: rgba(230,184,0,0.3); }
+.ques-card[data-accent="gold"]:hover { border-color: var(--gold); background: #fffbeb; }
+
+.ques-icon {
+  width: 64px; height: 64px;
+  border-radius: 18px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 30px;
+  margin-bottom: 22px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  color: var(--white);
+}
+.ques-card[data-accent="whatsapp"] .ques-icon {
+  background: linear-gradient(135deg, #2ce872, var(--whatsapp-dark));
+  box-shadow: 0 8px 20px rgba(37,211,102,0.4);
+}
+.ques-card[data-accent="lilac"] .ques-icon {
+  background: linear-gradient(135deg, var(--lilac), var(--lilac-deep));
+  box-shadow: 0 8px 20px rgba(138,126,207,0.4);
+}
+.ques-card[data-accent="gold"] .ques-icon {
+  background: linear-gradient(135deg, #FFE14D, var(--yellow-deep, #E6A800));
+  box-shadow: 0 8px 20px rgba(255,215,0,0.4);
+  color: var(--navy);
+}
+
+.ques-number {
+  position: absolute; top: 28px; right: 24px;
+  font-family: 'Roboto'; font-weight: 900;
+  font-size: 56px;
+  color: rgba(31,30,53,0.06);
+  line-height: 1;
+  pointer-events: none;
+}
+
+.ques-title {
+  font-family: 'Open Sans'; font-weight: 800;
+  font-size: 26px; line-height: 1.05;
+  color: var(--navy);
+  text-transform: uppercase; letter-spacing: 0.01em;
+  margin-bottom: 14px;
+  position: relative; z-index: 1;
+}
+
+.ques-desc {
+  color: #4a4660;
+  font-size: 14px; line-height: 1.6;
+  margin: 0 0 20px;
+  position: relative; z-index: 1;
+}
+
+.ques-meta {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 6px 12px;
+  background: rgba(31,30,53,0.05);
+  border-radius: 100px;
+  font-size: 11px; font-weight: 700;
+  color: var(--navy);
+  letter-spacing: 0.05em;
+}
+.ques-card[data-accent="whatsapp"] .ques-meta { background: rgba(37,211,102,0.12); color: var(--whatsapp-dark); }
+.ques-card[data-accent="lilac"] .ques-meta { background: rgba(138,126,207,0.15); color: var(--lilac-deep); }
+.ques-card[data-accent="gold"] .ques-meta { background: rgba(255,215,0,0.18); color: #8B6508; }
+
+/* ═══════════════════════════════════════════
+   KIT — 3 TARJETAS VERTICALES PREMIUM
+═══════════════════════════════════════════ */
+.kit-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+/* Directamente a 3 columnas en tablet/desktop · sin pasar por 2 */
+@media (min-width: 768px) {
+  .kit-grid { grid-template-columns: repeat(3, 1fr); gap: 18px; }
+}
+@media (min-width: 1024px) {
+  .kit-grid { gap: 24px; }
+}
+
+.kit-card {
+  position: relative;
+  background: linear-gradient(180deg, #12122a 0%, #0A0A14 100%);
+  border: 2px solid rgba(255,255,255,0.08);
+  border-radius: 24px;
+  overflow: hidden;
+  display: flex; flex-direction: column;
+  transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+.kit-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 48px rgba(0,0,0,0.5);
+}
+.kit-card[data-accent="lilac"] { border-color: rgba(168,159,212,0.25); }
+.kit-card[data-accent="lilac"]:hover { border-color: var(--lilac); box-shadow: 0 20px 48px rgba(168,159,212,0.3); }
+.kit-card[data-accent="gold"] { border-color: rgba(255,215,0,0.25); }
+.kit-card[data-accent="gold"]:hover { border-color: var(--gold); box-shadow: 0 20px 48px rgba(255,215,0,0.3); }
+.kit-card[data-accent="whatsapp"] { border-color: rgba(37,211,102,0.3); }
+.kit-card[data-accent="whatsapp"]:hover { border-color: var(--whatsapp); box-shadow: 0 20px 48px rgba(37,211,102,0.35); }
+
+.kit-card-featured {
+  border-width: 3px !important;
+  box-shadow: 0 14px 40px rgba(37,211,102,0.25);
+}
+@media (min-width: 768px) {
+  .kit-card-featured { transform: scale(1.03); z-index: 2; }
+}
+
+.featured-ribbon {
+  position: absolute; top: 14px; right: -32px;
+  background: linear-gradient(90deg, var(--whatsapp), var(--whatsapp-dark));
+  color: var(--white);
+  padding: 6px 40px;
+  font-family: 'Open Sans'; font-weight: 800; font-size: 10px;
+  letter-spacing: 0.15em;
+  transform: rotate(35deg);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  z-index: 3;
+}
+
+.kit-card-hero {
+  position: relative;
+  width: 100%; aspect-ratio: 1/1;
+  background: #0A0A14;
+  display: flex; align-items: center; justify-content: center;
+  overflow: hidden;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.kit-card-hero img {
+  width: 100%; height: 100%; object-fit: cover;
+  transition: transform 0.4s ease;
+}
+.kit-card:hover .kit-card-hero img { transform: scale(1.05); }
+.kit-card-badge {
+  position: absolute; top: 14px; left: 14px; z-index: 2;
+  width: 38px; height: 38px; border-radius: 50%;
+  background: var(--white); color: var(--navy);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Roboto'; font-weight: 900; font-size: 16px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  border: 2px solid var(--white);
+}
+
+.kit-card-body {
+  padding: 24px 22px 26px;
+  display: flex; flex-direction: column; gap: 12px;
+  flex: 1;
+}
+.kit-card-eyebrow {
+  font-family: 'Open Sans'; font-weight: 800;
+  font-size: 10px; letter-spacing: 0.2em; text-transform: uppercase;
+}
+.kit-card-title {
+  font-family: 'Open Sans'; font-weight: 800;
+  font-size: 20px; line-height: 1.15;
+  color: var(--white);
+  text-transform: uppercase; letter-spacing: 0.01em;
+}
+.kit-card-desc {
+  color: var(--muted); font-size: 13px; line-height: 1.5;
+  margin: 0;
+}
+.kit-card-features {
+  list-style: none; padding: 0; margin: 8px 0 0;
+  display: flex; flex-direction: column; gap: 8px;
+  flex: 1;
+}
+.kit-card-features li {
+  display: flex; gap: 10px; align-items: flex-start;
+  color: var(--text); font-size: 13px; line-height: 1.4;
+}
+.kit-card-features .check {
+  flex-shrink: 0;
+  width: 18px; height: 18px; border-radius: 50%;
+  background: rgba(255,255,255,0.1);
+  color: var(--white);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 10px; font-weight: 800;
+  margin-top: 2px;
+}
+.kit-card[data-accent="lilac"] .check    { background: rgba(168,159,212,0.2); color: var(--lilac); }
+.kit-card[data-accent="gold"] .check     { background: rgba(255,215,0,0.2);   color: var(--gold); }
+.kit-card[data-accent="whatsapp"] .check { background: var(--whatsapp);       color: var(--white); }
+
+.kit-card-price {
+  display: flex; align-items: baseline; gap: 10px;
+  padding-top: 14px; margin-top: 8px;
+  border-top: 1px dashed rgba(255,255,255,0.12);
+}
+.price-old {
+  color: var(--muted-2); font-size: 13px;
+  text-decoration: line-through;
+}
+.price-now {
+  font-family: 'Roboto'; font-weight: 900;
+  font-size: 22px; color: var(--white);
+  letter-spacing: 0.02em;
+}
+.kit-card[data-accent="lilac"] .price-now    { color: var(--lilac); }
+.kit-card[data-accent="gold"] .price-now     { color: var(--gold); }
+.kit-card[data-accent="whatsapp"] .price-now { color: var(--whatsapp); }
+
+/* ═══════ CONTAINER ═══════ */
+.container { max-width: 480px; margin: 0 auto; padding: 0 20px; position: relative; }
+@media (min-width: 768px) { .container { max-width: 960px; padding: 0 32px; } }
+@media (min-width: 1024px) { .container { max-width: 1200px; } }
+
+/* Kit section necesita container ancho para 3 columnas */
+#kit .container { max-width: 1240px; }
+
+@media (min-width: 640px) { .sticker-img { max-width: 520px; } }
+
+/* ═══════ TOP BAR ═══════ */
+.top-bar {
+  background: var(--navy-2); border-bottom: 1px solid var(--navy-light);
+  padding: 10px 20px; display: flex; align-items: center; justify-content: space-between;
+  gap: 12px; font-size: 12px; flex-wrap: wrap;
+  position: relative; z-index: 10;
+}
+.top-bar .brand-name {
+  font-family: 'Open Sans', sans-serif; font-weight: 800;
+  color: var(--white); font-size: 15px; letter-spacing: 0.05em; text-transform: uppercase;
+}
+.top-bar .event-info { color: var(--muted); font-size: 12px; }
+.top-cta {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 6px 14px; border-radius: 100px;
+  background: rgba(37,211,102,0.15); border: 1px solid var(--whatsapp);
+  color: var(--whatsapp); font-size: 12px; font-weight: 700;
+  text-decoration: none; white-space: nowrap; transition: all 0.15s ease;
+}
+.top-cta:hover { background: var(--whatsapp); color: var(--white); }
+
+/* ═══════════════════════════════════════════
+   LOGO HERO BLOCK · fondo blanco + bandera Ecuador saliendo detrás del "6"
+═══════════════════════════════════════════ */
+.logo-hero-block {
+  background: var(--white);
+  padding: 44px 20px;
+  position: relative;
+  overflow: hidden;
+  border-bottom: 4px solid var(--navy);
+}
+.logo-hero-block::before,
+.logo-hero-block::after {
+  content: "★"; position: absolute;
+  color: var(--navy); opacity: 0.06;
+  font-size: 180px; font-family: 'Arial';
+  pointer-events: none;
+}
+.logo-hero-block::before { top: -50px; left: -30px; transform: rotate(-15deg); }
+.logo-hero-block::after  { bottom: -60px; right: -30px; transform: rotate(15deg); }
+
+.logo-wrap {
+  position: relative;
+  max-width: 520px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 160px;
+}
+.logo-main {
+  position: relative; z-index: 3;
+  width: 100%; max-width: 480px; height: auto;
+  display: block;
+  filter: drop-shadow(0 6px 18px rgba(0,0,0,0.15));
+}
+
+/* Bandera Ecuador saliendo DETRÁS del logo, desde la derecha (cerca del "6") */
+.ec-flag-emerging {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(30%, -50%) rotate(-6deg);
+  width: 180px; height: 118px;
+  border-radius: 4px; overflow: hidden;
+  box-shadow: 0 12px 32px rgba(0,0,0,0.25), inset 0 0 0 1px rgba(0,0,0,0.08);
+  z-index: 1;
+  display: flex; flex-direction: column;
+  animation: waveFlag 4.5s ease-in-out infinite;
+}
+.ec-flag-emerging::after {
+  /* Fold/shadow efecto tela */
+  content: ''; position: absolute; inset: 0;
+  background:
+    linear-gradient(90deg, rgba(0,0,0,0.15) 0%, transparent 15%, transparent 85%, rgba(0,0,0,0.2) 100%),
+    linear-gradient(180deg, rgba(255,255,255,0.1) 0%, transparent 40%, rgba(0,0,0,0.1) 100%);
+  pointer-events: none;
+}
+.flag-stripe { width: 100%; }
+.flag-stripe.yellow { height: 50%; background: #FFCE00; }
+.flag-stripe.blue   { height: 25%; background: #034EA2; }
+.flag-stripe.red    { height: 25%; background: #ED1C24; }
+
+/* Mast/asta sutil a la izquierda de la bandera para efecto "saliendo detrás" */
+.ec-flag-emerging::before {
+  content: ''; position: absolute;
+  left: -3px; top: -8px; bottom: -8px;
+  width: 4px; background: linear-gradient(180deg, #888, #555 50%, #333);
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+@keyframes waveFlag {
+  0%,100% { transform: translate(30%, -50%) rotate(-6deg) skewY(0deg); }
+  33%     { transform: translate(30%, -52%) rotate(-4deg) skewY(-2deg); }
+  66%     { transform: translate(30%, -48%) rotate(-8deg) skewY(2deg); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ec-flag-emerging { animation: none; }
+}
+@media (min-width: 768px) {
+  .logo-hero-block { padding: 64px 32px; }
+  .logo-wrap { min-height: 200px; }
+  .logo-main { max-width: 560px; }
+  .ec-flag-emerging { width: 220px; height: 144px; transform: translate(35%, -50%) rotate(-6deg); }
+  @keyframes waveFlag {
+    0%,100% { transform: translate(35%, -50%) rotate(-6deg) skewY(0deg); }
+    33%     { transform: translate(35%, -52%) rotate(-4deg) skewY(-2deg); }
+    66%     { transform: translate(35%, -48%) rotate(-8deg) skewY(2deg); }
+  }
+}
+
+/* ═══════ BADGE ECUADOR con bandera de fondo ═══════ */
+.badge-ec-flag {
+  position: relative; overflow: hidden;
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 6px 14px; border-radius: 100px;
+  border: 1.5px solid var(--white);
+  color: var(--white); font-size: 11px; font-weight: 800;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  box-shadow: 2px 2px 0 var(--black-card);
+  text-shadow: 0 1px 2px rgba(0,0,0,0.6);
+}
+.badge-ec-flag::before {
+  content: ''; position: absolute; inset: 0; z-index: 0;
+  background: linear-gradient(180deg, #FFCE00 0%, #FFCE00 50%, #034EA2 50%, #034EA2 75%, #ED1C24 75%, #ED1C24 100%);
+  opacity: 0.88;
+}
+.badge-ec-flag > * { position: relative; z-index: 2; }
+
+/* ═══════ NAV ═══════ */
+.nav {
+  background: var(--white); padding: 0 20px; height: 48px;
+  display: flex; align-items: center; justify-content: center; gap: 4px;
+  overflow-x: auto; white-space: nowrap; scrollbar-width: none;
+  position: sticky; top: 0; z-index: 40;
+}
+.nav::-webkit-scrollbar { display: none; }
+.nav a {
+  color: var(--navy); text-decoration: none; padding: 8px 14px;
+  font-size: 13px; font-weight: 600;
+  border-bottom: 2px solid transparent; transition: all 0.15s;
+}
+.nav a:hover, .nav a.active { border-bottom-color: var(--whatsapp); color: var(--whatsapp-dark); }
+
+/* ═══════ BLACK CARDS ═══════ */
+.card-black {
+  background: var(--black-card); border: 3px solid var(--white);
+  border-radius: 24px; padding: 24px;
+  box-shadow: 4px 4px 0 rgba(0,0,0,0.4); color: var(--white);
+}
+.card-black.rounded-xl { border-radius: 36px; }
+.card-wa {
+  background: linear-gradient(135deg, rgba(37,211,102,0.1) 0%, rgba(18,140,126,0.15) 100%);
+  border-color: var(--whatsapp);
+  box-shadow: 4px 4px 0 rgba(37,211,102,0.4);
+}
+
+/* ═══════ BUTTONS ═══════ */
+.btn-whatsapp {
+  display: inline-flex; align-items: center; justify-content: center; gap: 12px;
+  background: linear-gradient(180deg, #2ce872 0%, var(--whatsapp) 50%, var(--whatsapp-dark) 100%);
+  color: var(--white); text-decoration: none; cursor: pointer; border: 2px solid #2ce872;
+  padding: 18px 32px; border-radius: 100px;
+  font-family: 'Open Sans', sans-serif; font-weight: 800;
+  font-size: 17px; letter-spacing: 0.04em; text-transform: uppercase;
+  box-shadow: 4px 4px 0 var(--black-card), 0 10px 30px rgba(37,211,102,0.5);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+  width: fit-content; min-width: 280px;
+}
+.btn-whatsapp:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--black-card), 0 14px 36px rgba(37,211,102,0.6); }
+.btn-whatsapp:active { transform: translate(0, 0); box-shadow: 2px 2px 0 var(--black-card); }
+.btn-whatsapp svg { flex-shrink: 0; }
+
+.btn-lilac {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  background: linear-gradient(180deg, var(--lilac) 0%, var(--lilac-dark) 100%);
+  color: var(--white); text-decoration: none; cursor: pointer; border: 2px solid var(--white);
+  padding: 14px 28px; border-radius: 100px;
+  font-family: 'Open Sans', sans-serif; font-weight: 800;
+  font-size: 15px; letter-spacing: 0.04em; text-transform: uppercase;
+  box-shadow: 4px 4px 0 var(--black-card);
+  transition: transform 0.15s ease;
+}
+.btn-lilac:hover { transform: translate(-2px, -2px); box-shadow: 6px 6px 0 var(--black-card); }
+
+/* ═══════ SÉ PARTE CARDS ═══════ */
+.card-icon {
+  background: var(--black-card); border: 2px solid var(--white);
+  border-radius: 16px; padding: 18px 12px; text-align: center;
+  box-shadow: 3px 3px 0 rgba(0,0,0,0.5); transition: transform 0.2s ease;
+}
+.card-icon:hover { transform: translate(-2px, -2px); box-shadow: 5px 5px 0 rgba(0,0,0,0.5); }
+.card-icon .icon-circle {
+  width: 52px; height: 52px; border-radius: 50%; background: var(--whatsapp);
+  margin: 0 auto 12px; display: flex; align-items: center; justify-content: center;
+  color: var(--white); font-size: 24px;
+}
+.card-icon p { color: var(--white); font-size: 13px; line-height: 1.35; font-weight: 600; }
+
+/* Sé parte: 1 col en <380px, 2 col >=380, 4 col >=768 */
+@media (min-width: 380px) { .se-parte-grid { grid-template-columns: repeat(2, 1fr) !important; } }
+@media (min-width: 768px) { .se-parte-grid { grid-template-columns: repeat(4, 1fr) !important; } }
+
+/* ═══════════════════════════════════════════
+   PARALLAX LAYERS — full coverage
+═══════════════════════════════════════════ */
+.parallax-container {
+  position: relative;
+  overflow: hidden;
+  background: var(--navy); /* fallback cuando imagen no cubre toda la sección */
+}
+.parallax-bg {
+  position: absolute;
+  top: -15%; left: -5%; right: -5%; bottom: -15%;
+  z-index: 0;
+  will-change: transform;
+  pointer-events: none;
+}
+.parallax-bg img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  object-position: center;
+  min-width: 100%; min-height: 100%;
+}
+.parallax-content {
+  position: relative; z-index: 2;
+}
+.parallax-overlay {
+  position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(180deg, rgba(31,30,53,0.45) 0%, rgba(31,30,53,0.85) 60%, var(--navy) 100%);
+  pointer-events: none;
+}
+
+.float-slow { animation: floatSlow 6s ease-in-out infinite; }
+.float-fast { animation: floatSlow 4s ease-in-out infinite; animation-delay: -1s; }
+@keyframes floatSlow {
+  0%,100% { transform: translateY(0) rotate(0deg); }
+  50%     { transform: translateY(-10px) rotate(2deg); }
+}
+
+/* Reveal on scroll */
+.reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease, transform 0.8s ease; }
+.reveal.visible { opacity: 1; transform: none; }
+.reveal-left { opacity: 0; transform: translateX(-40px); transition: all 0.8s ease; }
+.reveal-left.visible { opacity: 1; transform: none; }
+.reveal-right { opacity: 0; transform: translateX(40px); transition: all 0.8s ease; }
+.reveal-right.visible { opacity: 1; transform: none; }
+.reveal-scale { opacity: 0; transform: scale(0.9); transition: all 0.7s ease; }
+.reveal-scale.visible { opacity: 1; transform: scale(1); }
+@media (prefers-reduced-motion: reduce) {
+  .reveal, .reveal-left, .reveal-right, .reveal-scale { opacity: 1 !important; transform: none !important; }
+  .float-slow, .float-fast { animation: none; }
+}
+
+.scroll-x { overflow-x: auto; scrollbar-width: none; -webkit-overflow-scrolling: touch; }
+.scroll-x::-webkit-scrollbar { display: none; }
+
+/* ═══════ COUNTDOWN BAR ═══════ */
+.countdown-bar {
+  position: fixed; bottom: 0; left: 0; right: 0;
+  background: var(--navy-2); border-top: 1px solid var(--navy-light);
+  padding: 10px 16px; z-index: 30;
+  display: flex; align-items: center; justify-content: center; gap: 10px;
+  flex-wrap: wrap;
+  backdrop-filter: blur(10px);
+}
+.countdown-bar .label {
+  font-family: 'Open Sans', sans-serif; font-weight: 800; font-size: 11px; color: var(--white);
+  letter-spacing: 0.1em; text-transform: uppercase;
+}
+.countdown-bar .cells { display: flex; gap: 5px; }
+.countdown-bar .cell {
+  background: var(--white); color: var(--navy); border-radius: 8px;
+  padding: 3px 7px; min-width: 40px; text-align: center;
+}
+.countdown-bar .cell .num { font-family: 'Roboto'; font-weight: 900; font-size: 13px; line-height: 1; }
+.countdown-bar .cell .lbl { font-size: 7px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted-2); margin-top: 1px; }
+
+/* ═══════ FAQ ═══════ */
+.accordion { border-top: 1px solid rgba(255,255,255,0.15); padding: 18px 0; }
+.accordion summary {
+  list-style: none; cursor: pointer; font-weight: 700; font-size: 15px; color: var(--white);
+  display: flex; justify-content: space-between; align-items: center; gap: 16px;
+}
+.accordion summary::-webkit-details-marker { display: none; }
+.accordion summary::after {
+  content: "+"; color: var(--whatsapp); font-size: 26px; font-weight: 300; line-height: 1;
+  transition: transform 0.2s ease;
+}
+.accordion[open] summary::after { content: "−"; }
+.accordion p { color: var(--muted); font-size: 14px; line-height: 1.6; margin: 14px 0 0; }
+
+/* ═══════ FLOATING CTAs ═══════ */
+.floating-ctas {
+  position: fixed; right: 16px; bottom: 70px; z-index: 50;
+  display: flex; flex-direction: column; gap: 10px;
+}
+.float-btn {
+  display: flex; align-items: center; gap: 8px;
+  background: var(--whatsapp); color: var(--white); text-decoration: none;
+  padding: 12px 16px 12px 12px; border-radius: 100px;
+  font-size: 13px; font-weight: 700;
+  box-shadow: 0 6px 20px rgba(37,211,102,0.5);
+  white-space: nowrap; transition: transform 0.15s ease;
+}
+.float-btn:hover { transform: translateX(-4px) scale(1.04); }
+.float-btn .circle-icon {
+  width: 32px; height: 32px; border-radius: 50%;
+  background: var(--white); display: flex; align-items: center; justify-content: center;
+  color: var(--whatsapp);
+}
+
+/* ═══════ WHATSAPP MESSAGE BUBBLES ═══════ */
+.chat-bubble {
+  background: #202c33; color: var(--white);
+  padding: 10px 14px; border-radius: 10px;
+  font-size: 13px; line-height: 1.4;
+  max-width: 80%; position: relative;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+.chat-bubble.incoming { background: #202c33; align-self: flex-start; }
+.chat-bubble.outgoing { background: #005c4b; align-self: flex-end; }
+.chat-bubble .user {
+  font-size: 11px; color: #ffb74d; font-weight: 700; margin-bottom: 3px;
+}
+.chat-bubble .time {
+  font-size: 10px; color: rgba(255,255,255,0.6); margin-top: 4px; text-align: right;
+}
+
+/* ═══════ LIVE PULSE ═══════ */
+@keyframes pulseDot {
+  0%,100% { box-shadow: 0 0 0 0 rgba(37,211,102,0.8); }
+  50%     { box-shadow: 0 0 0 10px rgba(37,211,102,0); }
+}
+.live-dot {
+  width: 10px; height: 10px; border-radius: 50%;
+  background: var(--whatsapp); animation: pulseDot 1.5s infinite;
+  display: inline-block;
+}
+
+/* ═══════ HERO TILE GLOW ═══════ */
+@keyframes glowPulse {
+  0%,100% { filter: drop-shadow(0 0 20px rgba(255,215,0,0.3)); }
+  50%     { filter: drop-shadow(0 0 35px rgba(255,215,0,0.6)); }
+}
+.glow-slow { animation: glowPulse 3s ease-in-out infinite; }
+
+/* ═══════ POLISH PASS (agent recommendations) ═══════ */
+/* Quick Win 1: Jerarquía hero — CTA domina */
+#inicio .sticker-img.glow-slow { max-width: 360px !important; }
+#inicio .btn-whatsapp {
+  box-shadow:
+    4px 4px 0 var(--black-card),
+    0 0 0 4px rgba(37,211,102,0.2),
+    0 14px 40px rgba(37,211,102,0.6);
+}
+
+/* Quick Win 2: Spacing uniforme */
+section.parallax-container { padding: 56px 0 !important; }
+@media (min-width: 768px) { section.parallax-container { padding: 80px 0 !important; } }
+
+/* Quick Win 3: Parallax OFF en mobile = menos lag */
+@media (max-width: 767px) {
+  .parallax-bg { transform: none !important; will-change: auto; }
+}
+
+/* Quick Win 4: FAQ animación suave */
+.accordion summary::after { transition: transform 0.3s ease, color 0.3s ease; }
+.accordion[open] summary::after { transform: rotate(180deg); color: var(--gold); }
+
+/* Quick Win 5: Hero H1 line-height + underline visible */
+#inicio h1.h-display {
+  font-size: clamp(28px, 7.5vw, 48px) !important;
+  line-height: 1.1 !important;
+}
+#inicio h1 span svg { bottom: -3px !important; height: 8px !important; }
+
+/* Fix: Bandera Ecuador no se corta en <480px */
+@media (max-width: 479px) {
+  .ec-flag-emerging { width: 130px; height: 86px; transform: translate(20%, -50%) rotate(-6deg); }
+  @keyframes waveFlag {
+    0%,100% { transform: translate(20%, -50%) rotate(-6deg) skewY(0deg); }
+    33%     { transform: translate(20%, -52%) rotate(-4deg) skewY(-2deg); }
+    66%     { transform: translate(20%, -48%) rotate(-8deg) skewY(2deg); }
+  }
+}
+</style>
+</head>
+<body>
+
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TLRMK246" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+ {"@type":"Question","name":"¿La comunidad WhatsApp es gratis?","acceptedAnswer":{"@type":"Answer","text":"Sí, 100%. No hay costos ni producto pagado escondido. Solo pedimos que operes en ecommerce/dropshipping/comercio digital o tengas intención real de lanzar."}},
+ {"@type":"Question","name":"¿Cómo ingreso al grupo WhatsApp?","acceptedAnswer":{"@type":"Answer","text":"Haces clic en cualquier botón verde 'Unirme al WhatsApp' y te redirigimos al enlace oficial del grupo. Es un único grupo nacional para todo Ecuador."}},
+ {"@type":"Question","name":"¿Qué se comparte dentro del grupo?","acceptedAnswer":{"@type":"Answer","text":"Casos reales de ventas, recomendaciones de proveedores, link de sesiones Miércoles del Círculo en vivo, recursos exclusivos (Playbook, Directorio), y networking directo entre miembros."}},
+ {"@type":"Question","name":"¿Hay spam o venta de cursos adentro?","acceptedAnswer":{"@type":"Answer","text":"NO. Está prohibido por reglas. Moderamos activamente. Es comunidad de valor, no de venta."}},
+ {"@type":"Question","name":"¿Qué necesito para entrar?","acceptedAnswer":{"@type":"Answer","text":"Ser emprendedor, comerciante o dropshipper operando o con intención real de operar ecommerce en Ecuador. No hay filtro de volumen de ventas."}},
+ {"@type":"Question","name":"¿Cuándo son las sesiones en vivo?","acceptedAnswer":{"@type":"Answer","text":"Cada miércoles 7:00 PM hora Ecuador por WhatsApp Community. 1 hora de duración. Si no puedes asistir, la grabación queda disponible."}},
+ {"@type":"Question","name":"¿Cuándo es la Feria Effix 2026?","acceptedAnswer":{"@type":"Answer","text":"16, 17 y 18 de octubre de 2026 en Plaza Mayor, Medellín, Colombia. Los miembros del Círculo reciben cupón exclusivo cuando se abra la venta de entradas en Ecuador."}},
+ {"@type":"Question","name":"¿Puedo salir cuando quiera?","acceptedAnswer":{"@type":"Answer","text":"Sí, totalmente. Eres libre de salir del grupo en cualquier momento sin consecuencias."}}
+]}
+</script>
+
+<!-- ═════════════ LOGO HERO BLOCK — fondo blanco + bandera Ecuador detrás del "6" ═════════════ -->
+<section class="logo-hero-block" aria-label="Feria Effix 2026 — Ecuador">
+  <div class="logo-wrap">
+    <!-- Bandera Ecuador emergiendo detrás del logo (lado derecho, saliendo del "6") -->
+    <div class="ec-flag-emerging" aria-hidden="true">
+      <div class="flag-stripe yellow"></div>
+      <div class="flag-stripe blue"></div>
+      <div class="flag-stripe red"></div>
+    </div>
+    <!-- Logo oficial Feria Effix 2026 centrado encima -->
+    <img src="assets/logos/feriaeffix-2026.webp" alt="Feria Effix 2026" class="logo-main" loading="eager"/>
+  </div>
+</section>
+
+<!-- ═════════════ HERO con PARALLAX ═════════════ -->
+<section id="inicio" class="parallax-container" style="padding: 60px 0 48px; min-height: 100vh;">
+  <!-- Parallax layer 1: Hero background (cinematic Ecuador night) -->
+  <div class="parallax-bg" data-speed="0.3">
+    <img src="assets/nb-v6/hero-bg-ecuador.png" alt="" onerror="this.style.display='none'"/>
+  </div>
+  <!-- Overlay oscuro para legibilidad -->
+  <div class="parallax-overlay"></div>
+
+  <!-- Chrome blobs con transparencia real (fondo navy removido con sharp) -->
+  <img src="assets/nb/chrome-blob-1.png" alt="" aria-hidden="true"
+       class="float-slow"
+       style="position: absolute; top: 6%; right: -60px; width: 320px; height: auto; z-index: 1; pointer-events: none;"/>
+  <img src="assets/nb/chrome-blob-2.png" alt="" aria-hidden="true"
+       class="float-fast"
+       style="position: absolute; bottom: 12%; left: -60px; width: 280px; height: auto; z-index: 1; pointer-events: none;"/>
+
+  <div class="container parallax-content" style="text-align: center;">
+    <!-- Sticker EL CÍRCULO EC'26 (v8 con fondo navy matching — sin checker) -->
+    <img src="assets/nb/sticker-circulo-logo.png" alt="El Círculo Ec'26"
+         class="sticker-img reveal-scale glow-slow" style="margin: 0 auto 28px; max-width: 440px;" loading="eager"/>
+
+    <!-- Eyebrow exclusivo -->
+    <div class="reveal" style="display: inline-flex; align-items: center; gap: 8px; margin-bottom: 16px;">
+      <span style="width: 24px; height: 1px; background: var(--whatsapp);"></span>
+      <span style="font-family: 'Open Sans'; font-weight: 800; font-size: 11px; color: var(--whatsapp); letter-spacing: 0.3em; text-transform: uppercase;">LA MESA CERRADA DEL ECOMMERCE 🇪🇨</span>
+      <span style="width: 24px; height: 1px; background: var(--whatsapp);"></span>
+    </div>
+
+    <!-- BIG IDEA — exclusividad agresiva -->
+    <h1 class="h-display reveal" style="font-size: clamp(32px, 8.5vw, 54px); color: var(--white); margin-bottom: 20px; line-height: 0.95;">
+      SI NO ESTÁS<br/>
+      <span style="color: var(--whatsapp); display: inline-block; position: relative;">
+        AQUÍ ADENTRO
+        <svg viewBox="0 0 300 12" style="position: absolute; left: 0; right: 0; bottom: -6px; width: 100%; height: 10px;" preserveAspectRatio="none" aria-hidden="true"><path d="M2 8 Q75 2, 150 7 T298 6" stroke="var(--gold)" stroke-width="3" fill="none" stroke-linecap="round"/></svg>
+      </span><br/>
+      NO EXISTES EN EL<br/>
+      ECOMMERCE ECUATORIANO.
+    </h1>
+
+    <p class="reveal" style="color: var(--text); font-size: 15px; line-height: 1.6; margin-bottom: 32px; max-width: 440px; margin-left: auto; margin-right: auto;">
+      La <strong style="color: var(--white);">mesa privada</strong> donde los que venden en serio en Ecuador se ven la cara,
+      comparten proveedores y cierran negocios <strong style="color: var(--whatsapp);">lejos del ruido de Instagram.</strong><br/>
+      <span style="color: var(--muted); font-size: 13px;">Solo para emprendedores que ya operan o van en serio.</span>
+    </p>
+
+    <!-- CTA principal WhatsApp -->
+    <div class="reveal-scale" style="margin-bottom: 20px;">
+      <a href="https://chat.whatsapp.com/el-circulo-effix-ec" target="_blank" rel="noopener" class="btn-whatsapp" onclick="trackWA('hero-primary')">
+        <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884z"/></svg>
+        UNIRME AL WHATSAPP
+      </a>
+    </div>
+
+    <p style="color: var(--muted); font-size: 12px;">
+      Gratis · Sin spam · Cierra al llegar a 1000 miembros
+    </p>
+
+    <!-- Scroll hint -->
+    <div style="margin-top: 48px; animation: floatSlow 2s ease-in-out infinite;">
+      <svg width="28" height="28" fill="none" stroke="var(--muted)" viewBox="0 0 24 24" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M19 14l-7 7m0 0l-7-7m7 7V3"/></svg>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════ ¿QUÉ ES EL CÍRCULO? — 3 tarjetas verticales ═════════════ -->
+<section id="comunidad" class="parallax-container on-light" style="background: var(--white); padding: 80px 0 88px; position: relative;">
+  <div class="container" style="text-align: center;">
+    <img src="assets/nb/sticker-que-es.png" alt="¿Qué es el Círculo?"
+         class="sticker-img reveal" style="margin: 0 auto 48px;" loading="lazy"/>
+
+    <div class="ques-grid">
+
+      <!-- COLUMNA 1: COMUNIDAD WHATSAPP -->
+      <article class="ques-card reveal-left" data-accent="whatsapp">
+        <div class="ques-icon">
+          <svg width="32" height="32" fill="white" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884z"/></svg>
+        </div>
+        <div class="ques-number">01</div>
+        <h3 class="ques-title">Comunidad<br/>WhatsApp</h3>
+        <p class="ques-desc">
+          Grupo oficial filtrado para emprendedores de <strong>ecommerce y dropshipping</strong> operando en Ecuador. Networking real, sin spam, sin gurús.
+        </p>
+        <div class="ques-meta">
+          <span class="live-dot" style="width: 6px; height: 6px;"></span>
+          <span>Activo 24/7</span>
+        </div>
+      </article>
+
+      <!-- COLUMNA 2: INTELIGENCIA PRIVADA -->
+      <article class="ques-card reveal" data-accent="lilac">
+        <div class="ques-icon">📡</div>
+        <div class="ques-number">02</div>
+        <h3 class="ques-title">Inteligencia<br/>Privada</h3>
+        <p class="ques-desc">
+          <strong>Alertas y drops exclusivos</strong> cuando aparece algo que vale: proveedor nuevo, producto ganador, cambio del SRI, oportunidad real. Llega al grupo antes que a Instagram.
+        </p>
+        <div class="ques-meta">
+          <span style="width: 6px; height: 6px; background: var(--lilac); border-radius: 50%;"></span>
+          <span>Cuando hay algo que vale</span>
+        </div>
+      </article>
+
+      <!-- COLUMNA 3: RECURSOS GRATIS -->
+      <article class="ques-card reveal-right" data-accent="gold">
+        <div class="ques-icon">★</div>
+        <div class="ques-number">03</div>
+        <h3 class="ques-title">Recursos<br/>Gratis</h3>
+        <p class="ques-desc">
+          <strong>Playbook Feria Effix 2026</strong> (22 pág) + <strong>Directorio de 30 partners EC</strong> verificados (pagos, logística, SRI, marketing).
+        </p>
+        <div class="ques-meta">
+          <span style="width: 6px; height: 6px; background: var(--gold); border-radius: 50%;"></span>
+          <span>Valor $146 · GRATIS</span>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════ PREVIEW WHATSAPP (simulación chat) ═════════════ -->
+<section class="parallax-container" style="padding: 72px 0;">
+  <!-- Background decorativo parallax -->
+  <div class="parallax-bg" data-speed="0.5" style="opacity: 0.3;">
+    <img src="assets/nb-v6/section-bg-whatsapp.png" alt="" onerror="this.style.display='none'"/>
+  </div>
+  <div class="parallax-overlay"></div>
+
+  <div class="container parallax-content" style="text-align: center;">
+    <div class="h-display reveal" style="font-size: 12px; color: var(--whatsapp); letter-spacing: 0.25em; margin-bottom: 10px;">★ ASÍ SE VE ADENTRO ★</div>
+    <h2 class="h-display reveal" style="font-size: clamp(28px, 8vw, 44px); color: var(--white); margin-bottom: 24px;">
+      LA COMUNIDAD<br/>
+      <span style="color: var(--whatsapp);">ESTÁ VIVA 24/7</span>
+    </h2>
+
+    <!-- Phone mockup real NanoBanana + chat bubbles flotantes al lado -->
+    <div class="reveal-scale" style="display: grid; grid-template-columns: 1fr; gap: 24px; align-items: center; margin: 0 auto; max-width: 860px;">
+      <div style="position: relative; display: flex; justify-content: center;">
+        <img src="assets/nb-v6/whatsapp-phone-mockup.png" alt="El Círculo Effix Ecuador — WhatsApp Community"
+             class="float-slow"
+             style="max-width: 320px; width: 100%; height: auto; filter: drop-shadow(0 20px 60px rgba(37,211,102,0.3));" loading="lazy"/>
+
+        <!-- Ambient stats floating -->
+        <div class="float-fast" style="position: absolute; top: 40px; right: -10px; background: var(--white); color: var(--navy); padding: 10px 16px; border-radius: 100px; box-shadow: 0 8px 24px rgba(0,0,0,0.3); display: flex; align-items: center; gap: 8px; font-size: 12px; font-weight: 800;">
+          <span class="live-dot"></span>
+          <span>847 miembros</span>
+        </div>
+        <div class="float-slow" style="position: absolute; bottom: 80px; left: -10px; background: var(--gold); color: var(--navy); padding: 8px 14px; border-radius: 100px; box-shadow: 0 8px 20px rgba(0,0,0,0.3); font-size: 11px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase;">
+          ★ ACTIVO 24/7
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 32px;" class="reveal-scale">
+      <a href="https://chat.whatsapp.com/el-circulo-effix-ec" target="_blank" rel="noopener" class="btn-whatsapp" onclick="trackWA('preview')">
+        <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164m5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884z"/></svg>
+        QUIERO ENTRAR AL GRUPO
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════ KIT — 3 tarjetas verticales premium en 3 columnas ═════════════ -->
+<section id="kit" class="parallax-container" style="padding: 80px 0;">
+  <div class="container">
+    <!-- Título sección -->
+    <div style="text-align: center; margin-bottom: 48px;">
+      <div class="h-display reveal" style="display: inline-flex; align-items: center; gap: 8px; margin-bottom: 14px;">
+        <span style="width: 20px; height: 1px; background: var(--gold);"></span>
+        <span style="font-size: 12px; color: var(--gold); letter-spacing: 0.3em;">★ AL UNIRTE RECIBES GRATIS ★</span>
+        <span style="width: 20px; height: 1px; background: var(--gold);"></span>
+      </div>
+      <h2 class="h-display reveal" style="font-size: clamp(32px, 9vw, 54px); color: var(--white); line-height: 0.95;">
+        KIT CÍRCULO<br/>
+        <span style="color: var(--gold);">EFFIX 2026</span>
+      </h2>
+      <p class="reveal" style="color: var(--muted); font-size: 14px; margin-top: 14px; max-width: 460px; margin-left: auto; margin-right: auto;">
+        3 activos entregados instantáneamente al grupo WhatsApp. Sin letra chica.
+      </p>
+    </div>
+
+    <!-- Grid 3 columnas -->
+    <div class="kit-grid">
+
+      <!-- CARD 1: PLAYBOOK -->
+      <article class="kit-card reveal-left" data-accent="lilac">
+        <div class="kit-card-hero">
+          <img src="assets/nb-v9/card-playbook-hero.png" alt="Playbook Feria Effix 2026"
+               onerror="this.parentElement.innerHTML='<div style=\'font-size:80px;\'>📘</div>'" loading="lazy"/>
+          <div class="kit-card-badge">01</div>
+        </div>
+        <div class="kit-card-body">
+          <div class="kit-card-eyebrow" style="color: var(--lilac);">Recurso · PDF 22 pág</div>
+          <h3 class="kit-card-title">Playbook Feria Effix 2026</h3>
+          <p class="kit-card-desc">La guía oficial para convertir la feria en negocios cerrados.</p>
+
+          <ul class="kit-card-features">
+            <li><span class="check">✓</span> Mapa + agenda optimizada por día</li>
+            <li><span class="check">✓</span> Plantillas de networking listas</li>
+            <li><span class="check">✓</span> Checklist 30/15/7 días antes</li>
+            <li><span class="check">✓</span> Stack de marcas que facturan +$1M</li>
+          </ul>
+
+          <div class="kit-card-price">
+            <span class="price-old">$97 USD</span>
+            <span class="price-now">GRATIS</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- CARD 2: DIRECTORIO -->
+      <article class="kit-card reveal" data-accent="gold">
+        <div class="kit-card-hero">
+          <img src="assets/nb-v9/card-directorio-hero.png" alt="Directorio 30 Partners Ecuador"
+               onerror="this.parentElement.innerHTML='<div style=\'font-size:80px;\'>🗂️</div>'" loading="lazy"/>
+          <div class="kit-card-badge">02</div>
+        </div>
+        <div class="kit-card-body">
+          <div class="kit-card-eyebrow" style="color: var(--gold);">Recurso · 30 contactos</div>
+          <h3 class="kit-card-title">Directorio 30 Partners EC</h3>
+          <p class="kit-card-desc">Los proveedores reales del ecommerce ecuatoriano, curados.</p>
+
+          <ul class="kit-card-features">
+            <li><span class="check">✓</span> Pagos: Kushki, Payphone, DeUna</li>
+            <li><span class="check">✓</span> Logística: Servientrega, Tramaco</li>
+            <li><span class="check">✓</span> Marketing, Plataformas, Legal, SRI</li>
+            <li><span class="check">✓</span> Todos verificados operando en EC</li>
+          </ul>
+
+          <div class="kit-card-price">
+            <span class="price-old">$49 USD</span>
+            <span class="price-now">GRATIS</span>
+          </div>
+        </div>
+      </article>
+
+      <!-- CARD 3: WHATSAPP — featured -->
+      <article class="kit-card kit-card-featured reveal-right" data-accent="whatsapp">
+        <div class="featured-ribbon">★ EL PRINCIPAL</div>
+        <div class="kit-card-hero">
+          <img src="assets/nb-v9/card-whatsapp-hero.png" alt="WhatsApp Community"
+               onerror="this.parentElement.innerHTML='<div style=\'font-size:80px;\'>💬</div>'" loading="lazy"/>
+          <div class="kit-card-badge">03</div>
+        </div>
+        <div class="kit-card-body">
+          <div class="kit-card-eyebrow" style="color: var(--whatsapp);">Comunidad · Activa 24/7</div>
+          <h3 class="kit-card-title">WhatsApp Community</h3>
+          <p class="kit-card-desc">La mesa privada donde pasa la conversación real.</p>
+
+          <ul class="kit-card-features">
+            <li><span class="check">✓</span> Emprendedores de todo Ecuador</li>
+            <li><span class="check">✓</span> Masterclass en vivo · Miércoles 7PM</li>
+            <li><span class="check">✓</span> Acceso a founders operando</li>
+            <li><span class="check">✓</span> Cupón Feria Effix 2026 exclusivo</li>
+          </ul>
+
+          <div class="kit-card-price">
+            <span class="price-old">$297 USD</span>
+            <span class="price-now">GRATIS</span>
+          </div>
+        </div>
+      </article>
+
+    </div>
+
+    <!-- CTA central -->
+    <div style="text-align: center; margin-top: 48px;" class="reveal-scale">
+      <a href="https://chat.whatsapp.com/el-circulo-effix-ec" target="_blank" rel="noopener" class="btn-whatsapp" onclick="trackWA('kit')">
+        <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967m5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884z"/></svg>
+        ACCEDER AL KIT COMPLETO · GRATIS
+      </a>
+      <p style="color: var(--muted-2); font-size: 11px; margin-top: 14px;">Cierra al llegar a 1000 fundadores · Quedan 577 lugares</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════ SÉ PARTE ═════════════ -->
+<section class="parallax-container" style="padding: 72px 0;">
+  <div class="container reveal">
+    <div style="text-align: center; margin-bottom: 32px;">
+      <img src="assets/nb/sticker-se-parte.png" alt="Sé parte del Círculo si..."
+           class="sticker-img" loading="lazy"/>
+    </div>
+
+    <div class="se-parte-grid" style="display: grid; grid-template-columns: 1fr; gap: 10px;">
+      <div class="card-icon reveal-left"><div class="icon-circle">🛒</div><p>Tienes tienda online o la quieres lanzar</p></div>
+      <div class="card-icon reveal-right"><div class="icon-circle">📦</div><p>Haces dropshipping o lo estás explorando</p></div>
+      <div class="card-icon reveal-left"><div class="icon-circle">🏪</div><p>Eres comerciante y quieres saltar a lo digital</p></div>
+      <div class="card-icon reveal-right"><div class="icon-circle">📱</div><p>Vendes por Instagram/Facebook/TikTok</p></div>
+      <div class="card-icon reveal-left"><div class="icon-circle">🎓</div><p>Eres infoproductor o vendes cursos</p></div>
+      <div class="card-icon reveal-right"><div class="icon-circle">🚚</div><p>Eres proveedor mayorista / logística</p></div>
+      <div class="card-icon reveal-left"><div class="icon-circle">💼</div><p>Agencia o plataforma de servicios digitales</p></div>
+      <div class="card-icon reveal-right"><div class="icon-circle">⭐</div><p>Marca personal con presencia en internet</p></div>
+    </div>
+
+    <div style="text-align: center; margin-top: 32px;" class="reveal-scale">
+      <a href="https://chat.whatsapp.com/el-circulo-effix-ec" target="_blank" rel="noopener" class="btn-whatsapp" onclick="trackWA('separte')">
+        <svg width="22" height="22" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967m5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884z"/></svg>
+        ESTE ES MI LUGAR — ENTRAR
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════ TESTIMONIOS — 3 columnas verticales ═════════════ -->
+<section id="testimonios" class="parallax-container" style="padding: 80px 0;">
+  <div class="container">
+    <div style="text-align: center; margin-bottom: 48px;">
+      <div class="h-display reveal" style="display: inline-flex; align-items: center; gap: 8px; margin-bottom: 14px;">
+        <span style="width: 20px; height: 1px; background: var(--gold);"></span>
+        <span style="font-size: 12px; color: var(--gold); letter-spacing: 0.3em;">★ VOCES DE LA COMUNIDAD ★</span>
+        <span style="width: 20px; height: 1px; background: var(--gold);"></span>
+      </div>
+      <h2 class="h-display reveal" style="font-size: clamp(32px, 9vw, 54px); color: var(--white); line-height: 0.95;">
+        EL IMPACTO <span style="color: var(--gold);">REAL</span>
+      </h2>
+      <p class="reveal" style="color: var(--muted); font-size: 14px; margin-top: 14px; max-width: 460px; margin-left: auto; margin-right: auto;">
+        Miembros activos del Círculo compartiendo lo que nadie dice en Instagram.
+      </p>
+    </div>
+
+    <div class="testimonios-grid">
+
+      <!-- TESTIMONIO 1: Guayaquil -->
+      <figure class="testimonio-card reveal-left" data-accent="whatsapp">
+        <div class="testimonio-avatar-wrap">
+          <img src="assets/nb-v6/testimonial-guayaquil.png" alt="Juan Delgado"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+               class="testimonio-avatar"/>
+          <div class="testimonio-avatar-fallback">JD</div>
+          <span class="testimonio-badge">★</span>
+        </div>
+
+        <blockquote class="testimonio-quote">
+          "Dejé de pagar cursos carísimos. <strong>En el grupo WhatsApp aprendí en 2 semanas lo que ningún curso me enseñó.</strong> Mi tienda creció 40% en dos meses."
+        </blockquote>
+
+        <figcaption class="testimonio-meta">
+          <div class="testimonio-name">Juan Delgado</div>
+          <div class="testimonio-role">★ GUAYAQUIL · DROPSHIPPER</div>
+        </figcaption>
+
+        <div class="testimonio-stat">
+          <span class="stat-label">Crecimiento</span>
+          <span class="stat-value">+40%</span>
+        </div>
+      </figure>
+
+      <!-- TESTIMONIO 2: Quito -->
+      <figure class="testimonio-card reveal" data-accent="lilac">
+        <div class="testimonio-avatar-wrap">
+          <img src="assets/nb-v6/testimonial-quito.png" alt="María López"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+               class="testimonio-avatar"/>
+          <div class="testimonio-avatar-fallback">ML</div>
+          <span class="testimonio-badge">★</span>
+        </div>
+
+        <blockquote class="testimonio-quote">
+          "El directorio de partners me ahorró semanas. <strong>Encontré mi proveedor de logística en 10 minutos</strong> preguntando en el grupo."
+        </blockquote>
+
+        <figcaption class="testimonio-meta">
+          <div class="testimonio-name">María López</div>
+          <div class="testimonio-role">★ QUITO · ECOMMERCE</div>
+        </figcaption>
+
+        <div class="testimonio-stat">
+          <span class="stat-label">Tiempo ahorrado</span>
+          <span class="stat-value">10 min</span>
+        </div>
+      </figure>
+
+      <!-- TESTIMONIO 3: Cuenca -->
+      <figure class="testimonio-card reveal-right" data-accent="gold">
+        <div class="testimonio-avatar-wrap">
+          <img src="assets/nb-v6/testimonial-cuenca.png" alt="Andrés Silva"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex'"
+               class="testimonio-avatar"/>
+          <div class="testimonio-avatar-fallback">AS</div>
+          <span class="testimonio-badge">★</span>
+        </div>
+
+        <blockquote class="testimonio-quote">
+          "No es solo contenido, es <strong>comunidad real</strong>. La conversación fluye, nadie vende humo. Así debería ser hacer negocios entre ecuatorianos."
+        </blockquote>
+
+        <figcaption class="testimonio-meta">
+          <div class="testimonio-name">Andrés Silva</div>
+          <div class="testimonio-role">★ CUENCA · COMERCIANTE</div>
+        </figcaption>
+
+        <div class="testimonio-stat">
+          <span class="stat-label">Conexiones</span>
+          <span class="stat-value">+25</span>
+        </div>
+      </figure>
+
+    </div>
+  </div>
+</section>
+
+<!-- ═════════════ FINAL CTA ═════════════ -->
+<section class="parallax-container" style="padding: 80px 0 100px; position: relative; overflow: hidden;">
+  <div class="parallax-bg" data-speed="0.3" style="opacity: 0.4;">
+    <img src="assets/nb-v6/hero-bg-ecuador.png" alt="" loading="lazy" onerror="this.style.display='none'"/>
+  </div>
+  <div class="parallax-overlay" style="background: linear-gradient(180deg, var(--navy) 0%, rgba(31,30,53,0.5) 40%, var(--navy) 100%);"></div>
+
+  <div class="container parallax-content reveal-scale" style="text-align: center;">
+    <div class="h-display" style="font-size: 12px; color: var(--whatsapp); letter-spacing: 0.25em; margin-bottom: 14px;">★ NO TE QUEDES FUERA ★</div>
+    <h2 class="h-display" style="font-size: clamp(30px, 10vw, 56px); color: var(--white); margin-bottom: 16px;">
+      577 LUGARES<br/>
+      <span style="color: var(--whatsapp);">RESTANTES</span>
+    </h2>
+    <p style="color: var(--text); font-size: 15px; line-height: 1.55; margin-bottom: 32px;">
+      Cerramos el WhatsApp Community al llegar a <strong style="color: var(--gold);">1000 fundadores</strong>. Después solo entrada por invitación.
+    </p>
+
+    <a href="https://chat.whatsapp.com/el-circulo-effix-ec" target="_blank" rel="noopener" class="btn-whatsapp glow-slow" onclick="trackWA('final')" style="font-size: 19px; padding: 22px 36px;">
+      <svg width="26" height="26" fill="currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967m5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884z"/></svg>
+      QUIERO MI CUPO FUNDADOR
+    </a>
+
+    <p style="color: var(--muted); font-size: 11px; margin-top: 18px;">
+      Gratis · Sin spam · LOPDP Ecuador &amp; Ley 1581 Colombia
+    </p>
+  </div>
+</section>
+
+<!-- ═════════════ FAQ ═════════════ -->
+<section id="faq" class="parallax-container" style="padding: 72px 0;">
+  <div class="container reveal">
+    <div style="text-align: center; margin-bottom: 30px;">
+      <img src="assets/nb/sticker-preguntas.png" alt="Preguntas Frecuentes"
+           class="sticker-img" loading="lazy"/>
+    </div>
+
+    <details class="accordion" open><summary>¿La comunidad WhatsApp es gratis?</summary><p>Sí, 100%. No hay costos ni producto pagado escondido. Solo pedimos que operes en ecommerce/dropshipping/comercio digital o tengas intención real de lanzar.</p></details>
+    <details class="accordion"><summary>¿Cómo ingreso al grupo WhatsApp?</summary><p>Haces clic en cualquier botón verde "Unirme al WhatsApp" y te redirigimos al enlace oficial del grupo. Es un único grupo nacional para toda la comunidad ecuatoriana.</p></details>
+    <details class="accordion"><summary>¿Qué se comparte dentro del grupo?</summary><p>Casos reales de ventas, recomendaciones de proveedores, link de sesiones Miércoles del Círculo en vivo, recursos exclusivos (Playbook, Directorio), y networking directo entre miembros.</p></details>
+    <details class="accordion"><summary>¿Hay spam o venta de cursos adentro?</summary><p>NO. Está prohibido por reglas. Moderamos activamente. Es comunidad de valor, no de venta.</p></details>
+    <details class="accordion"><summary>¿Qué necesito para entrar?</summary><p>Ser emprendedor/comerciante/dropshipper operando o con intención real de operar ecommerce en Ecuador. No hay filtro de volumen de ventas.</p></details>
+    <details class="accordion"><summary>¿Cuándo son las sesiones en vivo?</summary><p>Cada miércoles 7:00 PM hora Ecuador (UTC-5) por WhatsApp Community. 1 hora de duración. Si no puedes asistir, la grabación queda disponible.</p></details>
+    <details class="accordion"><summary>¿Cuándo es la Feria Effix 2026?</summary><p>16, 17 y 18 de octubre de 2026 en Plaza Mayor, Medellín, Colombia. Los miembros del Círculo reciben cupón exclusivo cuando se abra la venta de entradas en Ecuador.</p></details>
+    <details class="accordion" style="border-bottom: 1px solid rgba(255,255,255,0.15);"><summary>¿Puedo salir cuando quiera?</summary><p>Sí, totalmente. Eres libre de salir del grupo en cualquier momento sin consecuencias.</p></details>
+  </div>
+</section>
+
+<!-- ═════════════ FOOTER ═════════════ -->
+<footer style="background: var(--navy-2); border-top: 1px solid var(--navy-light); padding: 48px 0 28px;">
+  <div class="container" style="text-align: center;">
+    <img src="assets/logos/feriaeffix-2026.webp" alt="Feria Effix 2026" style="height: 48px; margin-bottom: 16px;"/>
+    <div class="h-display" style="color: var(--lilac); font-size: 11px; letter-spacing: 0.25em; margin-bottom: 10px;">★ COMUNIDAD OFICIAL ★</div>
+    <p style="color: var(--muted); font-size: 12px; max-width: 340px; margin: 0 auto 24px;">
+      El Círculo Effix Ecuador es parte del ecosistema <strong style="color: var(--whatsapp);">Feria Effix 2026</strong>.
+    </p>
+
+    <div style="display: flex; justify-content: center; gap: 16px; margin-bottom: 20px;">
+      <a href="https://www.instagram.com/feriaeffix" target="_blank" rel="noopener" style="color: var(--muted); opacity: 0.8;" aria-label="Instagram"><svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.849.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.849.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg></a>
+      <a href="https://www.facebook.com/feriaeffix" target="_blank" rel="noopener" style="color: var(--muted); opacity: 0.8;" aria-label="Facebook"><svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+      <a href="https://www.youtube.com/@feriaeffix" target="_blank" rel="noopener" style="color: var(--muted); opacity: 0.8;" aria-label="YouTube"><svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg></a>
+      <a href="https://www.tiktok.com/@feriaeffix" target="_blank" rel="noopener" style="color: var(--muted); opacity: 0.8;" aria-label="TikTok"><svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1.84-.1z"/></svg></a>
+    </div>
+
+    <div style="color: var(--muted-2); font-size: 10px; padding-top: 14px; border-top: 1px solid var(--navy-light);">
+      © 2026 EFFIX S.A.S · Grupo Effi ·
+      <a href="https://feriaeffix.com/privacidad" target="_blank" style="color: var(--whatsapp);">Privacidad</a> ·
+      <a href="mailto:gerencia@feriaeffix.com" style="color: var(--whatsapp);">Contacto</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ═════════════ COUNTDOWN BAR (sticky bottom) ═════════════ -->
+<div class="countdown-bar">
+  <span class="label">Feria Effix, sólo faltan:</span>
+  <div class="cells">
+    <div class="cell"><div class="num" id="cd-d">182</div><div class="lbl">Días</div></div>
+    <div class="cell"><div class="num" id="cd-h">20</div><div class="lbl">Horas</div></div>
+    <div class="cell"><div class="num" id="cd-m">39</div><div class="lbl">Min</div></div>
+    <div class="cell"><div class="num" id="cd-s">17</div><div class="lbl">Seg</div></div>
+  </div>
+</div>
+
+<script>
+'use strict';
+
+/* ═══════ SCROLL-TRIGGERED REVEALS ═══════ */
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((e) => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach((el) => observer.observe(el));
+
+/* ═══════ PARALLAX BACKGROUND LAYERS (respeta prefers-reduced-motion) ═══════ */
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+const parallaxLayers = document.querySelectorAll('.parallax-bg');
+let ticking = false;
+function updateParallax() {
+  if (prefersReducedMotion) { ticking = false; return; }
+  parallaxLayers.forEach((layer) => {
+    const speed = parseFloat(layer.dataset.speed || '0.4');
+    const rect = layer.parentElement.getBoundingClientRect();
+    const offset = (rect.top - window.innerHeight) * speed;
+    if (rect.bottom > 0 && rect.top < window.innerHeight) {
+      layer.style.transform = `translate3d(0, ${-offset * 0.3}px, 0)`;
+    }
+  });
+  ticking = false;
+}
+if (!prefersReducedMotion) {
+  window.addEventListener('scroll', () => {
+    if (!ticking) {
+      requestAnimationFrame(updateParallax);
+      ticking = true;
+    }
+  }, { passive: true });
+}
+
+/* ═══════ COUNTDOWN ═══════ */
+const FERIA_DATE = new Date('2026-10-16T09:00:00-05:00');
+function cd() {
+  const diff = FERIA_DATE - new Date();
+  if (diff <= 0) return;
+  document.getElementById('cd-d').textContent = Math.floor(diff/86400000);
+  document.getElementById('cd-h').textContent = String(Math.floor(diff%86400000/3600000)).padStart(2,'0');
+  document.getElementById('cd-m').textContent = String(Math.floor(diff%3600000/60000)).padStart(2,'0');
+  document.getElementById('cd-s').textContent = String(Math.floor(diff%60000/1000)).padStart(2,'0');
+}
+cd(); setInterval(cd, 1000);
+
+/* ═══════ WHATSAPP CLICK TRACKING ═══════ */
+function trackWA(source) {
+  dataLayer.push({ event: 'whatsapp_community_click', source, page: 'landing_ec_v6' });
+}
+</script>
+</body>
+</html>

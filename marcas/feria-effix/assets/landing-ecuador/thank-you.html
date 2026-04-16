@@ -59,8 +59,7 @@ s.parentNode.insertBefore(t,s)}(window, document,'script',
 fbq('init', 'PIXEL_ID'); /* TODO: reemplazar PIXEL_ID */
 fbq('track', 'PageView');
 </script>
-<noscript><img height="1" width="0" style="display:none"
-src="https://www.facebook.com/tr?id=PIXEL_ID&ev=PageView&noscript=1" alt=""/></noscript>
+<!-- Meta Pixel noscript movido al body (parse5 rechaza noscript con img en head) -->
 <!-- /Meta Pixel -->
 
 <!-- Tailwind CDN -->
