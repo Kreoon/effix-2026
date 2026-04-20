@@ -101,7 +101,10 @@ export function RequirementForm({
 
   const [error, setError] = useState<string | null>(null)
 
-  const filteredProfiles = profiles.filter((p) => p.areas.length === 0 || p.areas.includes(form.area))
+  const filteredProfiles = profiles.filter((p) => {
+    const areas = p.areas ?? []
+    return areas.length === 0 || areas.includes(form.area)
+  })
   const templateRef = TEMPLATES[form.area]
 
   async function handleSubmit(e: React.FormEvent) {
