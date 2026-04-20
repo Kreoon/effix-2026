@@ -1,7 +1,7 @@
 {
   "$schema": "https://openapi.vercel.sh/vercel.json",
-  "buildCommand": "cd marcas/feria-effix/assets/landing-ecuador && npm install && npm run build && cp dist/index-v3.html dist/index.html",
-  "outputDirectory": "marcas/feria-effix/assets/landing-ecuador/dist",
+  "buildCommand": "cd dashboard && npm install && npm run build",
+  "outputDirectory": "dashboard/dist",
   "installCommand": "echo skip-root-install",
   "framework": null,
   "trailingSlash": false,
