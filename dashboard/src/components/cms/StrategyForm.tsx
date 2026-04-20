@@ -3,16 +3,31 @@ import { Loader2, X } from 'lucide-react'
 import { useCreateStrategy, useUpdateStrategy } from '@/hooks/useStrategies'
 import { useAuth } from '@/components/AuthProvider'
 import type { CmsStrategy, StrategyStatus } from '@/types/cms'
+import {
+  AREA_META,
+  REQUIREMENT_STATUS_META,
+  PRIORITY_META,
+  formatDate,
+  daysUntil,
+} from '@/lib/cms'
 
 interface StrategyFormProps {
   strategy?: CmsStrategy
   brandSlug: string
   brandCountries: string[]
+  defaultCountry?: string
   onSaved: (s: CmsStrategy) => void
   onClose: () => void
 }
 
-export function StrategyForm({ strategy, brandSlug, brandCountries, onSaved, onClose }: StrategyFormProps) {
+export function StrategyForm({
+  strategy,
+  brandSlug,
+  brandCountries,
+  defaultCountry,
+  onSaved,
+  onClose,
+}: StrategyFormProps) {
   const { profile } = useAuth()
   const createMut = useCreateStrategy()
   const updateMut = useUpdateStrategy()
@@ -20,7 +35,7 @@ export function StrategyForm({ strategy, brandSlug, brandCountries, onSaved, onC
 
   const [form, setForm] = useState({
     nombre: strategy?.nombre ?? '',
-    pais: strategy?.pais ?? brandCountries[0] ?? 'CO',
+    pais: strategy?.pais ?? defaultCountry ?? brandCountries[0] ?? 'CO',
     estado: (strategy?.estado ?? 'draft') as StrategyStatus,
     periodo_start: strategy?.periodo_start ?? '',
     periodo_end: strategy?.periodo_end ?? '',

@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import { useBrand } from '@/hooks/useBrands'
 import { BrandOverviewTab } from './brand/BrandOverviewTab'
 import { BrandStrategiesTab } from './brand/BrandStrategiesTab'

@@ -8,16 +8,16 @@ import { RequirementDetail } from '@/components/cms/RequirementDetail'
 import { useAdminProfile } from '@/hooks/useAdminProfile'
 import {
   AREA_META,
-  AREA_ORDER,
   REQUIREMENT_STATUS_META,
   PRIORITY_META,
   formatDate,
   daysUntil,
 } from '@/lib/cms'
-import type { CmsArea, CmsBrand, CmsRequirement } from '@/types/cms'
+import type { CmsBrand, CmsRequirement, RequirementStatus } from '@/types/cms'
 
 interface Props {
   brand: CmsBrand
+  currentCountry?: string
 }
 
 export function BrandRequirementsTab({ brand, currentCountry }: Props) {
@@ -153,7 +153,6 @@ export function BrandRequirementsTab({ brand, currentCountry }: Props) {
 }
 
 function RequirementCard({ req, onOpen }: { req: CmsRequirement; onOpen: () => void }) {
-  const status = REQUIREMENT_STATUS_META[req.status]
   const priority = PRIORITY_META[req.priority]
   const area = AREA_META[req.area]
   const days = daysUntil(req.deadline)
