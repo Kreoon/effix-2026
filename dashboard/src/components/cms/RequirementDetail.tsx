@@ -115,8 +115,10 @@ export function RequirementDetail({ requirementId, onClose }: RequirementDetailP
 
           {/* Brief */}
           <section>
-            <h3 className="text-xs font-semibold uppercase tracking-wide text-slate-500 mb-2">Brief</h3>
-            <div className="rounded-lg border border-slate-200 bg-slate-50 p-4">
+            <h3 className="text-xs font-semibold uppercase tracking-wide text-slate-600 mb-2">
+              Brief
+            </h3>
+            <div className="rounded-lg border border-slate-300 bg-white p-5 shadow-sm">
               <MarkdownView md={req.brief_md} fallback="Sin brief escrito todavía." />
             </div>
           </section>
@@ -124,10 +126,10 @@ export function RequirementDetail({ requirementId, onClose }: RequirementDetailP
           {/* Review comments (si hay) */}
           {req.review_comments_md && (
             <section>
-              <h3 className="text-xs font-semibold uppercase tracking-wide text-orange-700 mb-2">
+              <h3 className="text-xs font-semibold uppercase tracking-wide text-orange-800 mb-2">
                 Comentarios de revisión
               </h3>
-              <div className="rounded-lg border border-orange-200 bg-orange-50 p-4">
+              <div className="rounded-lg border border-orange-300 bg-orange-50 p-4">
                 <MarkdownView md={req.review_comments_md} />
               </div>
             </section>
@@ -135,7 +137,7 @@ export function RequirementDetail({ requirementId, onClose }: RequirementDetailP
 
           {/* Assets */}
           <section>
-            <h3 className="text-xs font-semibold uppercase tracking-wide text-slate-500 mb-2">
+            <h3 className="text-xs font-semibold uppercase tracking-wide text-slate-600 mb-2">
               Entregables
             </h3>
             <AssetUploader requirementId={req.id} />
@@ -144,11 +146,13 @@ export function RequirementDetail({ requirementId, onClose }: RequirementDetailP
           {/* Approvals */}
           <section>
             <div className="flex items-center justify-between mb-2">
-              <h3 className="text-xs font-semibold uppercase tracking-wide text-slate-500">Aprobaciones</h3>
+              <h3 className="text-xs font-semibold uppercase tracking-wide text-slate-600">
+                Aprobaciones
+              </h3>
               <NewApprovalButton requirement={req} />
             </div>
             {approvals.length === 0 ? (
-              <p className="text-xs text-slate-400">Sin solicitudes de aprobación.</p>
+              <p className="text-sm text-slate-500">Sin solicitudes de aprobación.</p>
             ) : (
               <ul className="space-y-2">
                 {approvals.map((a) => (
