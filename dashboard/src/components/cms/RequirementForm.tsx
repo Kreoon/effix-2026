@@ -101,8 +101,9 @@ export function RequirementForm({
 
   const [error, setError] = useState<string | null>(null)
 
-  const filteredProfiles = profiles.filter((p) => {
-    const areas = p.areas ?? []
+  const filteredProfiles = (Array.isArray(profiles) ? profiles : []).filter((p) => {
+    if (!p) return false
+    const areas = Array.isArray(p.areas) ? p.areas : []
     return areas.length === 0 || areas.includes(form.area)
   })
   const templateRef = TEMPLATES[form.area]
