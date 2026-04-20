@@ -40,7 +40,7 @@ interface PautaTableProps {
   onRefresh: () => void;
 }
 
-export function PautaTable({ data, onRefresh }: PautaTableProps) {
+export function PautaTable({ data }: PautaTableProps) {
   const exportCSV = () => {
     const headers = [
       "Fecha",

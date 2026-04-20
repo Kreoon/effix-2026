@@ -82,7 +82,7 @@ export function ClientTypeChart({ data }: ClientTypeChartProps) {
               outerRadius={70}
               paddingAngle={2}
               dataKey="value"
-              label={({ name, percent }) => 
+              label={({ percent }) =>
                 percent > 0.05 ? `${(percent * 100).toFixed(0)}%` : ''
               }
               labelLine={false}

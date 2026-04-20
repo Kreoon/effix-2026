@@ -112,7 +112,7 @@ export function LeadStatusChart({ data }: LeadStatusChartProps) {
                 boxShadow: "0 4px 12px rgba(0,0,0,0.3)",
               }}
               labelStyle={{ color: "#ffffff", fontWeight: 600, marginBottom: "4px" }}
-              formatter={(value: number, name: string) => [
+              formatter={(value: number) => [
                 <span key="value" style={{ color: "#ffffff", fontWeight: 500 }}>{value} leads</span>,
                 null
               ]}

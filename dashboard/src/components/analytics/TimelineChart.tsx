@@ -57,7 +57,6 @@ function CustomTooltip({ active, payload, label }: CustomTooltipProps) {
   if (!active || !payload || payload.length === 0) return null
 
   const row = payload[0].payload
-  const total2025 = Math.max(...(payload.find((p) => p.name === 'Feria 2025')?.payload ? [0] : []))
 
   return (
     <div className="bg-slate-900 border border-slate-700 rounded-lg p-3 text-xs shadow-xl min-w-[180px]">

@@ -61,9 +61,6 @@ export function PautaKPIs({ data, commercialsData = [], isLoading }: PautaKPIsPr
   // Conversion Rate (Clicks to Leads)
   const conversionRate = totalClicks > 0 ? (totalLeads / totalClicks) * 100 : 0;
 
-  // Cost per Mille (CPM)
-  const cpm = totalImpresiones > 0 ? (totalInversion / totalImpresiones) * 1000 : 0;
-
   if (isLoading) {
     return null; // Parent handles skeleton
   }
