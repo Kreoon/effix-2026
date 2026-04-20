@@ -8,11 +8,15 @@ import type { NavigationState } from '@/data/brand-modules'
 
 interface Props {
   brand: CmsBrand
+  currentCountry?: string
   onNavigate: (nav: NavigationState) => void
 }
 
-export function BrandOverviewTab({ brand, onNavigate }: Props) {
-  const { data: strategies = [] } = useStrategies({ brandSlug: brand.slug })
+export function BrandOverviewTab({ brand, currentCountry, onNavigate }: Props) {
+  const { data: strategies = [] } = useStrategies({
+    brandSlug: brand.slug,
+    pais: currentCountry,
+  })
   const strategyIds = strategies.map((s) => s.id)
   const { data: requirements = [] } = useRequirements()
   const brandRequirements = requirements.filter((r) => strategyIds.includes(r.strategy_id))
@@ -39,11 +43,12 @@ export function BrandOverviewTab({ brand, onNavigate }: Props) {
           <button
             onClick={() =>
               onNavigate({
-                module: 'cms:brand',
-                submodule: 'strategies',
-                currentBrand: brand.slug,
-                activeTab: 'strategies',
-              })
+                  module: 'cms:brand',
+                  submodule: 'strategies',
+                  currentBrand: brand.slug,
+                  currentCountry,
+                  activeTab: 'strategies',
+                })
             }
             className="text-xs text-slate-500 hover:text-[#0E2A47]"
           >

@@ -8,10 +8,18 @@ import { LandingForm } from '@/components/cms/LandingForm'
 import { LANDING_STATUS_META, formatDate } from '@/lib/cms'
 import type { CmsBrand, CmsLanding } from '@/types/cms'
 
-export function BrandLandingsTab({ brand }: { brand: CmsBrand }) {
+export function BrandLandingsTab({ brand, currentCountry }: { brand: CmsBrand; currentCountry?: string }) {
   const { isAdmin } = useAdminProfile()
-  const { data: strategies = [] } = useStrategies({ brandSlug: brand.slug })
-  const { data: landings = [], isLoading } = useLandingsByBrand(brand.slug)
+  const { data: strategies = [] } = useStrategies({
+    brandSlug: brand.slug,
+    pais: currentCountry,
+  })
+  const strategyIds = strategies.map((s) => s.id)
+  const { data: allLandings = [], isLoading: loadingLandings } = useLandingsByBrand(brand.slug)
+
+  const landings = allLandings.filter((l) => strategyIds.includes(l.strategy_id))
+  const isLoading = loadingLandings
+
   const [creating, setCreating] = useState(false)
   const [editing, setEditing] = useState<CmsLanding | null>(null)
   const hasStrategies = strategies.length > 0

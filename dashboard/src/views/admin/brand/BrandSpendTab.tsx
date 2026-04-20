@@ -9,9 +9,12 @@ import { CsvImportDialog } from '@/components/cms/CsvImportDialog'
 import { formatUsd, formatLocalAmount, formatDate, PLATFORM_LABEL } from '@/lib/cms'
 import type { AdPlatform, CmsBrand } from '@/types/cms'
 
-export function BrandSpendTab({ brand }: { brand: CmsBrand }) {
+export function BrandSpendTab({ brand, currentCountry }: { brand: CmsBrand; currentCountry?: string }) {
   const { isAdmin } = useAdminProfile()
-  const { data: strategies = [] } = useStrategies({ brandSlug: brand.slug })
+  const { data: strategies = [] } = useStrategies({
+    brandSlug: brand.slug,
+    pais: currentCountry,
+  })
   const [selectedStrategy, setSelectedStrategy] = useState<string>('')
   const effectiveStrategy = selectedStrategy || strategies[0]?.id || null
   const { data: entries = [], isLoading } = useSpendEntries({ strategyId: effectiveStrategy })

@@ -9,9 +9,12 @@ import { MarkdownView } from '@/components/cms/MarkdownView'
 import { formatDate } from '@/lib/cms'
 import type { CmsBrand, CmsReport } from '@/types/cms'
 
-export function BrandReportsTab({ brand }: { brand: CmsBrand }) {
+export function BrandReportsTab({ brand, currentCountry }: { brand: CmsBrand; currentCountry?: string }) {
   const { isAdmin } = useAdminProfile()
-  const { data: strategies = [] } = useStrategies({ brandSlug: brand.slug })
+  const { data: strategies = [] } = useStrategies({
+    brandSlug: brand.slug,
+    pais: currentCountry,
+  })
   const { data: reports = [], isLoading } = useReports()
   const [selectedStrategy, setSelectedStrategy] = useState<string>('')
   const effectiveStrategy = selectedStrategy || strategies[0]?.id || null

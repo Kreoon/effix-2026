@@ -55,7 +55,7 @@ export const brandModules: BrandModule[] = [
   {
     slug: 'efficaex',
     name: 'Efficaex',
-    countries: ['GUA', 'CRI'],
+    countries: ['GUA'],
     icon: 'Globe',
     submodules: ['resumen', 'pauta', 'estrategia', 'analitica', 'financiero', 'creativos', 'operativo'],
   },
@@ -156,6 +156,8 @@ export interface NavigationState {
   submodule: SubmoduleKey | AdminSubmoduleKey | BrandTab
   /** Activo solo cuando module === 'cms:brand' */
   currentBrand?: string
+  /** Activo solo cuando module === 'cms:brand' */
+  currentCountry?: string
   /** Activo solo cuando module === 'cms:brand' */
   activeTab?: BrandTab
 }

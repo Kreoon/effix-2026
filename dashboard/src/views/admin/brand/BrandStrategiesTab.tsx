@@ -7,9 +7,12 @@ import { StrategyForm } from '@/components/cms/StrategyForm'
 import { STRATEGY_STATUS_META, formatDate, formatUsd } from '@/lib/cms'
 import type { CmsBrand, CmsStrategy } from '@/types/cms'
 
-export function BrandStrategiesTab({ brand }: { brand: CmsBrand }) {
+export function BrandStrategiesTab({ brand, currentCountry }: { brand: CmsBrand; currentCountry?: string }) {
   const { isAdmin } = useAdminProfile()
-  const { data: strategies = [], isLoading } = useStrategies({ brandSlug: brand.slug })
+  const { data: strategies = [], isLoading } = useStrategies({
+    brandSlug: brand.slug,
+    pais: currentCountry,
+  })
   const [creating, setCreating] = useState(false)
   const [editing, setEditing] = useState<CmsStrategy | null>(null)
 
@@ -94,6 +97,7 @@ export function BrandStrategiesTab({ brand }: { brand: CmsBrand }) {
         <StrategyForm
           brandSlug={brand.slug}
           brandCountries={brand.countries}
+          defaultCountry={currentCountry}
           onSaved={() => setCreating(false)}
           onClose={() => setCreating(false)}
         />

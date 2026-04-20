@@ -7,9 +7,12 @@ import { BudgetForm } from '@/components/cms/BudgetForm'
 import { formatUsd, formatDate, PLATFORM_LABEL } from '@/lib/cms'
 import type { AdPlatform, CmsBrand, CmsBudget } from '@/types/cms'
 
-export function BrandBudgetTab({ brand }: { brand: CmsBrand }) {
+export function BrandBudgetTab({ brand, currentCountry }: { brand: CmsBrand; currentCountry?: string }) {
   const { isAdmin } = useAdminProfile()
-  const { data: strategies = [] } = useStrategies({ brandSlug: brand.slug })
+  const { data: strategies = [] } = useStrategies({
+    brandSlug: brand.slug,
+    pais: currentCountry,
+  })
   const [selectedStrategy, setSelectedStrategy] = useState<string>('')
   const effectiveStrategy = selectedStrategy || strategies[0]?.id || null
   const { data: budgets = [], isLoading } = useBudgets(effectiveStrategy)

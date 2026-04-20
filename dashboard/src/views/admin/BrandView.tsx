@@ -12,14 +12,28 @@ import { COUNTRY_LABELS } from '@/lib/cms'
 interface BrandViewProps {
   brandSlug: string
   activeTab: BrandTab
+  currentCountry?: string
   onNavigate: (nav: NavigationState) => void
 }
 
-export function BrandView({ brandSlug, activeTab, onNavigate }: BrandViewProps) {
+export function BrandView({ brandSlug, activeTab, currentCountry, onNavigate }: BrandViewProps) {
   const { data: brand, isLoading } = useBrand(brandSlug)
 
+  // Inicializar país por defecto si no hay uno seleccionado
+  useEffect(() => {
+    if (brand && !currentCountry && brand.countries.length > 0) {
+      onNavigate({
+        module: 'cms:brand',
+        submodule: activeTab,
+        currentBrand: brandSlug,
+        currentCountry: brand.countries[0],
+        activeTab: activeTab,
+      })
+    }
+  }, [brand, currentCountry, brandSlug, activeTab, onNavigate])
+
   if (isLoading) {
-    return <div className="text-sm text-slate-500">Cargando marca...</div>
+    return <div className="text-sm text-slate-500 text-center py-20">Cargando marca...</div>
   }
 
   if (!brand) {
@@ -34,38 +48,86 @@ export function BrandView({ brandSlug, activeTab, onNavigate }: BrandViewProps) 
   }
 
   function setTab(tab: BrandTab) {
-    onNavigate({ module: 'cms:brand', submodule: tab, currentBrand: brandSlug, activeTab: tab })
+    onNavigate({
+      module: 'cms:brand',
+      submodule: tab,
+      currentBrand: brandSlug,
+      currentCountry,
+      activeTab: tab,
+    })
+  }
+
+  function setCountry(country: string) {
+    onNavigate({
+      module: 'cms:brand',
+      submodule: activeTab,
+      currentBrand: brandSlug,
+      currentCountry: country,
+      activeTab,
+    })
   }
 
   return (
-    <div className="space-y-5">
-      <header className="flex items-center justify-between flex-wrap gap-3">
-        <div className="flex items-center gap-3">
-          <span
-            className="w-3 h-3 rounded-full"
-            style={{ background: brand.color_primary ?? '#94a3b8' }}
-          />
+    <div className="space-y-6">
+      <header className="flex items-center justify-between flex-wrap gap-4">
+        <div className="flex items-center gap-4">
+          {brand.logo_url ? (
+            <img src={brand.logo_url} alt={brand.name} className="w-10 h-10 rounded-lg object-contain bg-white border border-slate-100 p-1" />
+          ) : (
+            <span
+              className="w-10 h-10 rounded-lg flex items-center justify-center text-white font-bold text-xl"
+              style={{ background: brand.color_primary ?? '#0E2A47' }}
+            >
+              {brand.name.substring(0, 1)}
+            </span>
+          )}
           <div>
-            <h1 className="text-2xl font-semibold text-[#0E2A47]">{brand.name}</h1>
-            <p className="text-sm text-slate-600">
-              {brand.countries.map((c) => COUNTRY_LABELS[c] ?? c).join(' · ')}
-            </p>
+            <h1 className="text-2xl font-bold text-[#0E2A47] tracking-tight">{brand.name}</h1>
+            <div className="flex items-center gap-2 mt-0.5">
+              <span className="text-xs font-medium px-1.5 py-0.5 rounded bg-slate-100 text-slate-500 uppercase">
+                CMS
+              </span>
+              <span className="text-slate-300 text-xs text-center">•</span>
+              <p className="text-xs text-slate-500">
+                Gestión de pauta y requerimientos operativos
+              </p>
+            </div>
           </div>
+        </div>
+
+        {/* Selector de País */}
+        <div className="flex items-center bg-slate-100 p-1 rounded-xl border border-slate-200 shadow-sm">
+          {brand.countries.map((c) => {
+            const active = c === currentCountry
+            return (
+              <button
+                key={c}
+                onClick={() => setCountry(c)}
+                className={`px-3 py-1.5 text-xs font-semibold rounded-lg transition-all ${
+                  active
+                    ? 'bg-white text-[#0E2A47] shadow-sm ring-1 ring-slate-200'
+                    : 'text-slate-500 hover:text-[#0E2A47] hover:bg-slate-50'
+                }`}
+              >
+                {COUNTRY_LABELS[c] ?? c}
+              </button>
+            )
+          })}
         </div>
       </header>
 
       {/* Tabs */}
-      <nav className="border-b border-slate-200 -mx-1 flex flex-wrap gap-1 px-1 overflow-x-auto">
+      <nav className="border-b border-slate-200 -mx-1 flex flex-wrap gap-1 px-1 overflow-x-auto scrollbar-hide">
         {BRAND_TABS.map((t) => {
           const active = t === activeTab
           return (
             <button
               key={t}
               onClick={() => setTab(t)}
-              className={`px-4 py-2 text-sm font-medium transition-colors rounded-t-md -mb-px border-b-2 ${
+              className={`px-4 py-2.5 text-sm font-medium transition-all rounded-t-lg -mb-px border-b-2 ${
                 active
-                  ? 'border-[#1BC49C] text-[#0E2A47]'
-                  : 'border-transparent text-slate-500 hover:text-[#0E2A47]'
+                  ? 'border-[#1BC49C] text-[#0E2A47] bg-white'
+                  : 'border-transparent text-slate-500 hover:text-[#0E2A47] hover:bg-slate-50'
               }`}
             >
               {BRAND_TAB_LABELS[t]}
@@ -74,14 +136,14 @@ export function BrandView({ brandSlug, activeTab, onNavigate }: BrandViewProps) 
         })}
       </nav>
 
-      <div>
-        {activeTab === 'overview' && <BrandOverviewTab brand={brand} onNavigate={onNavigate} />}
-        {activeTab === 'strategies' && <BrandStrategiesTab brand={brand} />}
-        {activeTab === 'requirements' && <BrandRequirementsTab brand={brand} />}
-        {activeTab === 'landings' && <BrandLandingsTab brand={brand} />}
-        {activeTab === 'budget' && <BrandBudgetTab brand={brand} />}
-        {activeTab === 'spend' && <BrandSpendTab brand={brand} />}
-        {activeTab === 'reports' && <BrandReportsTab brand={brand} />}
+      <div className="pt-2 animate-in fade-in slide-in-from-bottom-2 duration-500">
+        {activeTab === 'overview' && <BrandOverviewTab brand={brand} currentCountry={currentCountry} onNavigate={onNavigate} />}
+        {activeTab === 'strategies' && <BrandStrategiesTab brand={brand} currentCountry={currentCountry} />}
+        {activeTab === 'requirements' && <BrandRequirementsTab brand={brand} currentCountry={currentCountry} />}
+        {activeTab === 'landings' && <BrandLandingsTab brand={brand} currentCountry={currentCountry} />}
+        {activeTab === 'budget' && <BrandBudgetTab brand={brand} currentCountry={currentCountry} />}
+        {activeTab === 'spend' && <BrandSpendTab brand={brand} currentCountry={currentCountry} />}
+        {activeTab === 'reports' && <BrandReportsTab brand={brand} currentCountry={currentCountry} />}
       </div>
     </div>
   )

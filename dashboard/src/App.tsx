@@ -129,6 +129,7 @@ function renderAdminContent(
       <BrandView
         brandSlug={nav.currentBrand}
         activeTab={(nav.activeTab ?? 'overview') as BrandTab}
+        currentCountry={nav.currentCountry}
         onNavigate={setNav}
       />
     )
