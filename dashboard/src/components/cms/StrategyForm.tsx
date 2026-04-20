@@ -3,13 +3,6 @@ import { Loader2, X } from 'lucide-react'
 import { useCreateStrategy, useUpdateStrategy } from '@/hooks/useStrategies'
 import { useAuth } from '@/components/AuthProvider'
 import type { CmsStrategy, StrategyStatus } from '@/types/cms'
-import {
-  AREA_META,
-  REQUIREMENT_STATUS_META,
-  PRIORITY_META,
-  formatDate,
-  daysUntil,
-} from '@/lib/cms'
 
 interface StrategyFormProps {
   strategy?: CmsStrategy

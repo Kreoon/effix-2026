@@ -8,7 +8,6 @@ import { RequirementDetail } from '@/components/cms/RequirementDetail'
 import { useAdminProfile } from '@/hooks/useAdminProfile'
 import {
   AREA_META,
-  REQUIREMENT_STATUS_META,
   PRIORITY_META,
   formatDate,
   daysUntil,
