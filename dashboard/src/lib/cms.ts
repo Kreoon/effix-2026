@@ -231,3 +231,56 @@ export function storagePath(
   if (kind === 'brand' && ids.brandSlug) return `brands/${ids.brandSlug}/${safeName}`
   throw new Error('storagePath: parámetros incompletos')
 }
+// ============================================================================
+// Integraciones Externas (Drive, YouTube, Vimeo, Loom, etc.)
+// ============================================================================
+
+export type ExternalSource = 'google_drive' | 'youtube' | 'vimeo' | 'loom' | 'other'
+
+/**
+ * Detecta la fuente y el ID de una URL externa
+ */
+export function parseExternalUrl(url: string | null | undefined): { source: ExternalSource; id: string | null } {
+  if (!url) return { source: 'other', id: null }
+
+  // Google Drive
+  const driveMatch = url.match(/\/d\/([a-zA-Z0-9_-]+)/)
+  if (driveMatch || url.includes('drive.google.com')) {
+    return { source: 'google_drive', id: driveMatch ? driveMatch[1] : null }
+  }
+
+  // YouTube
+  const ytMatch = url.match(/(?:youtu\.be\/|youtube\.com\/(?:embed\/|v\/|watch\?v=|watch\?.+&v=))([^&?]+)/)
+  if (ytMatch) return { source: 'youtube', id: ytMatch[1] }
+
+  // Vimeo
+  const vimeoMatch = url.match(/vimeo\.com\/(?:video\/)?([0-9]+)/)
+  if (vimeoMatch) return { source: 'vimeo', id: vimeoMatch[1] }
+
+  // Loom
+  const loomMatch = url.match(/loom\.com\/share\/([a-zA-Z0-9]+)/)
+  if (loomMatch) return { source: 'loom', id: loomMatch[1] }
+
+  return { source: 'other', id: null }
+}
+
+/**
+ * Genera la URL de incrustación (embed) para un iframe
+ */
+export function getEmbedUrl(url: string | null | undefined): string | null {
+  const { source, id } = parseExternalUrl(url)
+  if (!id) return null
+
+  switch (source) {
+    case 'google_drive':
+      return `https://drive.google.com/file/d/${id}/preview`
+    case 'youtube':
+      return `https://www.youtube.com/embed/${id}`
+    case 'vimeo':
+      return `https://player.vimeo.com/video/${id}`
+    case 'loom':
+      return `https://www.loom.com/embed/${id}`
+    default:
+      return null
+  }
+}
