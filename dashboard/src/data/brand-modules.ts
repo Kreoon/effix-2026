@@ -27,7 +27,7 @@ export const brandModules: BrandModule[] = [
   {
     slug: 'efficommerce',
     name: 'EffiCommerce',
-    countries: ['COL', 'ECU', 'RD'],
+    countries: ['COL', 'ECU', 'RD', 'CRI'],
     icon: 'ShoppingCart',
     submodules: ['resumen', 'pauta', 'estrategia', 'financiero', 'creativos', 'operativo'],
   },
@@ -100,7 +100,62 @@ export const submoduleLabels: Record<SubmoduleKey, string> = {
   operativo: 'Operativo',
 }
 
+/**
+ * Navigation state global de la app.
+ *
+ * - module === 'dashboard' → vista agregada del grupo (legacy)
+ * - module === 'admin' → panel de administración (submodule = AdminSubmoduleKey)
+ * - module === 'cms:home' → home operativo del CMS (widgets director)
+ * - module === 'cms:my-tasks' → requerimientos asignados al user actual
+ * - module === 'cms:approvals' → aprobaciones pendientes con el user
+ * - module === 'cms:brand' → vista de marca del CMS (requiere currentBrand + activeTab)
+ * - module === brandSlug → vista de marca LEGACY (submodule = SubmoduleKey)
+ */
+export type AdminSubmoduleKey =
+  | 'overview'
+  | 'leads'
+  | 'campaigns'
+  | 'users'
+  | 'brands'
+  | 'audit'
+  | 'settings'
+  | 'fx_rates'
+
+/** Tabs dentro de la vista de marca del CMS */
+export type BrandTab =
+  | 'overview'
+  | 'strategies'
+  | 'requirements'
+  | 'landings'
+  | 'budget'
+  | 'spend'
+  | 'reports'
+
+export const BRAND_TABS: readonly BrandTab[] = [
+  'overview',
+  'strategies',
+  'requirements',
+  'landings',
+  'budget',
+  'spend',
+  'reports',
+] as const
+
+export const BRAND_TAB_LABELS: Record<BrandTab, string> = {
+  overview: 'Resumen',
+  strategies: 'Estrategias',
+  requirements: 'Requerimientos',
+  landings: 'Landings',
+  budget: 'Presupuesto',
+  spend: 'Libro diario',
+  reports: 'Reportes',
+}
+
 export interface NavigationState {
-  module: 'dashboard' | string // 'dashboard' or brand slug
-  submodule: SubmoduleKey
+  module: 'dashboard' | 'admin' | 'cms:home' | 'cms:my-tasks' | 'cms:approvals' | 'cms:brand' | string
+  submodule: SubmoduleKey | AdminSubmoduleKey | BrandTab
+  /** Activo solo cuando module === 'cms:brand' */
+  currentBrand?: string
+  /** Activo solo cuando module === 'cms:brand' */
+  activeTab?: BrandTab
 }

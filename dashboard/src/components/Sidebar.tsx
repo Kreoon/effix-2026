@@ -12,6 +12,7 @@ import {
   ChevronRight,
   X,
   Menu,
+  Shield,
 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import {
@@ -21,6 +22,7 @@ import {
   type NavigationState,
   type SubmoduleKey,
 } from '@/data/brand-modules'
+import { useAdminProfile } from '@/hooks/useAdminProfile'
 
 export type { NavigationState }
 
@@ -45,6 +47,7 @@ interface SidebarProps {
 
 export function Sidebar({ currentNav, onNavigate, isOpen, onToggle }: SidebarProps) {
   const [expandedModules, setExpandedModules] = useState<Set<string>>(new Set())
+  const { isAuthenticated: hasAdminAccess } = useAdminProfile()
 
   function toggleModule(slug: string) {
     setExpandedModules((prev) => {
@@ -132,6 +135,22 @@ export function Sidebar({ currentNav, onNavigate, isOpen, onToggle }: SidebarPro
             <LayoutDashboard size={16} className="shrink-0" />
             <span className="truncate">Dashboard General</span>
           </button>
+
+          {hasAdminAccess && (
+            <button
+              onClick={() => handleNavigate({ module: 'admin', submodule: 'overview' })}
+              className={cn(
+                'mt-1 w-full flex items-center gap-2 px-3 py-2 text-sm font-medium rounded-lg transition-colors text-left',
+                currentNav.module === 'admin'
+                  ? 'bg-[#1BC49C] text-[#0E2A47] shadow-sm'
+                  : 'text-slate-300 hover:bg-slate-800 hover:text-slate-100',
+              )}
+              aria-current={currentNav.module === 'admin' ? 'page' : undefined}
+            >
+              <Shield size={16} className="shrink-0" />
+              <span className="truncate">Admin</span>
+            </button>
+          )}
 
           {/* Separador EMPRESAS */}
           <div className="mt-5 mb-2 px-1 flex items-center gap-2">

@@ -1,7 +1,12 @@
 import type { ReactNode } from 'react'
 import { useState } from 'react'
 import { Sidebar } from './Sidebar'
-import { brandModules, submoduleLabels, type NavigationState } from '@/data/brand-modules'
+import {
+  brandModules,
+  submoduleLabels,
+  type NavigationState,
+  type SubmoduleKey,
+} from '@/data/brand-modules'
 
 interface LayoutProps {
   currentNav: NavigationState
@@ -18,8 +23,10 @@ function getPageTitle(nav: NavigationState): { title: string; subtitle: string }
   }
   const brand = brandModules.find((b) => b.slug === nav.module)
   if (!brand) return { title: 'Dashboard', subtitle: '' }
+  // Layout solo se monta para módulos de marca; el submodule aquí es SubmoduleKey
+  const label = submoduleLabels[nav.submodule as SubmoduleKey] ?? nav.submodule
   return {
-    title: `${brand.name} — ${submoduleLabels[nav.submodule]}`,
+    title: `${brand.name} — ${label}`,
     subtitle: brand.countries.join(', '),
   }
 }
