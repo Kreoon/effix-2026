@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { Loader2, ExternalLink, Maximize2, Minimize2, AlertCircle, X } from 'lucide-react'
-import { getEmbedUrl, parseExternalUrl } from '@/lib/cms'
+import { getEmbedUrl } from '@/lib/cms'
 import type { CmsAsset } from '@/types/cms'
 
 interface AssetPreviewProps {
@@ -14,7 +14,6 @@ export function AssetPreview({ asset, className = '' }: AssetPreviewProps) {
   const [isExpanded, setIsExpanded] = useState(false)
   
   const embedUrl = getEmbedUrl(asset.external_url)
-  const { source } = parseExternalUrl(asset.external_url)
 
   if (!asset.external_url && !asset.storage_path) return null
 
@@ -102,4 +101,3 @@ export function AssetPreview({ asset, className = '' }: AssetPreviewProps) {
   )
 }
 
-import { X } from 'lucide-react'
